@@ -9,6 +9,7 @@ import { createStore } from 'redux'
 import siteReducer from './reducers/siteReducer.js'
 import { BrowserRouter as Router} from 'react-router-dom'
 import { Provider } from 'react-redux'
+import thunk from 'redux-thunk'
 
 const store = createStore(siteReducer)
 

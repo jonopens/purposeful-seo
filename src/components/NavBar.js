@@ -21,17 +21,43 @@ class NavBar extends React.Component {
 		const { activeItem } = this.state
 
 		return (
-			<div className="menu ui">
-        <Menu pointing secondary>
-          <Menu.Item as={Link} to="/" name='home' active={activeItem === 'home'} onClick={this.handleItemClick} />
-          <Menu.Item as={Link} to="/dashboard" name='dashboard' active={activeItem === 'dashboard'} onClick={this.handleItemClick} />
-          <Menu.Item as={Link} to="/sites" name='sites' active={activeItem === 'sites'} onClick={this.handleItemClick} />
-          <Menu.Item as={Link} to="/insights" name='insights' active={activeItem === 'insights'} onClick={this.handleItemClick} />
-          <Menu.Menu position='right'>
-            <Menu.Item name='logout' active={activeItem === 'logout'} onClick={this.handleItemClick} />
-          </Menu.Menu>
-        </Menu>
-			</div>
+      <Menu pointing inverted className="fixed">
+        <Menu.Item 
+        	as={Link} 
+        	to="/" 
+        	name='home' 
+        	active={activeItem === 'home'} 
+        	onClick={this.handleItemClick} 
+      	/>
+        <Menu.Item 
+        	as={Link} 
+        	to="/dashboard" 
+        	name='dashboard' 
+        	active={activeItem === 'dashboard'} 
+        	onClick={this.handleItemClick} 
+      	/>
+        <Menu.Item 
+        	as={Link} 
+        	to="/sites" 
+        	name='sites' 
+        	active={activeItem === 'sites'} 
+        	onClick={this.handleItemClick} 
+      	/>
+        <Menu.Item 
+        	as={Link} 
+        	to="/insights" 
+        	name='insights' 
+        	active={activeItem === 'insights'} 
+        	onClick={this.handleItemClick} 
+      	/>
+        <Menu.Menu position='right'>
+          <Menu.Item 
+        		name='logout' 
+        		active={activeItem === 'logout'} 
+        		onClick={this.handleItemClick} 
+      		/>
+        </Menu.Menu>
+      </Menu>
 		)
 	}
 }

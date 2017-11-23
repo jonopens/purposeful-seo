@@ -1,4 +1,7 @@
 import React from 'react'
+import { 
+	Grid, Header, List, Container, Divider, Image, Segment 
+} from 'semantic-ui-react'
 
 export default class Footer extends React.Component {
 	constructor() {
@@ -11,50 +14,62 @@ export default class Footer extends React.Component {
 
 	render() {
 		return(
-			<div class="ui inverted vertical footer segment">
-    <div class="ui center aligned container">
-      <div class="ui stackable inverted divided grid">
-        <div class="three wide column">
-          <h4 class="ui inverted header">Group 1</h4>
-          <div class="ui inverted link list">
-            <a href="#" class="item">Link One</a>
-            <a href="#" class="item">Link Two</a>
-            <a href="#" class="item">Link Three</a>
-            <a href="#" class="item">Link Four</a>
-          </div>
-        </div>
-        <div class="three wide column">
-          <h4 class="ui inverted header">Group 2</h4>
-          <div class="ui inverted link list">
-            <a href="#" class="item">Link One</a>
-            <a href="#" class="item">Link Two</a>
-            <a href="#" class="item">Link Three</a>
-            <a href="#" class="item">Link Four</a>
-          </div>
-        </div>
-        <div class="three wide column">
-          <h4 class="ui inverted header">Group 3</h4>
-          <div class="ui inverted link list">
-            <a href="#" class="item">Link One</a>
-            <a href="#" class="item">Link Two</a>
-            <a href="#" class="item">Link Three</a>
-            <a href="#" class="item">Link Four</a>
-          </div>
-        </div>
-        <div class="seven wide column">
-          <h4 class="ui inverted header">Footer Header</h4>
-          <p>Extra space for a call to action inside the footer that could help re-engage users.</p>
-        </div>
-      </div>
-      <div class="ui inverted section divider"></div>
-      <div class="ui horizontal inverted small divided link list">
-        <a class="item" href="#">Site Map</a>
-        <a class="item" href="#">Contact Us</a>
-        <a class="item" href="#">Terms and Conditions</a>
-        <a class="item" href="#">Privacy Policy</a>
-      </div>
-    </div>
-  </div>
+			<Segment
+	      inverted
+	      vertical
+	      style={{ margin: '5em 0em 0em', padding: '5em 0em' }}
+    	>
+	      <Container textAlign='center'>
+	        <Grid divided inverted stackable>
+	          <Grid.Row>
+	            <Grid.Column width={3}>
+	              <Header inverted as='h4' content='Group 1' />
+	              <List link inverted>
+	                <List.Item as='a'>Link One</List.Item>
+	                <List.Item as='a'>Link Two</List.Item>
+	                <List.Item as='a'>Link Three</List.Item>
+	                <List.Item as='a'>Link Four</List.Item>
+	              </List>
+	            </Grid.Column>
+	            <Grid.Column width={3}>
+	              <Header inverted as='h4' content='Group 2' />
+	              <List link inverted>
+	                <List.Item as='a'>Link One</List.Item>
+	                <List.Item as='a'>Link Two</List.Item>
+	                <List.Item as='a'>Link Three</List.Item>
+	                <List.Item as='a'>Link Four</List.Item>
+	              </List>
+	            </Grid.Column>
+	            <Grid.Column width={3}>
+	              <Header inverted as='h4' content='Group 3' />
+	              <List link inverted>
+	                <List.Item as='a'>Link One</List.Item>
+	                <List.Item as='a'>Link Two</List.Item>
+	                <List.Item as='a'>Link Three</List.Item>
+	                <List.Item as='a'>Link Four</List.Item>
+	              </List>
+	            </Grid.Column>
+	            <Grid.Column width={3}>
+	              <Header inverted as='h4' content='Footer Header' />
+	              <p>Extra space for a call to action inside the footer that could help re-engage users.</p>
+	            </Grid.Column>
+	          </Grid.Row>
+	        </Grid>
+
+	        <Divider inverted section />
+	        <Image
+	          centered
+	          size='mini'
+	          src='/logo.png'
+	        />
+	        <List horizontal inverted divided link>
+	          <List.Item as='a' href='#'>Site Map</List.Item>
+	          <List.Item as='a' href='#'>Contact Us</List.Item>
+	          <List.Item as='a' href='#'>Terms and Conditions</List.Item>
+	          <List.Item as='a' href='#'>Privacy Policy</List.Item>
+	        </List>
+	      </Container>
+      </Segment>
 		)
 	}
 }
