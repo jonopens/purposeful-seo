@@ -26,7 +26,6 @@ class App extends Component {
         <Route exact path="/dashboard" component={DashboardContainer} />
         <Route exact path="/sites" component={SitesContainer} />
         <Route exact path="/insights" component={InsightsContainer} />
-        <Route exact path="/pages" component={PagesContainer} />
 
         <Footer />
       </div>

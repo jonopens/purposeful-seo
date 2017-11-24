@@ -16,6 +16,7 @@ export default class Home extends React.Component {
 		return(
 
 			  <Grid padded relaxed>
+			  	<h1>It's a friggin Homepage</h1>
 			    <Grid.Row>
 			      <Grid.Column width={16}>
 			        <LoginForm />
