@@ -10,7 +10,7 @@ export default class UsersApi {
       method: "post",
       headers: {
         "Content-Type": "application/json",
-        Accept: "application/json"
+        "Accept": "application/json"
       },
       body: JSON.stringify(params)
     }).then(res => res.json());

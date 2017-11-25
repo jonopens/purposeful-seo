@@ -3,13 +3,6 @@ import { Grid, Image } from 'semantic-ui-react'
 import placeholder from '../assets/paragraph.png'
 
 export default class PagesContainer extends React.Component {
-	constructor(){
-		super()
-
-		this.state ={
-
-		}
-	}
 
 	render(){
 		return(
