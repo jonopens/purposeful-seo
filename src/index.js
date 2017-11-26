@@ -12,7 +12,7 @@ import { BrowserRouter as Router} from 'react-router-dom'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
 
-const rootReducer = combineReducers({user: userReducer, site: siteReducer})
+const rootReducer = combineReducers({user: userReducer, sites: siteReducer})
 const store = createStore(rootReducer, applyMiddleware(thunk))
 
 

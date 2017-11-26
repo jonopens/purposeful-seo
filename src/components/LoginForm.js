@@ -10,6 +10,12 @@ export default class LoginForm extends React.Component {
 		}
 	}
 
+	handleSubmit = (e) => {
+		e.preventDefault()
+		console.log('at least this part works', this.state.email, this.state.pass)
+
+	}
+
 	handleEmailChange = (e) => {
 		this.setState({
 			email: e.target.value
@@ -26,7 +32,7 @@ export default class LoginForm extends React.Component {
 	render() {
 		return(
 			<div className="login-form">
-				<form onSubmit={this.props.handleSubmit} >
+				<form onSubmit={this.handleSubmit} >
 					<div className="input-field"><input type="email" value={this.state.email} onChange={this.handleEmailChange} /></div>
 					<div className="input-field"><input type="password" value={this.state.pass} onChange={this.handlePassChange} /></div>
 					<input type="submit" />

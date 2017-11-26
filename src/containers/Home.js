@@ -1,16 +1,10 @@
 import React from 'react'
 import { Grid, Image } from 'semantic-ui-react'
+import { connect } from 'react-redux'
 import LoginForm from '../components/LoginForm.js'
 import placeholder from '../assets/paragraph.png'
 
-export default class Home extends React.Component {
-	constructor() {
-		super()
-
-		this.state ={
-			
-		}
-	}
+class Home extends React.Component {
 
 	render() {
 		return(
@@ -36,3 +30,6 @@ export default class Home extends React.Component {
 		)
 	}
 }
+
+
+export default connect()(Home)

@@ -1,6 +1,4 @@
-export default function siteReducer(state = {
-	sites: [],
-}, action) {
+export default function siteReducer(state = {}, action) {
 
 	switch(action.type) {
 		case 'ADD_SITE':

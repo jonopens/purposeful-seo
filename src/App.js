@@ -12,11 +12,6 @@ import { Route } from 'react-router-dom'
 
 class App extends Component {
 
-  handleSubmit = (ev) => {
-    ev.preventDefault()
-    console.log("we made it here so far")
-  }
-
   render() {
     return (
       <div className="App">

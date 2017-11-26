@@ -1,13 +1,8 @@
 export default class UsersApi {
-  static fetchUser() {
-    return fetch(
-      "http://localhost:3000/api/v1/users"
-    ).then(res => res.json());
-  }
 
-  static createUser(params) {
+  static createOrFetchUser(params) {
     return fetch("http://localhost:3000/api/v1/users", {
-      method: "post",
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
         "Accept": "application/json"

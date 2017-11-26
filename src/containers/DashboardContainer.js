@@ -1,20 +1,31 @@
 import React from 'react'
-import { Grid, Image } from 'semantic-ui-react'
+import SiteListDash from '../components/SiteListDash.js'
+import { Grid, Image, Header, Divider } from 'semantic-ui-react'
 import placeholder from '../assets/paragraph.png'
 import { connect } from 'react-redux'
-import fetchUser from '../adaptors/users-api.js'
+import getAUser from '../actions/userActions.js'
+
+
 
 class DashboardContainer extends React.Component {
 
+	componentWillMount() {
+		const userObj = {
+			email: "jon@jon.com",
+			password: "woohoo"
+		}
+		this.props.getAUser(userObj)
+	}
+
 	render(){
+		console.log("Dashboard props", this.props)
 		return(
 
 		  <Grid padded relaxed style={{ marginTop: '7em' }}>
-		  	<h1>It's a friggin Dashboard</h1>
+		  	<Divider hidden />
+		  	<Header as="h1">It's a friggin Dashboard</Header>
 		    <Grid.Row>
-		      <Grid.Column width={8}>
-		        <Image src={placeholder} alt="placeholder paragraph" />
-		      </Grid.Column>
+		      <SiteListDash sites={this.props.user.sites}/>
 		      <Grid.Column width={8}>
 		        <Image src={placeholder} alt="placeholder paragraph" />
 		      </Grid.Column>
@@ -32,21 +43,19 @@ class DashboardContainer extends React.Component {
 }
 
 function mapStateToProps(state) {
-  console.log(state);
-  return {
-    user: state.user,
-    sites: state.sites,
-    pages: state.pages,
-    insights: state.insights
-  };
+	return {
+		user: state.user
+	}
 }
 
 function mapDispatchToProps(dispatch) {
-  return {
-    fetchUser: () => {
-      dispatch(fetchUser());
-    }
-  };
+	return {
+		getAUser: (userParams) => {
+			dispatch(getAUser(userParams))
+		}
+	}
 }
 
-export default connect()(DashboardContainer)
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(DashboardContainer)

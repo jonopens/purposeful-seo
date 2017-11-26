@@ -1,17 +1,11 @@
 import React from 'react'
 import { Grid, Image } from 'semantic-ui-react'
 import placeholder from '../assets/paragraph.png'
+import { connect } from 'react-redux'
 import { Route, Link } from 'react-router-dom'
 import PagesContainer from '../containers/PagesContainer.js'
 
-export default class SitesContainer extends React.Component {
-	constructor(){
-		super()
-
-		this.state ={
-
-		}
-	}
+class SitesContainer extends React.Component {
 
 	render(){
 		return(
@@ -45,3 +39,5 @@ export default class SitesContainer extends React.Component {
 		)
 	}
 }
+
+export default connect()(SitesContainer)
