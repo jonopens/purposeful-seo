@@ -15,7 +15,6 @@ import thunk from 'redux-thunk'
 const rootReducer = combineReducers({user: userReducer, sites: siteReducer})
 const store = createStore(rootReducer, applyMiddleware(thunk))
 
-console.log(store)
 ReactDOM.render(
 	<Provider store={store}>
 		<Router>
