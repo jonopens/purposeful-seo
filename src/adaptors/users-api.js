@@ -10,4 +10,6 @@ export default class UsersApi {
       body: JSON.stringify(params)
     }).then(res => res.json());
   }
+
+  
 }
