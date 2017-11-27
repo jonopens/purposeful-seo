@@ -9,7 +9,7 @@ class Home extends React.Component {
 
 	render() {
 		return(
-			<Segment>
+			<Segment style={{padding: 0}}>
 				<HeadingBlock />
 			  <Grid padded relaxed>
 			    <Grid.Row centered >

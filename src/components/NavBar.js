@@ -21,7 +21,7 @@ class NavBar extends React.Component {
 		const { activeItem } = this.state
 
 		return (
-      <Menu pointing inverted className="fixed">
+      <Menu pointing inverted className="fixed" size="large">
         <Menu.Item 
         	as={Link} 
         	to="/" 
