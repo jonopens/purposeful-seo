@@ -1,6 +1,6 @@
 import UsersApi from '../adaptors/users-api.js'
 
-export default function getAUser(params) {
+export function getAUser(params) {
 	return function(dispatch) {
 		return UsersApi.createOrFetchUser(params)
 			.then(user => {

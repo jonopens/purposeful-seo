@@ -9,7 +9,7 @@ import InsightsContainer from './containers/InsightsContainer.js'
 import SitesContainer from './containers/SitesContainer.js'
 import PagesContainer from './containers/PagesContainer.js'
 import { Route, withRouter } from 'react-router-dom'
-import getAUser from './actions/userActions.js'
+import { getAUser } from './actions/userActions.js'
 import { connect } from 'react-redux'
 
 class App extends Component {
