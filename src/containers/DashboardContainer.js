@@ -7,7 +7,6 @@ import { connect } from 'react-redux'
 class DashboardContainer extends React.Component {
 
 	render(){
-		console.log("Dashboard props", this.props)
 		return(
 
 		  <Grid padded relaxed style={{ marginTop: '7em' }}>

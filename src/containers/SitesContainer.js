@@ -8,16 +8,16 @@ class SitesContainer extends React.Component {
 
 	render(){
 
-		console.log("Sites COntainer", this.props.sites)
+		console.log("Sites Container", this.props.sites)
 		return(
 
-			  <Grid padded relaxed style={{ marginTop: '7em' }}>
-			  	<Divider hidden />
-			  	<Header as="h1">Sites Container</Header>
-			  	<Grid.Row>
-			      <SiteTable sites={this.props.sites} />
-			    </Grid.Row>
-			  </Grid>
+		  <Grid padded relaxed style={{ marginTop: '7em' }}>
+		  	<Divider hidden />
+		  	<Header as="h1">Sites Container</Header>
+		  	<Grid.Row>
+		      <SiteTable sites={this.props.sites} />
+		    </Grid.Row>
+		  </Grid>
 
 		)
 	}
