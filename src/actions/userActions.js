@@ -9,10 +9,10 @@ export default function getAUser(params) {
 	}
 }
 
-function addUser(user) {
-	console.log("user in add user",user)
+export function addUser(user) {
+	console.log("user in add user", user)
 	return {
-		type: 'ADD_USER',
+		type: 'LOG_IN',
 		payload: user
 	}
 }
