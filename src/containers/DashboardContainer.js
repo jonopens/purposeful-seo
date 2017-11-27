@@ -2,7 +2,7 @@ import React from 'react'
 import SiteListDash from '../components/SiteListDash.js'
 import { Grid, Image, Header, Divider } from 'semantic-ui-react'
 import placeholder from '../assets/paragraph.png'
-
+import { connect } from 'react-redux'
 
 class DashboardContainer extends React.Component {
 
@@ -12,9 +12,9 @@ class DashboardContainer extends React.Component {
 
 		  <Grid padded relaxed style={{ marginTop: '7em' }}>
 		  	<Divider hidden />
-		  	<Header as="h1">It's a friggin Dashboard</Header>
+		  	<Header as="h1">{this.props.user.name}'s Dashboard</Header>
 		    <Grid.Row>
-		      <SiteListDash />
+		      <SiteListDash sites={this.props.sites}/>
 		      <Grid.Column width={8}>
 		        <Image src={placeholder} alt="placeholder paragraph" />
 		      </Grid.Column>
@@ -31,5 +31,11 @@ class DashboardContainer extends React.Component {
 	}
 }
 
+function mapStateToProps(state) {
+  return {
+    user: state.user,
+    sites: state.user.sites
+  }
+}
 
-export default DashboardContainer
+export default connect(mapStateToProps)(DashboardContainer);

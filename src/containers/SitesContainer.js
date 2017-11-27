@@ -9,11 +9,11 @@ class SitesContainer extends React.Component {
 
 	render(){
 
-		const sites = this.props.sites.map(site => {
+		const sites = this.props.sites.map((site, idx) => {
 			return(
-				<Table.Row>
-					<Table.Cell collapsing>
-          	{site.base_url}
+				<Table.Row key={idx}>
+					<Table.Cell collapsing style={{ fontSize: '18px' }}>
+          	<Link to={`/sites/${site.id}`}>{site.base_url}</Link>
         	</Table.Cell>
         	<Table.Cell collapsing textAlign='right'>
           	<Button color="red"><Icon inverted name="remove" size="large"/>Delete</Button>
@@ -28,16 +28,17 @@ class SitesContainer extends React.Component {
 			  	<Divider hidden />
 			  	<Header as="h1">Sites Container</Header>
 			  	<Grid.Row>
-			      <Table>
+			      <Table celled>
 			      	<Table.Header> 
 				      	<Table.Row>
 	        				<Table.HeaderCell>Site</Table.HeaderCell>
-	      					<Table.HeaderCell collapsing></Table.HeaderCell>
+	      					<Table.HeaderCell collapsing textAlign='right'>Actions</Table.HeaderCell>
 	    					</Table.Row>
     					</Table.Header>
 					    <Table.Body>
 					  {sites}
-					    </Table.Body> 	
+					    </Table.Body>
+					    <Route path="/sites/:id" render={(props) => { <PagesContainer {...props} />}} />	
 			      </Table>
 			    </Grid.Row>
 			  </Grid>
@@ -49,7 +50,8 @@ class SitesContainer extends React.Component {
 function mapStateToProps(state) {
 	console.log(state)
 	return {
-		sites: state.user.sites
+		sites: state.user.sites,
+		user: state.user
 	}
 }
 

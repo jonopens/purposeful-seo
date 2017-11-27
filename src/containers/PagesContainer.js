@@ -1,14 +1,17 @@
 import React from 'react'
-import { Grid, Image } from 'semantic-ui-react'
+import { Grid, Image, Divider, Header } from 'semantic-ui-react'
 import placeholder from '../assets/paragraph.png'
+import { connect } from 'react-redux'
+import { Route, Link } from 'react-router-dom'
 
-export default class PagesContainer extends React.Component {
+class PagesContainer extends React.Component {
 
 	render(){
 		return(
 
 			  <Grid padded relaxed style={{ marginTop: '7em' }}>
-			  	<h1>It's a friggin PagesContainer</h1>
+			  	<Divider hidden />
+		  		<Header as="h1">PagesContainer for Specific Site</Header>
 			    <Grid.Row>
 			      <Grid.Column width={8}>
 			        <Image src={placeholder} alt="placeholder paragraph" />
@@ -28,3 +31,5 @@ export default class PagesContainer extends React.Component {
 		)
 	}
 }
+
+export default connect()(PagesContainer);
