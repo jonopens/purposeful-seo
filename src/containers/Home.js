@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Header, Image, Segment } from 'semantic-ui-react'
+import { Grid, Image, Segment } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import LoginForm from '../components/LoginForm.js'
 import HeadingBlock from '../components/HeadingBlock.js'

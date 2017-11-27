@@ -20,7 +20,7 @@ export function addSite(site){
 export function removeSite(id){
 	console.log("INSIDE THE ADD SITE ACTION CREATOR")
 	return {
-		type: 'ADD_SITE',
+		type: 'REMOVE_SITE',
 		payload: id
 	}
 }		

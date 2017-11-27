@@ -3,7 +3,7 @@ import { Grid, Table, Header, Divider, Button, Icon } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { Route, Link } from 'react-router-dom'
 import PagesContainer from '../containers/PagesContainer.js'
-import { createSite } from '../actions/siteActions.js'
+import { createSite, removeSite } from '../actions/siteActions.js'
 
 class SitesContainer extends React.Component {
 
@@ -16,7 +16,7 @@ class SitesContainer extends React.Component {
           	<Link to={`/sites/${site.id}`}>{site.base_url}</Link>
         	</Table.Cell>
         	<Table.Cell collapsing textAlign='right'>
-          	<Button color="red"><Icon inverted name="remove" size="large"/>Delete</Button>
+          	<Button onClick={this.props.removeSite} color="red"><Icon inverted name="remove" size="large"/>Delete</Button>
         	</Table.Cell>
       	</Table.Row>
       )
@@ -38,7 +38,7 @@ class SitesContainer extends React.Component {
 					    <Table.Body>
 					  {sites}
 					    </Table.Body>
-					    <Route path="/sites/:id" render={(props) => { <PagesContainer {...props} />}} />	
+					    <Route path="/sites/:id" render={(props) => { return <PagesContainer {...props} />}} />	
 			      </Table>
 			    </Grid.Row>
 			  </Grid>
@@ -59,6 +59,9 @@ function mapDispatchToProps(dispatch) {
 	return {
 		createSite: (site) => {
 			dispatch(createSite(site))
+		},
+		removeSite: (site) => {
+			dispatch(removeSite(site.id))
 		}
 	}
 }
