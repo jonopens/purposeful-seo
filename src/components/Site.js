@@ -9,7 +9,9 @@ const Site = (props) => {
       	<Link to={`/sites/${props.id}`}>{props.full_url}</Link>
     	</Table.Cell>
     	<Table.Cell collapsing textAlign='right'>
-      	<Button onClick={props.removeSite} color="red"><Icon inverted name="remove" size="large"/>Delete</Button>
+      	<Button onClick={props.removeSite(props.id)} color="red">
+          <Icon inverted name="remove" size="large"/>Delete
+        </Button>
     	</Table.Cell>
   	</Table.Row>
 	)

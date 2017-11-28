@@ -13,7 +13,7 @@ export default class SitesApi {
 
   static removeSite(params) {
     return fetch("http://localhost:3000/api/v1/sites", {
-      method: "DESTROY",
+      method: "DELETE",
       headers: {
         "Content-Type": "application/json",
         "Accept": "application/json"

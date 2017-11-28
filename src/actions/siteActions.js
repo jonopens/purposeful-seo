@@ -10,7 +10,6 @@ export function createSite(site) {
 }
 
 export function addSite(site){
-	console.log("INSIDE THE ADD SITE ACTION CREATOR")
 	return {
 		type: 'ADD_SITE',
 		payload: site
@@ -18,7 +17,6 @@ export function addSite(site){
 }
 
 export function removeSite(id){
-	console.log("INSIDE THE ADD SITE ACTION CREATOR")
 	return {
 		type: 'REMOVE_SITE',
 		payload: id

@@ -1,13 +1,14 @@
 import React from 'react'
 import { Table } from 'semantic-ui-react'
+import { Route } from 'react-router-dom'
+import PagesContainer from '../containers/PagesContainer.js'
 import Site from './Site.js'
 
 const SiteTable = (props) => {
-
 	const sites = props.sites.map((site, idx) => {
-		return <Site key={idx} {...site}/>
+		return <Site key={idx} {...site} removeSite={props.removeSite}/>
 	})
-	console.log("Site component", props)
+	
 	return(
 		<Table celled>
     	<Table.Header> 
@@ -17,6 +18,7 @@ const SiteTable = (props) => {
 				</Table.Row>
 			</Table.Header>
 	    <Table.Body>
+	    	<Route path="/sites/:id" render={(props) => (<PagesContainer {...props} />)} />
 	  		{sites}
 	    </Table.Body>
     </Table>

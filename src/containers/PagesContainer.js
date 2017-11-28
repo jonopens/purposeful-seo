@@ -2,7 +2,6 @@ import React from 'react'
 import { Grid, Image, Divider, Header } from 'semantic-ui-react'
 import placeholder from '../assets/paragraph.png'
 import { connect } from 'react-redux'
-import { Route, Link } from 'react-router-dom'
 
 class PagesContainer extends React.Component {
 

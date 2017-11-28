@@ -7,6 +7,7 @@ import { connect } from 'react-redux'
 class DashboardContainer extends React.Component {
 
 	render(){
+		console.log("dashboard", this.props)
 		return(
 
 		  <Grid padded relaxed style={{ marginTop: '7em' }}>
@@ -33,7 +34,7 @@ class DashboardContainer extends React.Component {
 function mapStateToProps(state) {
   return {
     user: state.user,
-    sites: state.user.sites
+    sites: state.sites
   }
 }
 

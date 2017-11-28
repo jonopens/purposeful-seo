@@ -39,7 +39,9 @@ class App extends Component {
 
 function mapStateToProps(state) {
   return {
-    user: state.user
+    user: state.user,
+    sites: state.sites,
+    pages: state.pages
   }
 }
 

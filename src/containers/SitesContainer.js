@@ -7,15 +7,14 @@ import SiteTable from '../components/SiteTable.js'
 class SitesContainer extends React.Component {
 
 	render(){
-
-		console.log("Sites Container", this.props.sites)
+		console.log(this.props)
 		return(
 
 		  <Grid padded relaxed style={{ marginTop: '7em' }}>
 		  	<Divider hidden />
 		  	<Header as="h1">Sites Container</Header>
 		  	<Grid.Row>
-		      <SiteTable sites={this.props.sites} />
+		      <SiteTable sites={this.props.sites} removeSite={this.props.removeSite}/>
 		    </Grid.Row>
 		  </Grid>
 
@@ -25,8 +24,8 @@ class SitesContainer extends React.Component {
 
 function mapStateToProps(state) {
 	return {
-		sites: state.user.sites,
-		user: state.user
+		user: state.user,
+		sites: state.sites
 	}
 }
 
@@ -35,8 +34,8 @@ function mapDispatchToProps(dispatch) {
 		createSite: (site) => {
 			dispatch(createSite(site))
 		},
-		removeSite: (site) => {
-			dispatch(removeSite(site.id))
+		removeSite: (id) => {
+			dispatch(removeSite(id))
 		}
 	}
 }

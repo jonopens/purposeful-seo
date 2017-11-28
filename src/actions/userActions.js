@@ -10,9 +10,8 @@ export function getAUser(params) {
 }
 
 export function addUser(user) {
-	console.log("user in add user", user)
 	return {
-		type: 'LOG_IN',
+		type: 'USER_LOG_IN',
 		payload: user
 	}
 }
