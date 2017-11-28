@@ -1,7 +1,5 @@
 import React from 'react'
-import { Table } from 'semantic-ui-react'
-import { Route } from 'react-router-dom'
-import PagesContainer from '../containers/PagesContainer.js'
+import { Table, Grid } from 'semantic-ui-react'
 import Site from './Site.js'
 
 const SiteTable = (props) => {
@@ -10,18 +8,20 @@ const SiteTable = (props) => {
 	})
 	
 	return(
-		<Table celled>
-    	<Table.Header> 
-      	<Table.Row>
-  				<Table.HeaderCell>Site</Table.HeaderCell>
-					<Table.HeaderCell collapsing textAlign='right'>Actions</Table.HeaderCell>
-				</Table.Row>
-			</Table.Header>
-	    <Table.Body>
-	    	<Route path="/sites/:id" render={(props) => (<PagesContainer {...props} />)} />
-	  		{sites}
-	    </Table.Body>
-    </Table>
+		<Grid.Column>
+			<Table celled>
+	    	<Table.Header> 
+	      	<Table.Row>
+	  				<Table.HeaderCell>Domain Name</Table.HeaderCell>
+	  				<Table.HeaderCell>Go To Site</Table.HeaderCell>
+						<Table.HeaderCell collapsing textAlign='right'>Actions</Table.HeaderCell>
+					</Table.Row>
+				</Table.Header>
+		    <Table.Body>
+		  		{sites}
+		    </Table.Body>
+	    </Table>
+    </Grid.Column>
 	)
 }
 

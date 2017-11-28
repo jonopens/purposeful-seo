@@ -4,7 +4,7 @@ import { Grid, Table } from 'semantic-ui-react'
 
 const SiteListDash = (props) => {
 
-	const sites = props.sites.map((site, idx) => {
+	const sites = props.sites.slice(0,5).map((site, idx) => {
 		return(
 			<Table.Row key={idx}>
 				<Table.Cell collapsing>
