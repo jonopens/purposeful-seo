@@ -34,11 +34,10 @@ export default class LoginForm extends React.Component {
 		return(
 			  <Form error warning width={6}>
 			    <Form.Field>
-			      <label>Email</label>
-			      <input placeholder='Email' />
+			      <Form.Input label="Email" placeholder='Email' />
 			    </Form.Field>
 			    <Form.Field>
-			      <input type="password" placeholder='Password' />
+			      <Form.Input label="Password" type="password" placeholder='Password' />
 			    </Form.Field>
 			    <Button type='submit'>Submit</Button>
 			  </Form>

@@ -12,7 +12,7 @@ const SiteTable = (props) => {
 			<Table celled>
 	    	<Table.Header> 
 	      	<Table.Row>
-	  				<Table.HeaderCell>Site Name</Table.HeaderCell>
+	  				<Table.HeaderCell>Domain Name</Table.HeaderCell>
 	  				<Table.HeaderCell>Go To Site</Table.HeaderCell>
 						<Table.HeaderCell collapsing textAlign='right'>Actions</Table.HeaderCell>
 					</Table.Row>

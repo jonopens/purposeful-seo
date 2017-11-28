@@ -12,18 +12,25 @@ export default function rootReducer(
 				comments: [...comments]
 			})
 			return newState
+
 		case 'FETCHED_SITES':
 			return state;
+
 		case 'ADD_SITE':
 			return Object.assign(
 				{}, state, state.sites.concat(action.payload)
 			)
+
 		case 'REMOVE_SITE':
+			console.log('got here - payload', action.payload)
 			const reducedSites = state.sites.filter(site => site.id !== action.payload)
+			console.log()
 			return Object.assign(
 				{}, state, reducedSites
 			)
 
+		case 'ADD_PAGE':
+			return state;
 		default:
 			return state;
 	}

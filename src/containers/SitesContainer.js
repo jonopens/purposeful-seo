@@ -1,17 +1,36 @@
 import React from 'react'
-import { Grid, Header, Divider, Icon, Button } from 'semantic-ui-react'
+import { Grid, Header, Divider, Icon } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { Route } from 'react-router-dom'
 
-import { createSite, removeSite } from '../actions/siteActions.js'
+import { removeSite } from '../actions/siteActions.js'
 import SiteTable from '../components/SiteTable.js'
 import PagesContainer from '../containers/PagesContainer.js'
 import AddSiteModal from '../components/AddSiteModal.js'
 
 class SitesContainer extends React.Component {
+	constructor(){
+		super()
+
+		this.state = {
+			modalOpen: false
+		}
+	}
+
+	handleModalOpen = () => {
+		this.setState({
+			modalOpen: true
+		})
+	}
+
+	handleModalClose = () => {
+		this.setState({
+			modalOpen: false
+		})
+		console.log("inside handleModalClose", this.state)
+	}
 
 	render(){
-		console.log(this.props)
 		return(
 
 		  <Grid padded relaxed style={{ marginTop: '7em' }}>
@@ -22,7 +41,11 @@ class SitesContainer extends React.Component {
 		  	</Header>
 		  	<Grid.Row>
 		  		<Grid.Column>
-			  		<AddSiteModal />
+			  		<AddSiteModal
+			  			handleModalClose={this.handleModalClose}
+			  			handleModalOpen={this.handleModalOpen}
+			  			modalOpen={this.state.modalOpen}
+			  		/>
 		  		</Grid.Column>
 		  	</Grid.Row>
 		  	<Grid.Row>
@@ -44,9 +67,6 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
 	return {
-		createSite: (site) => {
-			dispatch(createSite(site))
-		},
 		removeSite: (id) => {
 			dispatch(removeSite(id))
 		}

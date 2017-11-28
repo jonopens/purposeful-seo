@@ -8,27 +8,38 @@ class PagesContainer extends React.Component {
 	render(){
 		return(
 
-			  <Grid padded relaxed style={{ marginTop: '7em' }}>
-			  	<Divider hidden />
-		  		<Header as="h1">PagesContainer for Specific Site</Header>
-			    <Grid.Row>
-			      <Grid.Column width={8}>
-			        <Image src={placeholder} alt="placeholder paragraph" />
-			      </Grid.Column>
-			      <Grid.Column width={8}>
-			        <Image src={placeholder} alt="placeholder paragraph" />
-			      </Grid.Column>
-			    </Grid.Row>
+		  <Grid padded relaxed style={{ marginTop: '7em' }}>
+		  	<Divider hidden />
+	  		<Header as="h1">PagesContainer for Specific Site</Header>
+		    <Grid.Row>
+		      <Grid.Column width={8}>
+		        <Image src={placeholder} alt="placeholder paragraph" />
+		      </Grid.Column>
+		      <Grid.Column width={8}>
+		        <Image src={placeholder} alt="placeholder paragraph" />
+		      </Grid.Column>
+		    </Grid.Row>
 
-			    <Grid.Row>
-			      <Grid.Column width={16}>
-			        <Image src={placeholder} alt="placeholder paragraph" />
-			      </Grid.Column>
-			    </Grid.Row>
-			  </Grid>
+		    <Grid.Row>
+		      <Grid.Column width={16}>
+		        <Image src={placeholder} alt="placeholder paragraph" />
+		      </Grid.Column>
+		    </Grid.Row>
+		  </Grid>
 
 		)
 	}
 }
 
-export default connect()(PagesContainer);
+function mapStateToProps(state) {
+	return {
+		user: state.user,
+		pages: state.pages
+	}
+}
+
+function mapDispatchToProps() {
+
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PagesContainer);

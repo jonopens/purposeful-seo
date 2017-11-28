@@ -3,8 +3,8 @@ import SitesApi from '../adaptors/sites-api.js'
 export function createSite(site) {
 	return function(dispatch) {
 		return SitesApi.createSite(site)
-			.then(user => {
-				dispatch(addSite(user))
+			.then(s => {
+				dispatch(addSite(s))
 		})
 	}
 }
