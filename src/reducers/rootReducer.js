@@ -5,8 +5,12 @@ export default function rootReducer(
 	switch(action.type) {
 		case 'USER_LOG_IN':
 			let { name, password_digest, email, id, sites, pages, comments } = action.payload
-			const newState = Object.assign({}, state, {user: {name, password_digest, email, id}, sites: [...sites], pages: [...pages], comments: [...comments]})
-			console.log("state after login", newState)
+			const newState = Object.assign({}, state, {
+				user: {name, password_digest, email, id}, 
+				sites: [...sites], 
+				pages: [...pages], 
+				comments: [...comments]
+			})
 			return newState
 		case 'FETCHED_SITES':
 			return state;
@@ -19,8 +23,7 @@ export default function rootReducer(
 			return Object.assign(
 				{}, state, reducedSites
 			)
-		case 'REMOVE_USER':
-			return state
+
 		default:
 			return state;
 	}

@@ -12,7 +12,7 @@ class DashboardContainer extends React.Component {
 
 		  <Grid padded relaxed style={{ marginTop: '7em' }}>
 		  	<Divider hidden />
-		  	<Header as="h1">{this.props.user.name}'s Dashboard</Header>
+		  	<Header as="h1" content="Your Dashboard" />
 		    <Grid.Row>
 		      <SiteListDash sites={this.props.sites}/>
 		      <Grid.Column width={8}>
