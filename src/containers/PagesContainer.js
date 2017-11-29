@@ -34,9 +34,9 @@ class PagesContainer extends React.Component {
 }
 
 function mapStateToProps(state) {
-	const currPath = window.location.pathname.split("/")[2]
+	const currPath = +window.location.pathname.split("/")[2]
 	return {
-		currPages: state.pages.filter(page => page.site_id === +currPath),
+		currPages: state.pages.filter(page => page.site_id === currPath),
 		thisSite: state.sites.find(site => site.id === +currPath)
 	}
 }

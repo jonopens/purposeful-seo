@@ -1,7 +1,8 @@
 import React from 'react'
 import { 
-	Grid, Header, List, Container, Divider, Image, Segment 
+	Grid, Header, List, Container, Divider, Image, Segment
 } from 'semantic-ui-react'
+import NauticalStar from '../assets/nautical-star.png'
 
 export default class Footer extends React.Component {
 
@@ -43,8 +44,9 @@ export default class Footer extends React.Component {
 	              </List>
 	            </Grid.Column>
 	            <Grid.Column width={7}>
-	              <Header inverted as='h4' content="Things I Doubt You'll Read" />
+	              <Header inverted as='h3' content="Things I Doubt You'll Read" />
 	              <p>I love all you Flatiron goofballs. Also, Mariah Carey's Christmas album is fire.</p>
+	              <p>Sophie's will see a massive sales drop when I graduate. #cubanFoodIsLife</p>
 	            </Grid.Column>
 	          </Grid.Row>
 	        </Grid>
@@ -53,7 +55,7 @@ export default class Footer extends React.Component {
 	        <Image
 	          centered
 	          size='mini'
-	          src='/logo.png'
+	          src={NauticalStar}
 	        />
 	        <List horizontal inverted divided link>
 	          <List.Item as='a' href='#'>Site Map</List.Item>

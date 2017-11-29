@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Table, Icon, Button } from 'semantic-ui-react'
 
-class Site extends React.Component {
+class Page extends React.Component {
   
   // handleClick = () => {
   //   this.props.removePage(this.props.id)
@@ -32,4 +32,4 @@ class Site extends React.Component {
   }
 }
 
-export default Site
+export default Page
