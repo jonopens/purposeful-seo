@@ -9,7 +9,7 @@ class AddPageModal extends React.Component {
 		return(
 		<Modal 
 			trigger={
-				<Button color="blue" onClick={this.props.handlePageModalOpen}>
+				<Button color="blue" onClick={this.props.handlePageAddModalOpen}>
 					<Icon name="plus" size="large"/>Add a New Page 
 				</Button>
 			}  
@@ -19,7 +19,7 @@ class AddPageModal extends React.Component {
 		>
 	    <Header icon='plus' content='Add a New Page' />
 	    <Modal.Content>
-	      <AddPageForm handleClose={this.props.handlePageModalClose} site={this.props.site} />
+	      <AddPageForm handleClose={this.props.handlePageAddModalClose} site={this.props.site} />
 	    </Modal.Content>
 	  </Modal>
 		)
