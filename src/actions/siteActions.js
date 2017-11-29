@@ -5,7 +5,7 @@ export function createSite(site) {
 		return SitesApi.createSite(site)
 			.then(user => {
 				dispatch(addSite(user))
-		})
+			})
 	}
 }
 
@@ -13,6 +13,15 @@ export function addSite(site){
 	return {
 		type: 'ADD_SITE',
 		payload: site
+	}
+}
+
+export function destroySite(id) {
+	return function(dispatch) {
+		return SitesApi.removeSite(id)
+			.then(delSite => {
+				dispatch(removeSite(delSite.id))
+			})
 	}
 }
 

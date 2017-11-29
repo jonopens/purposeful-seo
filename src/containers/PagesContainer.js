@@ -15,13 +15,13 @@ class PagesContainer extends React.Component {
 		}
 	}
 
-	handlePageModalOpen = () => {
+	handlePageAddModalOpen = () => {
 		this.setState({
 			pageModalOpen: true
 		})
 	}
 
-	handlePageModalClose = () => {
+	handlePageAddModalClose = () => {
 		this.setState({
 			pageModalOpen: false
 		})
@@ -41,8 +41,8 @@ class PagesContainer extends React.Component {
 			  	<Grid.Row>
 			  		<Grid.Column>
 				  		<AddPageModal
-				  			handlePageModalOpen={this.handlePageModalClose}
-				  			handlePageModalOpen={this.handlePageModalOpen}
+				  			handlePageAddModalClose={this.handlePageModalClose}
+				  			handlePageAddModalOpen={this.handlePageModalOpen}
 				  			pageModalOpen={this.state.pageModalOpen}
 				  			site={this.props.thisSite}
 				  		/>

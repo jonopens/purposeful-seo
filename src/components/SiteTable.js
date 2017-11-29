@@ -4,7 +4,7 @@ import Site from './Site.js'
 
 const SiteTable = (props) => {
 	const sites = props.sites.map((site, idx) => {
-		return <Site key={idx} {...site} removeSite={props.removeSite}/>
+		return <Site key={idx} {...site} />
 	})
 	
 	return(

@@ -2,7 +2,6 @@ import React from 'react'
 import { Grid, Header, Divider, Icon } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 
-import { removeSite } from '../actions/siteActions.js'
 import SiteTable from '../components/SiteTable.js'
 import AddSiteModal from '../components/AddSiteModal.js'
 
@@ -25,10 +24,10 @@ class SitesContainer extends React.Component {
 		this.setState({
 			modalOpen: false
 		})
-		console.log("inside handleModalClose", this.state)
 	}
 
-	render(){
+	render() {
+		console.log('SitesContainer props', this.props)
 		return(
 
 		  <Grid padded relaxed style={{ marginTop: '7em' }}>
@@ -47,7 +46,7 @@ class SitesContainer extends React.Component {
 		  		</Grid.Column>
 		  	</Grid.Row>
 		  	<Grid.Row>
-	      	<SiteTable sites={this.props.sites} removeSite={this.props.removeSite}/>
+	      	<SiteTable sites={this.props.sites} />
 		    </Grid.Row>
 		  </Grid>
 
@@ -62,12 +61,4 @@ function mapStateToProps(state) {
 	}
 }
 
-function mapDispatchToProps(dispatch) {
-	return {
-		removeSite: (id) => {
-			dispatch(removeSite(id))
-		}
-	}
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(SitesContainer)
+export default connect(mapStateToProps)(SitesContainer)

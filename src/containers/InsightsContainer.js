@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Image, Divider, Header } from 'semantic-ui-react'
+import { Grid, Image, Divider, Header, Icon } from 'semantic-ui-react'
 import placeholder from '../assets/paragraph.png'
 
 export default class InsightsContainer extends React.Component {
@@ -16,7 +16,10 @@ export default class InsightsContainer extends React.Component {
 
 			  <Grid padded relaxed style={{ marginTop: '7em' }}>
 			  	<Divider hidden />
-		  		<Header as="h1">InsightsContainer</Header>
+			  	<Header as="h1">
+			  		<Icon name="idea" />
+			  		Insights
+			  	</Header>
 			    <Grid.Row>
 			      <Grid.Column width={8}>
 			        <Image src={placeholder} alt="placeholder paragraph" />
