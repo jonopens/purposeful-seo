@@ -1,6 +1,6 @@
 import React from 'react'
 import { Modal, Header, Icon, Button } from 'semantic-ui-react'
-import AddSiteForm from './AddSiteForm.js'
+import AddPageForm from './AddPageForm.js'
 
 class AddPageModal extends React.Component {
 
@@ -19,7 +19,7 @@ class AddPageModal extends React.Component {
 		>
 	    <Header icon='plus' content='Add a New Page' />
 	    <Modal.Content>
-	      <AddSiteForm handleClose={this.props.handlePageModalClose}/>
+	      <AddPageForm handleClose={this.props.handlePageModalClose} site={this.props.site} />
 	    </Modal.Content>
 	  </Modal>
 		)

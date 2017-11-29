@@ -2,7 +2,7 @@ import PagesApi from '../adaptors/pages-api.js'
 
 export function createPage(newPage) {
 	return function(dispatch) {
-		return PagesApi.createPage(newPage)
+		return PagesApi.addPage(newPage)
 			.then(page => {
 				dispatch(addPage(page))
 		})

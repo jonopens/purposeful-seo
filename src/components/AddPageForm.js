@@ -1,7 +1,7 @@
 import React from 'react'
 import { Form, Button } from 'semantic-ui-react'
 import { connect } from 'react-redux' 
-import { createPAge } from '../actions/pageActions.js'
+import { createPage } from '../actions/pageActions.js'
 
 class AddPageForm extends React.Component {
 	state = {
@@ -12,8 +12,8 @@ class AddPageForm extends React.Component {
 	handleSubmit = (e) => {
 		e.preventDefault();
 		this.props.createPage({
-			page_path: e.target.value,
-			site_id: 
+			page_path: this.state.page_path,
+			site_id: this.props.site.id
 		});
 		this.props.handleClose();
 		this.setState({
@@ -21,10 +21,14 @@ class AddPageForm extends React.Component {
 		})
 	}
 
-
+	handlePagePathChange = (e) => {
+		this.setState({
+			page_path: e.target.value
+		})
+	}
 
 	render() {
-		let { value } = this.state
+		console.log("addpageform props", this.props)
 		return(
 			<Form onSubmit={this.handleSubmit} error warning width={6} >
 		    <Form.Field>
@@ -44,8 +48,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
 	return {
-		createPage: (site) => {
-			dispatch(createPage(site))
+		createPage: (page) => {
+			dispatch(createPage(page))
 		},
 	}
 }

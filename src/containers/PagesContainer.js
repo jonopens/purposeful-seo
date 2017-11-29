@@ -1,5 +1,6 @@
 import React from 'react'
 import { Grid, Divider, Header, Icon } from 'semantic-ui-react'
+import PageLoader from '../components/Loader.js'
 import { connect } from 'react-redux'
 import PageTable from '../components/PageTable.js'
 import AddPageModal from '../components/AddPageModal.js'
@@ -27,33 +28,41 @@ class PagesContainer extends React.Component {
 	}
 
 	render(){
-		return(
 
-		  <Grid padded relaxed style={{ marginTop: '7em' }}>
-		  	<Divider hidden />
-		  	<Header as="h1">
-		  		<Icon name="sitemap" />
-		  		Pages
-		  	</Header>
-		  	<Grid.Row>
-		  		<Grid.Column>
-			  		<AddPageModal
-			  			handlePageModalOpen={this.handlePageModalClose}
-			  			handlePageModalOpen={this.handlePageModalOpen}
-			  			pageModalOpen={this.state.modalOpen}
-			  		/>
-		  		</Grid.Column>
-		  	</Grid.Row>
-		  	<Grid.Row>
-	      	<PageTable 
-	      		pages={this.props.currPages} 
-	      		removePage={this.props.removePage}
-	      		siteId={window.location.pathname.split("/")[2]}
-      		/>
-		    </Grid.Row>
-		  </Grid>
+		if(!!this.props.thisSite){
+			return(
 
-		)
+			  <Grid padded relaxed style={{ marginTop: '7em' }}>
+			  	<Divider hidden />
+			  	<Header as="h1">
+			  		<Icon name="sitemap" />
+			  		Pages: {this.props.thisSite.domain_name}
+			  	</Header>
+			  	<Grid.Row>
+			  		<Grid.Column>
+				  		<AddPageModal
+				  			handlePageModalOpen={this.handlePageModalClose}
+				  			handlePageModalOpen={this.handlePageModalOpen}
+				  			pageModalOpen={this.state.pageModalOpen}
+				  			site={this.props.thisSite}
+				  		/>
+			  		</Grid.Column>
+			  	</Grid.Row>
+			  	<Grid.Row>
+		      	<PageTable 
+		      		pages={this.props.currPages} 
+		      		removePage={this.props.removePage}
+		      		siteId={window.location.pathname.split("/")[2]}
+	      		/>
+			    </Grid.Row>
+			  </Grid>
+
+			)
+		} else {
+			return(
+				<PageLoader />
+			)
+		}
 	}
 }
 
