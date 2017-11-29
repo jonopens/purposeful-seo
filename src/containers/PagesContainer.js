@@ -2,11 +2,31 @@ import React from 'react'
 import { Grid, Divider, Header, Icon } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import PageTable from '../components/PageTable.js'
+import AddPageModal from '../components/AddPageModal.js'
 
 class PagesContainer extends React.Component {
 
+	constructor(){
+		super()
+
+		this.state = {
+			pageModalOpen: false
+		}
+	}
+
+	handlePageModalOpen = () => {
+		this.setState({
+			pageModalOpen: true
+		})
+	}
+
+	handlePageModalClose = () => {
+		this.setState({
+			pageModalOpen: false
+		})
+	}
+
 	render(){
-		console.log('I AM IN PAGESCONTAINER',this.props)
 		return(
 
 		  <Grid padded relaxed style={{ marginTop: '7em' }}>
@@ -17,7 +37,11 @@ class PagesContainer extends React.Component {
 		  	</Header>
 		  	<Grid.Row>
 		  		<Grid.Column>
-		  			Something
+			  		<AddPageModal
+			  			handlePageModalOpen={this.handlePageModalClose}
+			  			handlePageModalOpen={this.handlePageModalOpen}
+			  			pageModalOpen={this.state.modalOpen}
+			  		/>
 		  		</Grid.Column>
 		  	</Grid.Row>
 		  	<Grid.Row>
@@ -37,7 +61,7 @@ function mapStateToProps(state) {
 	const currPath = +window.location.pathname.split("/")[2]
 	return {
 		currPages: state.pages.filter(page => page.site_id === currPath),
-		thisSite: state.sites.find(site => site.id === +currPath)
+		thisSite: state.sites.find(site => site.id === currPath)
 	}
 }
 

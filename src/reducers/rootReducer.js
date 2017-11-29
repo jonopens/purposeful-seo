@@ -14,6 +14,10 @@ export default function rootReducer(
 			return Object.assign(
 				{}, state, state.sites.concat(action.payload)
 			)
+		case 'ADD_PAGE':
+			return Object.assign(
+				{}, state, state.pages.concat(action.payload)
+			)
 		case 'REMOVE_SITE':
 			const reducedSites = state.sites.filter(site => site.id !== action.payload)
 			return Object.assign(
