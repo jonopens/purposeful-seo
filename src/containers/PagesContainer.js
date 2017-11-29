@@ -1,34 +1,51 @@
 import React from 'react'
-import { Grid, Image, Divider, Header } from 'semantic-ui-react'
-import placeholder from '../assets/paragraph.png'
+import { Grid, Divider, Header, Icon } from 'semantic-ui-react'
 import { connect } from 'react-redux'
+import PageTable from '../components/PageTable.js'
 
 class PagesContainer extends React.Component {
 
 	render(){
+		console.log('I AM IN PAGESCONTAINER',this.props)
 		return(
 
-			  <Grid padded relaxed style={{ marginTop: '7em' }}>
-			  	<Divider hidden />
-		  		<Header as="h1">PagesContainer for Specific Site</Header>
-			    <Grid.Row>
-			      <Grid.Column width={8}>
-			        <Image src={placeholder} alt="placeholder paragraph" />
-			      </Grid.Column>
-			      <Grid.Column width={8}>
-			        <Image src={placeholder} alt="placeholder paragraph" />
-			      </Grid.Column>
-			    </Grid.Row>
-
-			    <Grid.Row>
-			      <Grid.Column width={16}>
-			        <Image src={placeholder} alt="placeholder paragraph" />
-			      </Grid.Column>
-			    </Grid.Row>
-			  </Grid>
+		  <Grid padded relaxed style={{ marginTop: '7em' }}>
+		  	<Divider hidden />
+		  	<Header as="h1">
+		  		<Icon name="sticky note outline" />
+		  		Pages
+		  	</Header>
+		  	<Grid.Row>
+		  		<Grid.Column>
+		  			Something
+		  		</Grid.Column>
+		  	</Grid.Row>
+		  	<Grid.Row>
+	      	<PageTable 
+	      		pages={this.props.currPages} 
+	      		removePage={this.props.removePage}
+	      		siteId={window.location.pathname.split("/")[2]}
+      		/>
+		    </Grid.Row>
+		  </Grid>
 
 		)
 	}
 }
 
-export default connect()(PagesContainer);
+function mapStateToProps(state) {
+	const currPath = window.location.pathname.split("/")[2]
+	return {
+		currPages: state.pages.filter(page => page.site_id === +currPath),
+		thisSite: state.sites.find(site => site.id === +currPath)
+	}
+}
+
+function mapDispatchToProps(dispatch) {
+	return {
+		removePage: 'hi',
+
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PagesContainer);

@@ -1,11 +1,9 @@
 import React from 'react'
 import { Grid, Header, Divider, Icon } from 'semantic-ui-react'
 import { connect } from 'react-redux'
-import { Route } from 'react-router-dom'
 
 import { removeSite } from '../actions/siteActions.js'
 import SiteTable from '../components/SiteTable.js'
-import PagesContainer from '../containers/PagesContainer.js'
 import AddSiteModal from '../components/AddSiteModal.js'
 
 class SitesContainer extends React.Component {
@@ -49,8 +47,7 @@ class SitesContainer extends React.Component {
 		  		</Grid.Column>
 		  	</Grid.Row>
 		  	<Grid.Row>
-		      <SiteTable sites={this.props.sites} removeSite={this.props.removeSite}/>
-		      <Route path="/sites/:id" component={PagesContainer} />
+	      	<SiteTable sites={this.props.sites} removeSite={this.props.removeSite}/>
 		    </Grid.Row>
 		  </Grid>
 

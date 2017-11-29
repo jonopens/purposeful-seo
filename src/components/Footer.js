@@ -4,13 +4,6 @@ import {
 } from 'semantic-ui-react'
 
 export default class Footer extends React.Component {
-	constructor() {
-		super()
-
-		this.state ={
-
-		}
-	}
 
 	render() {
 		return(

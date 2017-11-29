@@ -7,7 +7,9 @@ import Home from './containers/Home.js'
 import DashboardContainer from './containers/DashboardContainer.js'
 import InsightsContainer from './containers/InsightsContainer.js'
 import SitesContainer from './containers/SitesContainer.js'
-import { Route, withRouter } from 'react-router-dom'
+import PagesContainer from './containers/PagesContainer.js'
+import PageItemContainer from './containers/PageItemContainer.js'
+import { Route, withRouter, Switch } from 'react-router-dom'
 import { getAUser } from './actions/userActions.js'
 import { connect } from 'react-redux'
 
@@ -25,12 +27,14 @@ class App extends Component {
     return (
       <div className="App">
         <NavBar />
-
-        <Route exact path="/" component={Home} />
-        <Route exact path="/dashboard" component={DashboardContainer} />
-        <Route exact path="/sites" component={SitesContainer} />
-        <Route exact path="/insights" component={InsightsContainer} />
-
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/dashboard" component={DashboardContainer} />
+          <Route exact path="/sites" component={SitesContainer} />
+          <Route exact path="/insights" component={InsightsContainer} />
+          <Route path="/sites/:id/pages/:pageId" render={() => (<PageItemContainer />)}/>
+          <Route path="/sites/:id/pages" render={() => (<PagesContainer />)}/>
+        </Switch>
         <Footer />
       </div>
     );

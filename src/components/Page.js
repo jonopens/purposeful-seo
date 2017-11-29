@@ -4,18 +4,21 @@ import { Table, Icon, Button } from 'semantic-ui-react'
 
 class Site extends React.Component {
   
-  handleClick = () => {
-    this.props.removeSite(this.props.id)
-  }
+  // handleClick = () => {
+  //   this.props.removePage(this.props.id)
+  // }
 
   render() {
     return(
       <Table.Row padded>
         <Table.Cell style={{ fontSize: '18px' }}>
-          <Link to={`/sites/${this.props.id}/pages`}>{this.props.domain_name}</Link>
+          {this.props.title}
         </Table.Cell>
         <Table.Cell style={{ fontSize: '18px' }}>
-          <a href={`${this.props.full_url}`}>Click Here</a>
+          {this.props.h1[0]}
+        </Table.Cell>
+        <Table.Cell style={{ fontSize: '18px' }}>
+          <Link to={`/sites/${this.props.siteId}/pages/${this.props.id}`}>More About This Page</Link>
         </Table.Cell>
         <Table.Cell collapsing textAlign='right'>
           <Button onClick={this.handleClick} color="red">
