@@ -34,7 +34,7 @@ class SitesContainer extends React.Component {
 		  <Grid padded relaxed style={{ marginTop: '7em' }}>
 		  	<Divider hidden />
 		  	<Header as="h1">
-		  		<Icon name="sitemap" />
+		  		<Icon name="server" />
 		  		Your Sites
 		  	</Header>
 		  	<Grid.Row>

@@ -16,35 +16,35 @@ export default class Footer extends React.Component {
 	        <Grid divided inverted stackable>
 	          <Grid.Row>
 	            <Grid.Column width={3}>
-	              <Header inverted as='h4' content='Group 1' />
+	              <Header inverted as='h4' content='These' />
 	              <List link inverted>
-	                <List.Item as='a'>Link One</List.Item>
-	                <List.Item as='a'>Link Two</List.Item>
-	                <List.Item as='a'>Link Three</List.Item>
-	                <List.Item as='a'>Link Four</List.Item>
+	                <List.Item as='a'>There</List.Item>
+	                <List.Item as='a'>Will</List.Item>
+	                <List.Item as='a'>Be</List.Item>
+	                <List.Item as='a'>Content</List.Item>
 	              </List>
 	            </Grid.Column>
 	            <Grid.Column width={3}>
-	              <Header inverted as='h4' content='Group 2' />
+	              <Header inverted as='h4' content='Are' />
 	              <List link inverted>
-	                <List.Item as='a'>Link One</List.Item>
-	                <List.Item as='a'>Link Two</List.Item>
-	                <List.Item as='a'>Link Three</List.Item>
-	                <List.Item as='a'>Link Four</List.Item>
+	                <List.Item as='a'>There's</List.Item>
+	                <List.Item as='a'>Something</List.Item>
+	                <List.Item as='a'>About</List.Item>
+	                <List.Item as='a'>Flatiron</List.Item>
 	              </List>
 	            </Grid.Column>
 	            <Grid.Column width={3}>
-	              <Header inverted as='h4' content='Group 3' />
+	              <Header inverted as='h4' content='Links' />
 	              <List link inverted>
-	                <List.Item as='a'>Link One</List.Item>
-	                <List.Item as='a'>Link Two</List.Item>
-	                <List.Item as='a'>Link Three</List.Item>
-	                <List.Item as='a'>Link Four</List.Item>
+	                <List.Item as='a'>Fetchin'</List.Item>
+	                <List.Item as='a'>In</List.Item>
+	                <List.Item as='a'>The</List.Item>
+	                <List.Item as='a'>Rain</List.Item>
 	              </List>
 	            </Grid.Column>
 	            <Grid.Column width={7}>
-	              <Header inverted as='h4' content='Footer Header' />
-	              <p>Extra space for a call to action inside the footer that could help re-engage users.</p>
+	              <Header inverted as='h4' content="Things I Doubt You'll Read" />
+	              <p>I love all you Flatiron goofballs. Also, Mariah Carey's Christmas album is fire.</p>
 	            </Grid.Column>
 	          </Grid.Row>
 	        </Grid>

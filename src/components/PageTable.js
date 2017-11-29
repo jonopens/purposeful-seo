@@ -12,9 +12,9 @@ const PageTable = (props) => {
 			<Table celled>
 	    	<Table.Header> 
 	      	<Table.Row>
+	      		<Table.HeaderCell>Details</Table.HeaderCell>
 	  				<Table.HeaderCell>Page Title</Table.HeaderCell>
 	  				<Table.HeaderCell>Page H1</Table.HeaderCell>
-	  				<Table.HeaderCell>Details</Table.HeaderCell>
 						<Table.HeaderCell collapsing textAlign='right'>Actions</Table.HeaderCell>
 					</Table.Row>
 				</Table.Header>

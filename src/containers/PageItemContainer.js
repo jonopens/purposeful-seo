@@ -8,7 +8,7 @@ class PageItemContainer extends React.Component {
 		  <Grid padded relaxed style={{ marginTop: '7em' }}>
 		  	<Divider hidden />
 		  	<Header as="h1">
-		  		<Icon name="sticky note outline" />
+		  		<Icon name="file text outline" />
 		  		This page
 		  	</Header>
 		  	<Grid.Row>
