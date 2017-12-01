@@ -11,9 +11,15 @@ export default class PagesApi {
 		}).then(res => res.json());
 	}
 
-    static updatePage(params) {
+  static removePage(id) {
+    return fetch(`http://localhost:3000/api/v1/pages/${id}`, {
+      method: "DELETE"
+    }).then(res => res.json());
+  }
+
+  static updatePage(params) {
     return fetch("http://localhost:3000/api/v1/pages", {
-      method: "PATCH",
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
         "Accept": "application/json"

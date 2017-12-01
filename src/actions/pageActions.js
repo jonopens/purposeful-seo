@@ -15,3 +15,19 @@ export function addPage(page){
 		payload: page
 	}
 }
+
+export function destroyPage(id) {
+	return function(dispatch) {
+		return PagesApi.removePage(id)
+			.then(delPage => {
+				dispatch(removePage(delPage.id))
+			})
+	}
+}
+
+export function removePage(id){
+	return {
+		type: 'REMOVE_PAGE',
+		payload: id
+	}
+}		

@@ -16,4 +16,15 @@ export default class SitesApi {
       method: "DELETE"
     }).then(res => res.json());
   }
+
+  static updateSite(params) {
+    return fetch(`http://localhost:3000/api/v1/sites/${params.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(params)
+    }).then(res => res.json());
+  }
 }

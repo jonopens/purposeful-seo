@@ -5,8 +5,8 @@ import { connect } from 'react-redux'
 import { destroySite } from '../actions/siteActions.js'
 
 class Site extends React.Component {
-  
-  handleClick = () => {
+
+  handleDeleteClick = () => {
     this.props.destroySite(this.props.id)
   }
 
@@ -20,7 +20,7 @@ class Site extends React.Component {
           <a href={`${this.props.full_url}`}>Click Here</a>
         </Table.Cell>
         <Table.Cell collapsing textAlign='right'>
-          <Button onClick={this.handleClick} color="red">
+          <Button onClick={this.handleDeleteClick} color="red">
             <Icon inverted name="remove" size="large"/>Delete
           </Button>
         </Table.Cell>

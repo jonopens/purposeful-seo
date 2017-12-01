@@ -1,5 +1,5 @@
 export default function rootReducer(
-	state = {user: {}, sites: [], pages: [], insights: [], crawls: [], comments: []}, 
+	state = {user: {}, sites: [], pages: [], insights: [], comments: []}, 
 	action
 ) {
 	switch(action.type) {
@@ -9,27 +9,33 @@ export default function rootReducer(
 				user: {name, password_digest, email, id}, 
 				sites: [...sites], 
 				pages: [...pages], 
-				comments: [...comments]
+				comments: [...comments],
 			})
 			return newState
-		case 'FETCHED_SITES':
-			return state;
 		case 'ADD_SITE':
 			return Object.assign(
 				{}, state, {sites: state.sites.concat(action.payload)}
-			)
-		case 'ADD_PAGE':
-			console.log("ADD_PAGE - state, payload", state, action.payload)
-			return Object.assign(
-				{}, state, {pages: state.pages.concat(action.payload)}
 			)
 		case 'REMOVE_SITE':
 			const reducedSites = state.sites.filter(site => site.id !== action.payload)
 			return Object.assign(
 				{}, state, {sites: reducedSites}
 			)
-		case 'REMOVE_USER':
-			return state
+		case 'UPDATE_SITE':
+			return state;
+		case 'ADD_PAGE':
+			return Object.assign(
+				{}, state, {pages: state.pages.concat(action.payload)}
+			)
+		case 'REMOVE_PAGE':
+			const reducedPages = state.pages.filter(page => page.id !== action.payload)
+			return Object.assign(
+				{}, state, {pages: reducedPages}
+			)
+		case 'UPDATE_PAGE':
+			return state;
+		// case 'REMOVE_USER':
+		// 	return state
 		default:
 			return state;
 	}

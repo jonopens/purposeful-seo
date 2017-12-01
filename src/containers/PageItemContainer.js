@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 
 class PageItemContainer extends React.Component {
 
+
+
 	render() {
 		console.log('props in PageItemContainer',this.props)
 		return(
@@ -11,7 +13,7 @@ class PageItemContainer extends React.Component {
 		  	<Divider hidden />
 		  	<Header as="h1">
 		  		<Icon name="file text outline" />
-		  		This page
+		  		Page Title
 		  	</Header>
 		  	<Grid.Row>
 		  		<Grid.Column>

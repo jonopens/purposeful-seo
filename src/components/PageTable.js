@@ -4,7 +4,7 @@ import Page from './Page.js'
 
 const PageTable = (props) => {
 	const pages = props.pages.map((page, idx) => {
-		return <Page key={idx} {...page} siteId={props.siteId} removePage={props.removePage}/>
+		return <Page key={idx} {...page} siteId={props.siteId} />
 	})
 	
 	return(
