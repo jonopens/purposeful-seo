@@ -17,7 +17,10 @@ class Site extends React.Component {
           <Link to={`/sites/${this.props.id}/pages`}>{this.props.domain_name}</Link>
         </Table.Cell>
         <Table.Cell style={{ fontSize: '18px' }}>
-          <a href={`${this.props.full_url}`}>Click Here</a>
+          <a href={`${this.props.full_url}`}>View Site</a>
+        </Table.Cell>
+        <Table.Cell collapsing style={{ fontSize: '18px' }}>
+          {this.props.pages.length}
         </Table.Cell>
         <Table.Cell collapsing textAlign='right'>
           <Button onClick={this.handleDeleteClick} color="red">

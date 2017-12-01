@@ -1,6 +1,6 @@
 import React from 'react'
-import { Grid, Divider, Header, Icon } from 'semantic-ui-react'
-import PageLoader from '../components/Loader.js'
+import { Grid, Divider, Header, Icon, Container } from 'semantic-ui-react'
+import PageLoader from '../components/PageLoader.js'
 import { connect } from 'react-redux'
 import PageTable from '../components/PageTable.js'
 import AddPageModal from '../components/AddPageModal.js'
@@ -31,7 +31,6 @@ class PagesContainer extends React.Component {
 
 		if(!!this.props.thisSite){
 			return(
-
 			  <Grid padded relaxed style={{ marginTop: '7em' }}>
 			  	<Divider hidden />
 			  	<Header as="h1">
@@ -56,11 +55,12 @@ class PagesContainer extends React.Component {
 	      		/>
 			    </Grid.Row>
 			  </Grid>
-
 			)
 		} else {
 			return(
-				<PageLoader />
+				<Container>
+					<PageLoader />
+				</Container>
 			)
 		}
 	}

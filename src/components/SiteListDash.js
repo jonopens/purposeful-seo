@@ -8,7 +8,7 @@ const SiteListDash = (props) => {
 		return(
 			<Table.Row key={idx}>
 				<Table.Cell collapsing>
-        	<Link to={`/sites/${site.id}`}>{site.full_url}</Link>
+        	<Link to={`/sites/${site.id}/pages`}>{site.full_url}</Link>
       	</Table.Cell>
     	</Table.Row>
 		)

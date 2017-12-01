@@ -27,9 +27,7 @@ class SitesContainer extends React.Component {
 	}
 
 	render() {
-		console.log('SitesContainer props', this.props)
 		return(
-
 		  <Grid padded relaxed style={{ marginTop: '7em' }}>
 		  	<Divider hidden />
 		  	<Header as="h1">
@@ -46,10 +44,9 @@ class SitesContainer extends React.Component {
 		  		</Grid.Column>
 		  	</Grid.Row>
 		  	<Grid.Row>
-	      	<SiteTable sites={this.props.sites} />
+	      	<SiteTable sites={this.props.sites} pages={this.props.pages} />
 		    </Grid.Row>
 		  </Grid>
-
 		)
 	}
 }
@@ -57,7 +54,8 @@ class SitesContainer extends React.Component {
 function mapStateToProps(state) {
 	return {
 		user: state.user,
-		sites: state.sites
+		sites: state.sites,
+		pages: state.pages
 	}
 }
 
