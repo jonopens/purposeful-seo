@@ -17,7 +17,7 @@ class Page extends React.Component {
               <Icon name="search" size="large" />
             </Link>
           </Table.Cell>
-          <Table.Cell style={{ fontSize: '18px' }}>
+          <Table.Cell collapsing style={{ fontSize: '18px' }}>
             {this.props.page_path}
           </Table.Cell>
           <Table.Cell style={{ fontSize: '18px' }}>
@@ -33,13 +33,13 @@ class Page extends React.Component {
     } else {
       return(
         <Table.Row padded="true">
-          <Table.Cell negative style={{ fontSize: '18px' }}>
+          <Table.Cell collapsing negative style={{ fontSize: '18px' }}>
           </Table.Cell>
           <Table.Cell negative style={{ fontSize: '18px' }}>
             {this.props.page_path}
           </Table.Cell>
           <Table.Cell collapsing negative style={{ fontSize: '18px' }}>
-            This page has not yet crawled - would you like to crawl it now?
+            Page has not been crawled. Start crawl? =>
           </Table.Cell>
           <Table.Cell collapsing textAlign='right'>
             <Button onClick={this.handleClick} color="blue">

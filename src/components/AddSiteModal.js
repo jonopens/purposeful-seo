@@ -14,7 +14,8 @@ class AddSiteModal extends React.Component {
 			}  
 			size='small'
 			open={this.props.modalOpen}
-			
+			onClose={this.props.handleModalClose}
+			closeIcon
 		>
 	    <Header icon='plus' content='Add a New Site' />
 	    <Modal.Content>

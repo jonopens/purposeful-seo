@@ -15,7 +15,8 @@ class AddPageModal extends React.Component {
 			}  
 			size='small'
 			open={this.props.pageModalOpen}
-			
+			onClose={this.props.handlePageAddModalClose}
+			closeIcon
 		>
 	    <Header icon='plus' content='Add a New Page' />
 	    <Modal.Content>

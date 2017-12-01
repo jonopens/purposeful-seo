@@ -9,7 +9,7 @@ import InsightsContainer from './containers/InsightsContainer.js'
 import SitesContainer from './containers/SitesContainer.js'
 import PagesContainer from './containers/PagesContainer.js'
 import PageItemContainer from './containers/PageItemContainer.js'
-import { Route, withRouter, Switch } from 'react-router-dom'
+import { Route, withRouter, Switch, Redirect } from 'react-router-dom'
 import { getAUser } from './actions/userActions.js'
 import { connect } from 'react-redux'
 
@@ -34,6 +34,7 @@ class App extends Component {
           <Route exact path="/insights" component={InsightsContainer} />
           <Route path="/sites/:id/pages/:pageId" render={() => (<PageItemContainer />)}/>
           <Route path="/sites/:id/pages" render={() => (<PagesContainer />)}/>
+          <Redirect to="/dashboard" />
         </Switch>
         <Footer />
       </div>

@@ -10,4 +10,15 @@ export default class PagesApi {
       body: JSON.stringify(params)
 		}).then(res => res.json());
 	}
+
+    static updatePage(params) {
+    return fetch("http://localhost:3000/api/v1/pages", {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(params)
+    }).then(res => res.json());
+  }
 }

@@ -26,7 +26,7 @@ export default class Footer extends React.Component {
 	              </List>
 	            </Grid.Column>
 	            <Grid.Column width={3}>
-	              <Header inverted as='h4' content='Are' />
+	              <Header inverted as='h4' content="Aren't" />
 	              <List link inverted>
 	                <List.Item as='a'>There's</List.Item>
 	                <List.Item as='a'>Something</List.Item>
@@ -44,9 +44,10 @@ export default class Footer extends React.Component {
 	              </List>
 	            </Grid.Column>
 	            <Grid.Column width={7}>
-	              <Header inverted as='h3' content="Things I Doubt You'll Read" />
+	              <Header inverted as='h2' content="Things I Doubt You'll Read" />
 	              <p>I love all you Flatiron goofballs. Also, Mariah Carey's Christmas album is fire.</p>
-	              <p>Sophie's will see a massive sales drop when I graduate. #cubanFoodIsLife</p>
+	              <p>Sophie's could see a food sales drop when I graduate. #cubanFoodIsLife</p>
+	              <p>Made with &#9829; by <a href="https://github.com/jonopens">Jon Openshaw</a></p>
 	            </Grid.Column>
 	          </Grid.Row>
 	        </Grid>

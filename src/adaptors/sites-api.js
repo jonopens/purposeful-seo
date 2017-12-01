@@ -12,7 +12,6 @@ export default class SitesApi {
   }
 
   static removeSite(id) {
-    console.log("you made it here in removeSite")
     return fetch(`http://localhost:3000/api/v1/sites/${id}`, {
       method: "DELETE"
     }).then(res => res.json());
