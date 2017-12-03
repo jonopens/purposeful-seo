@@ -7,11 +7,13 @@ import { destroyPage } from '../actions/pageActions.js'
 class Page extends React.Component {
   
   handleEditClick = () => {
-    console.log("hello, I'm trying to handle click over here, ya jabroni")
+    console.log("hello, I'm trying to handle an edit click over here, ya jabroni")
   }  
 
   handleDeleteClick = () => {
-    this.props.destroyPage(this.props.id)
+    if(window.confirm("Are you sure you want to delete this page?")){
+      this.props.destroyPage(this.props.id)
+    }
   }
 
   handleCrawlClick = () => {
@@ -19,6 +21,7 @@ class Page extends React.Component {
   }
 
   render() {
+    console.log(this.props)
     if(this.props.title) {
       return(
         <Table.Row padded="true">

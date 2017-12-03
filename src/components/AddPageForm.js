@@ -31,8 +31,13 @@ class AddPageForm extends React.Component {
 		console.log("addpageform props", this.props)
 		return(
 			<Form onSubmit={this.handleSubmit} error warning width={6} >
-		    <Form.Field>
-		      <Form.Input onChange={this.handlePagePathChange} label="Page Path" placeholder='e.g. /product/sweet-hoodie.html' />
+		    <Form.Field required>
+		      <Form.Input 
+		      	onChange={this.handlePagePathChange} 
+		      	label="Page Path" 
+		      	placeholder='e.g. /product/sweet-hoodie.html' 
+		      	required
+	      	/>
 		    </Form.Field>
 		    <Button type='submit'>Submit</Button>
 		  </Form>

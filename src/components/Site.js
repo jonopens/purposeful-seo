@@ -7,7 +7,9 @@ import { destroySite } from '../actions/siteActions.js'
 class Site extends React.Component {
 
   handleDeleteClick = () => {
-    this.props.destroySite(this.props.id)
+    if(window.confirm("Are you sure you want to delete this site?")){
+      this.props.destroySite(this.props.id)
+    }
   }
 
   render() {
