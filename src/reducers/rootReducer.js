@@ -33,7 +33,6 @@ export default function rootReducer(
 				{}, state, {pages: reducedPages}
 			)
 		case 'CREATE_AND_RUN_CRAWL_ON_PAGE':
-			console.log("create_and_run_crawl", action.payload)
 			return Object.assign(
 				{}, state, {
 					pages: state.pages.map(page => {
