@@ -32,10 +32,18 @@ export default function rootReducer(
 			return Object.assign(
 				{}, state, {pages: reducedPages}
 			)
-		case 'UPDATE_PAGE':
-			return state;
-		// case 'REMOVE_USER':
-		// 	return state
+		case 'CREATE_AND_RUN_CRAWL_ON_PAGE':
+			console.log("create_and_run_crawl", action.payload)
+			return Object.assign(
+				{}, state, {
+					pages: state.pages.map(page => {
+						if(page.id === action.payload.id) {
+							return Object.assign({}, page, {...action.payload})
+						}
+						return page
+					})
+				} 
+			)
 		default:
 			return state;
 	}

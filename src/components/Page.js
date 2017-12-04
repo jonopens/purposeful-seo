@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { Table, Icon, Button } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { destroyPage } from '../actions/pageActions.js'
+import { createAndStartCrawl } from '../actions/crawlActions.js'
 
 class Page extends React.Component {
   
@@ -17,7 +18,10 @@ class Page extends React.Component {
   }
 
   handleCrawlClick = () => {
-    console.log("hi crawlers")
+    console.log("hi crawlers", this.props.id)
+    if(window.confirm("Are you sure you want to start crawling this page?")){
+      this.props.createAndStartCrawl(this.props.id)
+    }
   }
 
   render() {
@@ -77,7 +81,9 @@ function mapDispatchToProps(dispatch) {
     destroyPage: (id) => {
       dispatch(destroyPage(id));
     },
-    updateSite: "ji"
+    createAndStartCrawl: (id) => {
+      dispatch(createAndStartCrawl(id))
+    }
   }
 }
 

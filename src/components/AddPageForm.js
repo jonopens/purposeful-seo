@@ -27,28 +27,45 @@ class AddPageForm extends React.Component {
 		})
 	}
 
+	testFullUrl = () => {
+		let testURL = `${this.props.site.full_url}${this.state.page_path}`
+		fetch(testURL, {
+			mode: 'no-cors'
+		}).then(this.handleFetchResponse)
+			.then(res => console.log("ok"))
+			.catch(error => console.log(error))
+	}
+
+	handleFetchResponse = (res) => {
+		if(!res.ok){
+			this.setState({
+				pathFails: true
+			})
+			throw Error(res.statusText)
+		} else {
+			this.setState({
+				pathFails: false
+			})
+		} 
+		return res
+	} 
+
 	render() {
-		console.log("addpageform props", this.props)
+
 		return(
 			<Form onSubmit={this.handleSubmit} error warning width={6} >
-		    <Form.Field required>
+		    <Form.Field>
 		      <Form.Input 
 		      	onChange={this.handlePagePathChange} 
 		      	label="Page Path" 
-		      	placeholder='e.g. /product/sweet-hoodie.html' 
+		      	placeholder='e.g. /product/sweet-punk-band-hoodie.html' 
 		      	required
 	      	/>
 		    </Form.Field>
-		    <Button type='submit'>Submit</Button>
+		    <Button type='submit' disabled={this.state.pathFails} >Submit</Button>
 		  </Form>
 		)
-	}
-}
-
-function mapStateToProps(state) {
-	return {
-		user: state.user
-	}
+	} 
 }
 
 function mapDispatchToProps(dispatch) {
@@ -59,4 +76,4 @@ function mapDispatchToProps(dispatch) {
 	}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddPageForm);
+export default connect(null, mapDispatchToProps)(AddPageForm);
