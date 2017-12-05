@@ -1,17 +1,42 @@
 export default function rootReducer(
-	state = {user: {}, sites: [], pages: [], insights: [], comments: []}, 
+	state = {loggedIn: false, user: {}, sites: [], pages: [], insights: [], comments: []}, 
 	action
 ) {
 	switch(action.type) {
-		case 'USER_LOG_IN':
-			let { name, password_digest, email, id, sites, pages, comments } = action.payload
-			const newState = Object.assign({}, state, {
-				user: {name, password_digest, email, id}, 
+		case 'LOGIN_USER': {
+			localStorage.setItem("jwt", action.payload["jwt"])
+			let newState = Object.assign(
+				{}, state, { loggedIn: true }
+			)
+			return newState
+		}
+		case 'SIGN_UP_USER': {
+			let { username, password_digest, email, id, sites, pages, comments } = action.payload
+			const signUpState = Object.assign({}, state, {
+				user: {username, password_digest, email, id}, 
 				sites: [...sites], 
 				pages: [...pages], 
 				comments: [...comments],
 			})
-			return newState
+			return signUpState
+		}
+		case 'SET_CURRENT_USER': {
+			let { username, password_digest, email, id, sites, pages, comments } = action.payload
+			const currUserState = Object.assign({}, state, {
+				loggedIn: true,
+				user: {username, password_digest, email, id}, 
+				sites: [...sites], 
+				pages: [...pages], 
+				comments: [...comments],
+			})
+			console.log("SET CURRENT USER", currUserState)
+			return currUserState
+		}
+		case 'LOG_OUT':
+			localStorage.clear("jwt")
+			return Object.assign(
+				{}, state, { loggedIn: false }
+			)
 		case 'ADD_SITE':
 			return Object.assign(
 				{}, state, {sites: state.sites.concat(action.payload)}

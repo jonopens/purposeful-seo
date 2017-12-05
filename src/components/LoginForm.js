@@ -1,21 +1,18 @@
 import React from 'react'
 import { Form, Button } from 'semantic-ui-react'
-import { connect } from 'react-redux' 
+import { connect } from 'react-redux'
+import { loginUser } from '../actions/userActions.js'
 
-export default class LoginForm extends React.Component {
-	constructor() {
-		super()
-
-		this.state = {
+class LoginForm extends React.Component {
+	state = {
 			email: '',
-			pass: ''
+			password: ''
 		}
-	}
 
 	handleSubmit = (e) => {
 		e.preventDefault()
+		this.props.loginUser({auth: this.state})
 		this.props.handleClose();
-
 	}
 
 	handleEmailChange = (e) => {
@@ -26,23 +23,52 @@ export default class LoginForm extends React.Component {
 
 	handlePassChange = (e) => {
 		this.setState({
-			pass: e.target.value
+			password: e.target.value
 		})
 	}
 
 
 	render() {
+		console.log(this.state)
 		return(
-			  <Form error warning width={6}>
+			  <Form error warning width={6} onSubmit={this.handleSubmit}>
 			    <Form.Field>
-			      <label>Email</label>
-			      <input placeholder='Email' />
+			      <Form.Input 
+			      	onChange={this.handleEmailChange} 
+			      	label="Email" 
+			      	placeholder='yourname@example.com' 
+			      	required
+		      	/>
 			    </Form.Field>
 			    <Form.Field>
-			      <input type="password" placeholder='Password' />
+			      <Form.Input
+			      	type="password" 
+			      	onChange={this.handlePassChange} 
+			      	label="Password" 
+			      	placeholder='remember, must be 8 characters long!' 
+			      	required
+		      	/>
 			    </Form.Field>
 			    <Button type='submit'>Submit</Button>
 			  </Form>
 		)
 	}
 }
+
+function mapStateToProps(state) {
+	return {
+		user: state.user,
+		sites: state.sites,
+		pages: state.pages
+	}
+}
+
+function mapDispatchToProps(dispatch) {
+	return {
+		loginUser: (userParams) => {
+			dispatch(loginUser(userParams))
+		}
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginForm)

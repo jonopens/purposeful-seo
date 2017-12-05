@@ -1,19 +1,15 @@
 import React from 'react'
 import { Form, Button } from 'semantic-ui-react'
 import { connect } from 'react-redux' 
-import { createSite } from '../actions/siteActions.js'
+import { signUpUser } from '../actions/userActions.js'
 
 class SignupForm extends React.Component {
-	constructor() {
-		super()
-
-		this.state = {
-			username: '',
-			email: '',
-			password: '',
-			password_confirmation: '',
-			pass_too_short: true
-		}
+	state = {
+		username: '',
+		email: '',
+		password: '',
+		password_confirmation: '',
+		pass_too_short: true
 	}
 
 	handleSubmit = (e) => {
@@ -77,7 +73,7 @@ class SignupForm extends React.Component {
 		      <Form.Input 
 		      	onChange={this.handleEmailChange} 
 		      	label="Email" 
-		      	placeholder='e.g. you@example.com' 
+		      	placeholder='yourname@example.com' 
 		      	required
 	      	/>
 		    </Form.Field>
@@ -86,7 +82,7 @@ class SignupForm extends React.Component {
 		      	type="password" 
 		      	onChange={this.handlePassChange} 
 		      	label="Password" 
-		      	placeholder='e.g. www.example.com' 
+		      	placeholder='Must be at least 8 characters long' 
 		      	required
 	      	/>
 		    </Form.Field>
@@ -95,7 +91,7 @@ class SignupForm extends React.Component {
 		      	type="password"
 		      	onChange={this.handlePassConfChange} 
 		      	label="Confirm Password" 
-		      	placeholder='e.g. www.example.com' 
+		      	placeholder='Must match password field' 
 		      	required
 	      	/>
 		    </Form.Field>
@@ -111,14 +107,16 @@ class SignupForm extends React.Component {
 
 function mapStateToProps(state) {
 	return {
-		user: state.user
+		user: state.user,
+		sites: state.sites,
+		pages: state.pages
 	}
 }
 
 function mapDispatchToProps(dispatch) {
 	return {
-		createSite: (site) => {
-			dispatch(createSite(site))
+		signUpUser: (user) => {
+			dispatch(signUpUser(user))
 		},
 	}
 }

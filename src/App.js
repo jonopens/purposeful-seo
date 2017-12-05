@@ -12,21 +12,19 @@ import SitesContainer from './containers/SitesContainer.js'
 import PagesContainer from './containers/PagesContainer.js'
 import PageItemContainer from './containers/PageItemContainer.js'
 import { Route, withRouter, Switch, Redirect } from 'react-router-dom'
-import { getAUser } from './actions/userActions.js'
+import { getCurrentUser } from './actions/userActions.js'
 import { connect } from 'react-redux'
 
 class App extends Component {
 
-  // componentDidMount() {
-  //   const userObj = {
-  //     email: "jon@jon.com",
-  //     password: "woohoo"
-  //   }
-  //   this.props.getAUser(userObj)
-  // }
-
   isLoggedIn = () => {
     return !!localStorage.getItem("jwt")
+  }
+
+  componentDidMount() {
+    if(this.isLoggedIn()) {
+      this.props.getCurrentUser(localStorage.getItem("jwt"))
+    }
   }
 
   render() {
@@ -63,6 +61,7 @@ class App extends Component {
 
 function mapStateToProps(state) {
   return {
+    loggedIn: state.loggedIn,
     user: state.user,
     sites: state.sites,
     pages: state.pages
@@ -71,8 +70,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    getAUser: (userParams) => {
-      dispatch(getAUser(userParams))
+    getCurrentUser: (jwt) => {
+      dispatch(getCurrentUser(jwt))
     }
   }
 }
