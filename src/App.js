@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import NavBar from './components/NavBar.js'
+import LoggedInNavBar from './components/LoggedInNavBar.js'
+import LoggedOutNavBar from './components/LoggedOutNavBar.js'
 import Footer from './components/Footer.js'
 import Home from './containers/Home.js'
+import AboutPage from './containers/AboutPage.js'
 import DashboardContainer from './containers/DashboardContainer.js'
 import InsightsContainer from './containers/InsightsContainer.js'
 import SitesContainer from './containers/SitesContainer.js'
@@ -15,30 +17,47 @@ import { connect } from 'react-redux'
 
 class App extends Component {
 
-  componentDidMount() {
-    const userObj = {
-      email: "jon@jon.com",
-      password: "woohoo"
-    }
-    this.props.getAUser(userObj)
+  // componentDidMount() {
+  //   const userObj = {
+  //     email: "jon@jon.com",
+  //     password: "woohoo"
+  //   }
+  //   this.props.getAUser(userObj)
+  // }
+
+  isLoggedIn = () => {
+    return !!localStorage.getItem("jwt")
   }
 
   render() {
-    return (
-      <div className="App">
-        <NavBar />
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/dashboard" component={DashboardContainer} />
-          <Route exact path="/sites" component={SitesContainer} />
-          <Route exact path="/insights" component={InsightsContainer} />
-          <Route path="/sites/:id/pages/:pageId" render={() => (<PageItemContainer />)}/>
-          <Route path="/sites/:id/pages" render={() => (<PagesContainer />)}/>
-          <Redirect to="/dashboard" />
-        </Switch>
-        <Footer />
-      </div>
-    );
+    if(this.isLoggedIn()) {
+      return (
+        <div className="App">
+          <LoggedInNavBar />
+          <Switch>
+            <Route exact path="/dashboard" component={DashboardContainer} />
+            <Route exact path="/sites" component={SitesContainer} />
+            <Route exact path="/insights" component={InsightsContainer} />
+            <Route path="/sites/:id/pages/:pageId" render={() => (<PageItemContainer />)}/>
+            <Route path="/sites/:id/pages" render={() => (<PagesContainer />)}/>
+            <Redirect to="/dashboard" />
+          </Switch>
+          <Footer />
+        </div>
+      );
+    } else {
+      return (
+        <div className="App">
+          <LoggedOutNavBar />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/about" component={AboutPage} />
+            <Redirect to="/" />
+          </Switch>
+          <Footer />
+        </div>
+      );
+    }
   }
 }
 

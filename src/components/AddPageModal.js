@@ -5,7 +5,6 @@ import AddPageForm from './AddPageForm.js'
 class AddPageModal extends React.Component {
 
 	render() {
-		console.log(this.props)
 		return(
 		<Modal 
 			trigger={

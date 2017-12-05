@@ -45,7 +45,7 @@ class Page extends React.Component {
               <Icon inverted name="pencil" size="large" />Edit Page
             </Button>
             <Button onClick={this.handleDeleteClick} color="red">
-              <Icon inverted name="remove" size="large" />Delete
+              <Icon inverted name="remove" size="large" />Delete Page
             </Button>
           </Table.Cell>
         </Table.Row>
@@ -67,7 +67,7 @@ class Page extends React.Component {
               <Icon inverted name="pencil" size="large" />Edit Page
             </Button>
             <Button onClick={this.handleCrawlClick} color="blue">
-              <Icon inverted name="hourglass start" size="large" />Start Crawl
+              <Icon inverted name="bug" size="large" />Begin Crawl
             </Button>
           </Table.Cell>
         </Table.Row>

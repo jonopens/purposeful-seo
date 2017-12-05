@@ -1,32 +1,67 @@
 import React from 'react'
-import { Grid, Image, Segment } from 'semantic-ui-react'
+import { Segment } from 'semantic-ui-react'
 import { connect } from 'react-redux'
-import LoginForm from '../components/LoginForm.js'
 import HeadingBlock from '../components/HeadingBlock.js'
-import placeholder from '../assets/paragraph.png'
+import HomeValueProp from '../components/HomeValueProp.js'
+import HomeGridBreak from '../components/HomeGridBreak.js'
 
 class Home extends React.Component {
 
+	constructor(){
+		super()
+
+		this.state = {
+			loginModalOpen: false,
+			signupModalOpen: false
+		}
+	}
+
+	handleLoginModalOpen = () => {
+		this.setState({
+			loginModalOpen: true
+		})
+	}
+
+	handleLoginModalClose = () => {
+		this.setState({
+			loginModalOpen: false
+		})
+	}
+
+	handleSignupModalOpen = () => {
+		this.setState({
+			signupModalOpen: true
+		})
+	}
+
+	handleSignupModalClose = () => {
+		this.setState({
+			signupModalOpen: false
+		})
+	}
+
 	render() {
+    // restructure props as object for ease of further passing
+    const userModalProps = {
+      login: {
+        loginModalOpen: this.state.loginModalOpen,
+        handleLoginModalOpen: this.handleLoginModalOpen,
+        handleLoginModalClose: this.handleLoginModalClose
+      },
+      signup: {
+        signupModalOpen: this.state.signupModalOpen,
+        handleSignupModalOpen: this.handleSignupModalOpen,
+        handleSignupModalClose: this.handleSignupModalClose
+      } 
+    }
+
 		return(
 			<Segment style={{padding: 0}}>
-				<HeadingBlock />
-			  <Grid padded relaxed>
-			    <Grid.Row centered >
-			      <Grid.Column width={8}>
-			        <LoginForm />
-			      </Grid.Column>
-			    </Grid.Row>
-
-			    <Grid.Row>
-			      <Grid.Column width={8}>
-			        <Image src={placeholder} alt="placeholder paragraph" />
-			      </Grid.Column>
-			      <Grid.Column width={8}>
-			        <Image src={placeholder} alt="placeholder paragraph" />
-			      </Grid.Column>
-			    </Grid.Row>
-			  </Grid>
+				<HeadingBlock 
+          modalProps={userModalProps}
+        />
+			  <HomeValueProp />
+        <HomeGridBreak />
 		  </Segment>
 		)
 	}

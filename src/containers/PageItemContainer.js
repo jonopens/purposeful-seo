@@ -8,6 +8,7 @@ class PageItemContainer extends React.Component {
 
 
 	render() {
+
 		if(this.props.thisPage) {
 			return(
 			  <Grid padded relaxed style={{ marginTop: '7em' }}>
@@ -38,9 +39,9 @@ class PageItemContainer extends React.Component {
 
 function mapStateToProps(state) {
 	const currPageId = +window.location.pathname.split("/")[4]
-	console.log(currPageId, state)
+	const currPage = state.pages.find(page => currPageId === page.id)
 	return {
-		thisPage: state.pages.find(page => currPageId === page.id),
+		thisPage: currPage
 	}
 }
 

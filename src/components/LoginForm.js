@@ -1,5 +1,6 @@
 import React from 'react'
 import { Form, Button } from 'semantic-ui-react'
+import { connect } from 'react-redux' 
 
 export default class LoginForm extends React.Component {
 	constructor() {
@@ -13,7 +14,7 @@ export default class LoginForm extends React.Component {
 
 	handleSubmit = (e) => {
 		e.preventDefault()
-		console.log('at least this part works', this.state.email, this.state.pass)
+		this.props.handleClose();
 
 	}
 

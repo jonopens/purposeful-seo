@@ -26,7 +26,7 @@ class Site extends React.Component {
         </Table.Cell>
         <Table.Cell collapsing textAlign='right'>
           <Button onClick={this.handleDeleteClick} color="red">
-            <Icon inverted name="remove" size="large"/>Delete
+            <Icon inverted name="remove" size="large"/>Delete Site
           </Button>
         </Table.Cell>
       </Table.Row>
