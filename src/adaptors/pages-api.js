@@ -1,28 +1,37 @@
 export default class PagesApi {
 
+  static jwt() {
+    return localStorage.getItem("jwt")
+  }
+
 	static addPage(params) {
-		return fetch("http://localhost:3000/api/v1/pages", {
+		return fetch("http://localhost:5000/pages", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Accept": "application/json"
+        "Accept": "application/json",
+        "Authorization": `Bearer ${this.jwt()}`
       },
       body: JSON.stringify(params)
 		}).then(res => res.json());
 	}
 
   static removePage(id) {
-    return fetch(`http://localhost:3000/api/v1/pages/${id}`, {
-      method: "DELETE"
+    return fetch(`http://localhost:5000/pages/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Authorization": `Bearer ${this.jwt()}`
+      }
     }).then(res => res.json());
   }
 
   static updatePage(params) {
-    return fetch("http://localhost:3000/api/v1/pages", {
+    return fetch("http://localhost:5000/pages", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
-        "Accept": "application/json"
+        "Accept": "application/json",
+        "Authorization": `Bearer ${this.jwt()}`
       },
       body: JSON.stringify(params)
     }).then(res => res.json());

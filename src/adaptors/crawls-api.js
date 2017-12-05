@@ -1,10 +1,16 @@
 export default class CrawlsApi {
+
+  static jwt() {
+    return localStorage.getItem("jwt")
+  }
+
   static createCrawl(params) {
-    return fetch("http://localhost:3000/api/v1/crawls", {
+    return fetch("http://localhost:5000/crawls", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Accept": "application/json"
+        "Accept": "application/json",
+        "Authorization": `Bearer ${this.jwt()}`
       },
       body: JSON.stringify({
       	page_id: params
