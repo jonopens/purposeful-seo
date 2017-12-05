@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Menu } from 'semantic-ui-react'
+import { connect } from 'react-redux'
+import { logOutUser } from '../actions/userActions.js'
 
 class NavBar extends React.Component {
 	constructor(){
@@ -47,7 +49,7 @@ class NavBar extends React.Component {
           <Menu.Item 
         		name='logout' 
         		active={activeItem === 'logout'} 
-        		onClick={this.handleItemClick} 
+        		onClick={this.props.logOutUser} 
       		/>
         </Menu.Menu>
       </Menu>
@@ -55,4 +57,12 @@ class NavBar extends React.Component {
 	}
 }
 
-export default NavBar
+function mapDispatchToProps(dispatch) {
+  return {
+    logOutUser: () => {
+      dispatch(logOutUser())
+    }
+  }
+}
+
+export default connect(null, mapDispatchToProps)(NavBar);

@@ -10,6 +10,7 @@ export function getCurrentUser(token) {
 }
 
 export function currentUser(user) {
+	console.log("current user action creator", user)
 	return {
 		type: 'SET_CURRENT_USER',
 		payload: user

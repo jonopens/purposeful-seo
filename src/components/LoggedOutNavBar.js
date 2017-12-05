@@ -3,12 +3,8 @@ import { Link } from 'react-router-dom'
 import { Menu } from 'semantic-ui-react'
 
 class NavBar extends React.Component {
-	constructor(){
-		super()
-
-		this.state = {
-			activeItem: ''
-		}
+	state = {
+		activeItem: ''
 	}
 
 	handleItemClick = (e, { name }) => {

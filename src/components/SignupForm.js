@@ -13,8 +13,9 @@ class SignupForm extends React.Component {
 	}
 
 	handleSubmit = (e) => {
+		console.log(this.state)
 		e.preventDefault();
-		// this.props.{'PUT A FETCH FUNCTION HERE!!!! THUNKKKKK'};
+		this.props.signUpUser(this.state)
 		this.props.handleClose();
 
 	}
@@ -59,11 +60,16 @@ class SignupForm extends React.Component {
 
 	render() {
 		return(
-			<Form onSubmit={this.handleSubmit} error warning width={6} >
+			<Form onSubmit={this.handleSubmit} 
+				error
+				warning 
+				success 
+				width={6} 
+			>
 		    <Form.Field>
 		    	<Form.Input 
 		      	onChange={this.handleUsernameChange}
-		      	name="username" 
+		      	name="user[username]" 
 		      	label="Username" 
 		      	placeholder='Should be at least 6 characters long' 
 		      	required
@@ -72,6 +78,7 @@ class SignupForm extends React.Component {
 		    <Form.Field>
 		      <Form.Input 
 		      	onChange={this.handleEmailChange} 
+		      	name="user[email]"
 		      	label="Email" 
 		      	placeholder='yourname@example.com' 
 		      	required
@@ -79,7 +86,8 @@ class SignupForm extends React.Component {
 		    </Form.Field>
 		    <Form.Field>
 		      <Form.Input
-		      	type="password" 
+		      	type="password"
+		      	name="user[password]" 
 		      	onChange={this.handlePassChange} 
 		      	label="Password" 
 		      	placeholder='Must be at least 8 characters long' 
@@ -89,6 +97,7 @@ class SignupForm extends React.Component {
 		    <Form.Field>
 		      <Form.Input
 		      	type="password"
+		      	name="user[password_confirmation]"
 		      	onChange={this.handlePassConfChange} 
 		      	label="Confirm Password" 
 		      	placeholder='Must match password field' 

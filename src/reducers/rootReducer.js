@@ -11,8 +11,10 @@ export default function rootReducer(
 			return newState
 		}
 		case 'SIGN_UP_USER': {
-			let { username, password_digest, email, id, sites, pages, comments } = action.payload
+			localStorage.setItem("jwt", action.payload["jwt"])
+			let { username, password_digest, email, id, sites, pages, comments } = action.payload.user
 			const signUpState = Object.assign({}, state, {
+				loggedIn: true,
 				user: {username, password_digest, email, id}, 
 				sites: [...sites], 
 				pages: [...pages], 
@@ -29,13 +31,12 @@ export default function rootReducer(
 				pages: [...pages], 
 				comments: [...comments],
 			})
-			console.log("SET CURRENT USER", currUserState)
 			return currUserState
 		}
 		case 'LOG_OUT':
 			localStorage.clear("jwt")
 			return Object.assign(
-				{}, state, { loggedIn: false }
+				{}, { loggedIn: false }
 			)
 		case 'ADD_SITE':
 			return Object.assign(
