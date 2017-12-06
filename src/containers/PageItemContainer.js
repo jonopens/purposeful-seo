@@ -36,7 +36,7 @@ class PageItemContainer extends React.Component {
 				<Segment>
 				  <Grid padded relaxed style={{ marginTop: '7em' }}>
 				  	<Divider hidden />
-				  	<Header as="h1">
+				  	<Header as="h1" style={{marginTop: '2em'}}>
 				  		<Icon name="file text outline" />
 				  		{thisPage.title}
 				  	</Header>

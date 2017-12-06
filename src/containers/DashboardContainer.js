@@ -1,7 +1,7 @@
 import React from 'react'
 import SiteListDash from '../components/SiteListDash.js'
 import PageLoader from '../components/PageLoader.js'
-import { Grid, Image, Header, Divider, Icon, Container } from 'semantic-ui-react'
+import { Grid, Image, Header, Divider, Icon, Container, Segment, Statistic } from 'semantic-ui-react'
 import placeholder from '../assets/paragraph.png'
 import { connect } from 'react-redux'
 import { getCurrentUser } from '../actions/userActions.js'
@@ -17,27 +17,30 @@ class DashboardContainer extends React.Component {
 	render(){
 		if(!!this.props.loggedIn) {
 			return(
+				<Segment>
+				  <Grid padded relaxed style={{ marginTop: '7em' }}>
+				  	<Divider hidden />
+				  	<Header as="h1" style={{marginTop: '2em'}}>
+				  		<Icon name="dashboard" />
+				  			{!!this.props.user ? `${this.props.user.username}'s Dashboard` : "Loading"}
+				  	</Header>
+				    <Grid.Row>
+				      <SiteListDash sites={this.props.sites}/>
+				      <Grid.Column width={8}>
+				        <Statistic size="huge">
+				        	<Statistic.Value>{this.props.pages.length}</Statistic.Value>
+				        	<Statistic.Label>Pages in Your Account</Statistic.Label>
+				        </Statistic>
+				      </Grid.Column>
+				    </Grid.Row>
 
-			  <Grid padded relaxed style={{ marginTop: '7em' }}>
-			  	<Divider hidden />
-			  	<Header as="h1">
-			  		<Icon name="dashboard" />
-			  			{!!this.props.user.username ? `${this.props.user.username}'s Dashboard` : "Loading"}
-			  	</Header>
-			    <Grid.Row>
-			      <SiteListDash sites={this.props.sites}/>
-			      <Grid.Column width={8}>
-			        <Image src={placeholder} alt="placeholder paragraph" />
-			      </Grid.Column>
-			    </Grid.Row>
-
-			    <Grid.Row>
-			      <Grid.Column width={16}>
-			        <Image src={placeholder} alt="placeholder paragraph" />
-			      </Grid.Column>
-			    </Grid.Row>
-			  </Grid>
-
+				    <Grid.Row>
+				      <Grid.Column width={16}>
+				        <Image src={placeholder} alt="placeholder paragraph" />
+				      </Grid.Column>
+				    </Grid.Row>
+				  </Grid>
+			  </Segment>
 			)
 		} else {
 			return(

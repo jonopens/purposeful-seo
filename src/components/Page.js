@@ -7,9 +7,12 @@ import { createAndStartCrawl } from '../actions/crawlActions.js'
 
 class Page extends React.Component {
   
-  handleEditClick = () => {
-    console.log("hello, I'm trying to handle an edit click over here, ya jabroni")
-  }  
+  // handleEditClick = () => {
+  //   console.log("hello, I'm trying to handle an edit click over here, ya jabroni")
+            // <Button onClick={this.handleEditClick} color="green">
+            //   <Icon inverted name="pencil" size="large" />Edit Page
+            // </Button>
+  // }  
 
   handleDeleteClick = () => {
     if(window.confirm("Are you sure you want to delete this page?")){
@@ -44,9 +47,7 @@ class Page extends React.Component {
             {this.props.word_count}
           </Table.Cell>
           <Table.Cell collapsing textAlign='right'>
-            <Button onClick={this.handleEditClick} color="green">
-              <Icon inverted name="pencil" size="large" />Edit Page
-            </Button>
+
             <Button onClick={this.handleDeleteClick} color="red">
               <Icon inverted name="remove" size="large" />Delete Page
             </Button>
@@ -65,10 +66,10 @@ class Page extends React.Component {
           <Table.Cell collapsing negative style={{ fontSize: '18px' }}>
             Page has not been crawled. Start crawl? =>
           </Table.Cell>
+          <Table.Cell collapsing negative style={{ fontSize: '18px' }}>
+            0
+          </Table.Cell>
           <Table.Cell collapsing negative textAlign='right'>
-            <Button onClick={this.handleEditClick} color="green">
-              <Icon inverted name="pencil" size="large" />Edit Page
-            </Button>
             <Button onClick={this.handleCrawlClick} color="blue">
               <Icon inverted name="bug" size="large" />Begin Crawl
             </Button>

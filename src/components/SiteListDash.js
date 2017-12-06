@@ -4,7 +4,7 @@ import { Grid, Table } from 'semantic-ui-react'
 
 const SiteListDash = (props) => {
 
-	const sites = props.sites.slice(0,5).map((site, idx) => {
+	const sites = props.sites.map((site, idx) => {
 		return(
 			<Table.Row key={idx}>
 				<Table.Cell collapsing>
@@ -23,7 +23,7 @@ const SiteListDash = (props) => {
 				</Table.Row> 
 			</Table.Header>
 			<Table.Body>
-				{!!sites ? sites : null}
+				{!!sites ? sites : <Table.Row><Table.Cell>Add Sites to see them on your dashboard.</Table.Cell></Table.Row>}
 			</Table.Body>
   	</Table>
 	</Grid.Column>
