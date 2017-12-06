@@ -1,55 +1,49 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import Compromise from 'compromise'
-import { Grid, Divider, Header, Icon, Container } from 'semantic-ui-react'
+import { Segment, Grid, Divider, Header, Icon, Container, Tab } from 'semantic-ui-react'
 import PageLoader from '../components/PageLoader.js'
-import NgramItemGrid from '../components/NgramItemGrid.js'
+import TabNgramItemGrid from '../components/TabNgramItemGrid.js'
+import TabSEODataTable from '../components/TabSEODataTable.js'
+import TabPageItemBody from '../components/TabPageItemBody.js'
 
 import { filterUnigrams, getBigrams } from '../utilities/ngrams.js'
 
 class PageItemContainer extends React.Component {
 
-	// getUnigrams = () => {
-	// 	let stopwords = stopWords()
-	// 	let unigrams = Compromise(this.props.thisPage.body_text).normalize().ngrams().unigrams().data()
-	// 	return unigrams.filter(
-	// 		gram => (stopwords.every(
-	// 			word => {
-	// 				return !(gram.normal === word)
-	// 			})
-	// 		)
-	// 	)
-	// }
-
 	render() {
 
 		if(!!this.props.thisPage) {
-			console.log(this.props.thisPage)
+			const	panes = [
+			  { menuItem: 'Essential SEO Data', render: () => 
+			  	<TabSEODataTable 
+			  		pageData={ this.props.thisPage } 
+			  		siteData={ this.props.parentSite } 
+		  		/> 
+		  	},
+			  { menuItem: 'Term Usage Frequency in Document', render: () => 			  	
+			  	<TabNgramItemGrid 
+						unigrams={ filterUnigrams(this.props.thisPage.body_text).slice(0,12) } 
+						bigrams={ getBigrams(this.props.thisPage.body_text).slice(0,12) } 
+					/> 
+				},
+			  { menuItem: 'Captured Page Text', render: () => 
+			  	<TabPageItemBody bodyText={this.props.thisPage.body_text} /> 
+			  },
+			]
 			const { thisPage } = this.props
+
 			return(
-			  <Grid padded relaxed style={{ marginTop: '7em' }}>
-			  	<Divider hidden />
-			  	<Header as="h1">
-			  		<Icon name="file text outline" />
-			  		{thisPage.title}
-			  	</Header>
-			  	<Grid.Row>
-			  		<Grid.Column>
-			  			<Header as="h2" content="Frequently Used Terms" />
-			  		</Grid.Column>
-			  	</Grid.Row>
-			  	<NgramItemGrid 
-			  		unigrams={ filterUnigrams(thisPage.body_text).slice(0,12) } 
-			  		bigrams={ getBigrams(thisPage.body_text).slice(0,12) } 
-		  		/>
-			  	<Grid.Row>
-		      	<Grid.Column>
-			  			<Container>
-			  				<p>{thisPage.body_text}</p>
-			  			</Container>
-			  		</Grid.Column>
-			    </Grid.Row>
-			  </Grid>
+				<Segment>
+				  <Grid padded relaxed style={{ marginTop: '7em' }}>
+				  	<Divider hidden />
+				  	<Header as="h1">
+				  		<Icon name="file text outline" />
+				  		{thisPage.title}
+				  	</Header>
+			  	</Grid>
+			  	<Tab style={{ marginTop: '2em' }} menu={{ pointing: true }} panes={panes} />
+				  
+			  </Segment>
 			)
 		} else {
 			return(
@@ -64,9 +58,13 @@ class PageItemContainer extends React.Component {
 function mapStateToProps(state) {
 	const currPageId = +window.location.pathname.split("/")[4]
 	const currPage = state.pages.find(page => currPageId === page.id)
+	const parentSiteId = +window.location.pathname.split("/")[2]
+	const currSite = state.sites.find(site => parentSiteId === site.id)
+
 	return {
 		loggedIn: state.loggedIn,
-		thisPage: currPage
+		thisPage: currPage,
+		parentSite:  currSite
 	}
 }
 

@@ -4,32 +4,30 @@ import { connect } from 'react-redux'
 import HeadingBlock from '../components/HeadingBlock.js'
 import HomeValueProp from '../components/HomeValueProp.js'
 import HomeGridBreak from '../components/HomeGridBreak.js'
-import StatusModal from '../components/StatusModal.js'
 import { resetLastMessage } from '../actions/commonActions.js'
 
 class Home extends React.Component {
 	state = {
 		loginModalOpen: false,
-		signupModalOpen: false,
-		statusModalOpen: false,
-		signedUp: ''
+		signupModalOpen: false
+		// statusModalOpen: false,
 	}
 
-	statusModalTimer = () => {
-		if(!!this.props.lastMessage.msg) {
-			this.setState({
-				statusModalOpen: true
-			})
-			this.setTimeout(this.handleStatusModalClose, 3000)
-		}
-	}
+	// statusModalTimer = () => {
+	// 	if(!!this.props.lastMessage.msg) {
+	// 		this.setState({
+	// 			statusModalOpen: true
+	// 		})
+	// 		this.setTimeout(this.handleStatusModalClose, 3000)
+	// 	}
+	// }
 
-	handleStatusModalClose = () => {
-		this.setState({
-			statusModalOpen: false
-		})
-		this.props.resetLastMessage()
-	}
+	// handleStatusModalClose = () => {
+	// 	this.setState({
+	// 		statusModalOpen: false
+	// 	})
+	// 	this.props.resetLastMessage()
+	// }
 
 	handleLoginModalOpen = () => {
 		this.setState({
@@ -50,7 +48,7 @@ class Home extends React.Component {
 	}
 
 	handleSignupModalClose = () => {
-		this.statusModalTimer()
+		// this.statusModalTimer()
 		this.setState({
 			signupModalOpen: false
 		})
@@ -58,6 +56,8 @@ class Home extends React.Component {
 	}
 
 	render() {
+		console.log(this.props)
+
     const userModalProps = {
       login: {
         loginModalOpen: this.state.loginModalOpen,
@@ -72,11 +72,7 @@ class Home extends React.Component {
     }
 
 		return(
-			<Segment style={{padding: 0}}>
-				<StatusModal 
-					statusModalOpen={this.state.statusModalOpen}
-					{...this.props.lastMessage} 
-				/>
+			<Segment style={{padding: 0, border: 0}}>
 				<HeadingBlock 
           modalProps={userModalProps}
         />

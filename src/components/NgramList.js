@@ -14,7 +14,7 @@ const NgramList = (props) => {
 	) 
 
 	return(
-		<Grid.Column width={6} textAlign="left">
+		<Grid.Column width={6} style={{textAlign: 'left'}}>
 			<Header as="h3" content={props.text} />
 			<ul>
 				{ ngramListItems }

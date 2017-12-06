@@ -16,7 +16,7 @@ const HeadingBlock = (props) => {
 				/>
 				<Header 
 					as="h2" 
-					content="We'll want a special header just for homepage here"
+					content="Discover powerful SEO data and track progress."
 					inverted
 				/>
 				<Divider hidden />
