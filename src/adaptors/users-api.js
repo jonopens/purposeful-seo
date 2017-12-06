@@ -1,13 +1,14 @@
 export default class UsersApi {
 
   static signUpUser(newUser) {
+    const userObj = { user: newUser }
     return fetch("http://localhost:5000/users/create", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         "Accept": "application/json"
       },
-      body: JSON.stringify(newUser)
+      body: JSON.stringify(userObj)
     }).then(res => res.json());
   }
 

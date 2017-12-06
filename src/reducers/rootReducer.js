@@ -1,32 +1,36 @@
 export default function rootReducer(
-	state = {loggedIn: false, user: {}, sites: [], pages: [], insights: [], comments: []}, 
+	state = {loggedIn: false, loading: false, lastMessage: {}, user: {}, sites: [], pages: [], insights: [], comments: []}, 
 	action
 ) {
 	switch(action.type) {
+		case 'LOADED_DATA':
+			return Object.assign(
+				{}, state, { loading: false}
+			)
+
 		case 'LOGIN_USER': {
 			localStorage.setItem("jwt", action.payload["jwt"])
-			let newState = Object.assign(
+			return Object.assign(
 				{}, state, { loggedIn: true }
 			)
-			return newState
 		}
 		case 'SIGN_UP_USER': {
-			localStorage.setItem("jwt", action.payload["jwt"])
-			let { username, password_digest, email, id, sites, pages, comments } = action.payload.user
-			const signUpState = Object.assign({}, state, {
-				loggedIn: true,
-				user: {username, password_digest, email, id}, 
-				sites: [...sites], 
-				pages: [...pages], 
-				comments: [...comments],
-			})
-			return signUpState
+			return Object.assign(
+				{}, state, { 
+					lastMessage: { 
+						msg: action.payload.msg, 
+						status: action.payload.status,
+						isPositive: (action.payload.status === 200 ? true : false) 
+					} 
+				}
+			)
 		}
 		case 'SET_CURRENT_USER': {
 			let { username, password_digest, email, id, sites, pages, comments } = action.payload
 			const currUserState = Object.assign({}, state, {
 				loggedIn: true,
-				user: {username, password_digest, email, id}, 
+				loading: true,
+				user: { username, password_digest, email, id }, 
 				sites: [...sites], 
 				pages: [...pages], 
 				comments: [...comments],
@@ -68,6 +72,10 @@ export default function rootReducer(
 						return page
 					})
 				} 
+			)
+		case 'RESET_MESSAGE':
+			return Object.assign(
+				{}, state, { lastMessage: {} }
 			)
 		default:
 			return state;

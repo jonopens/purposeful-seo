@@ -2,19 +2,19 @@ import React from 'react'
 import { Table, Grid } from 'semantic-ui-react'
 import Site from './Site.js'
 import PageLoader from './PageLoader.js'
+import EmptySiteTable from './EmptySiteTable.js'
 
 const SiteTable = (props) => {
+		
+	const sites = props.sites.map((site, idx) => {
+		let sitePages = props.pages.filter(page => page.site_id === site.id)
+		return <Site key={idx} {...site} pages={sitePages} />
+	})
 
-	if(props.sites.length > 0) {
-
-		const sites = props.sites.map((site, idx) => {
-			let sitePages = props.pages.filter(page => page.site_id === site.id)
-			return <Site key={idx} {...site} pages={sitePages} />
-		})
-
-		return(
-			<Grid.Column>
-				<Table celled>
+	return(
+		<Grid.Column>
+		{sites.length > 0 
+			? (<Table celled>
 		    	<Table.Header> 
 		      	<Table.Row>
 		  				<Table.HeaderCell>Domain Name</Table.HeaderCell>
@@ -24,18 +24,14 @@ const SiteTable = (props) => {
 						</Table.Row>
 					</Table.Header>
 			    <Table.Body>
-			  		{sites}
-			    </Table.Body>
+			    	{sites ? sites : <PageLoader />}
+	 				</Table.Body>
 		    </Table>
-	    </Grid.Column>
-		)
-	} else {
-		return(
-			<Grid.Column>
-				<PageLoader />
-			</Grid.Column>
-		)
-	}
+		    ) 
+  		: (<EmptySiteTable />)
+  	}
+		</Grid.Column>  
+	)
 }
 
 export default SiteTable

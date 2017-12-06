@@ -62,6 +62,7 @@ class App extends Component {
 function mapStateToProps(state) {
   return {
     loggedIn: state.loggedIn,
+    lastMessage: state.lastMessage,
     user: state.user,
     sites: state.sites,
     pages: state.pages

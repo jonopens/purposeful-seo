@@ -55,7 +55,9 @@ function mapStateToProps(state) {
 	return {
 		user: state.user,
 		sites: state.sites,
-		pages: state.pages
+		pages: state.pages,
+		loggedIn: state.loggedIn,
+		loading: state.loading
 	}
 }
 

@@ -20,7 +20,8 @@ class DashboardContainer extends React.Component {
 		  <Grid padded relaxed style={{ marginTop: '7em' }}>
 		  	<Divider hidden />
 		  	<Header as="h1">
-		  		<Icon name="dashboard" />{this.props.user.username}'s Dashboard
+		  		<Icon name="dashboard" />
+		  			{!!this.props.user.username ? `${this.props.user.username}'s Dashboard` : "Loading"}
 		  	</Header>
 		    <Grid.Row>
 		      <SiteListDash sites={this.props.sites}/>
@@ -44,7 +45,8 @@ function mapStateToProps(state) {
   return {
   	loggedIn: state.loggedIn,
     user: state.user,
-    sites: state.sites
+    sites: state.sites,
+    pages: state.pages
   }
 }
 

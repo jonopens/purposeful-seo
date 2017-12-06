@@ -4,16 +4,31 @@ import { connect } from 'react-redux'
 import HeadingBlock from '../components/HeadingBlock.js'
 import HomeValueProp from '../components/HomeValueProp.js'
 import HomeGridBreak from '../components/HomeGridBreak.js'
+import StatusModal from '../components/StatusModal.js'
+import { resetLastMessage } from '../actions/commonActions.js'
 
 class Home extends React.Component {
+	state = {
+		loginModalOpen: false,
+		signupModalOpen: false,
+		statusModalOpen: false,
+		signedUp: ''
+	}
 
-	constructor(){
-		super()
-
-		this.state = {
-			loginModalOpen: false,
-			signupModalOpen: false
+	statusModalTimer = () => {
+		if(!!this.props.lastMessage.msg) {
+			this.setState({
+				statusModalOpen: true
+			})
+			this.setTimeout(this.handleStatusModalClose, 3000)
 		}
+	}
+
+	handleStatusModalClose = () => {
+		this.setState({
+			statusModalOpen: false
+		})
+		this.props.resetLastMessage()
 	}
 
 	handleLoginModalOpen = () => {
@@ -35,13 +50,14 @@ class Home extends React.Component {
 	}
 
 	handleSignupModalClose = () => {
+		this.statusModalTimer()
 		this.setState({
 			signupModalOpen: false
 		})
+
 	}
 
 	render() {
-    // restructure props as object for ease of further passing
     const userModalProps = {
       login: {
         loginModalOpen: this.state.loginModalOpen,
@@ -57,6 +73,10 @@ class Home extends React.Component {
 
 		return(
 			<Segment style={{padding: 0}}>
+				<StatusModal 
+					statusModalOpen={this.state.statusModalOpen}
+					{...this.props.lastMessage} 
+				/>
 				<HeadingBlock 
           modalProps={userModalProps}
         />
@@ -67,4 +87,18 @@ class Home extends React.Component {
 	}
 }
 
-export default connect()(Home)
+function mapStateToProps(state) {
+	return {
+		lastMessage: state.lastMessage
+	}
+}
+
+function mapDispatchToProps(dispatch) {
+	return {
+		resetLastMessage: () => {
+			dispatch(resetLastMessage())
+		}
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home)
