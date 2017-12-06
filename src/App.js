@@ -11,8 +11,9 @@ import InsightsContainer from './containers/InsightsContainer.js'
 import SitesContainer from './containers/SitesContainer.js'
 import PagesContainer from './containers/PagesContainer.js'
 import PageItemContainer from './containers/PageItemContainer.js'
-import { Route, withRouter, Switch, Redirect } from 'react-router-dom'
 import { getCurrentUser } from './actions/userActions.js'
+
+import { Route, withRouter, Switch, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 class App extends Component {

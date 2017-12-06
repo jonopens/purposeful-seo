@@ -1,6 +1,7 @@
 import React from 'react'
 import SiteListDash from '../components/SiteListDash.js'
-import { Grid, Image, Header, Divider, Icon } from 'semantic-ui-react'
+import PageLoader from '../components/PageLoader.js'
+import { Grid, Image, Header, Divider, Icon, Container } from 'semantic-ui-react'
 import placeholder from '../assets/paragraph.png'
 import { connect } from 'react-redux'
 import { getCurrentUser } from '../actions/userActions.js'
@@ -14,30 +15,37 @@ class DashboardContainer extends React.Component {
 	}
 
 	render(){
-		console.log("dashboard", this.props)
-		return(
+		if(!!this.props.loggedIn) {
+			return(
 
-		  <Grid padded relaxed style={{ marginTop: '7em' }}>
-		  	<Divider hidden />
-		  	<Header as="h1">
-		  		<Icon name="dashboard" />
-		  			{!!this.props.user.username ? `${this.props.user.username}'s Dashboard` : "Loading"}
-		  	</Header>
-		    <Grid.Row>
-		      <SiteListDash sites={this.props.sites}/>
-		      <Grid.Column width={8}>
-		        <Image src={placeholder} alt="placeholder paragraph" />
-		      </Grid.Column>
-		    </Grid.Row>
+			  <Grid padded relaxed style={{ marginTop: '7em' }}>
+			  	<Divider hidden />
+			  	<Header as="h1">
+			  		<Icon name="dashboard" />
+			  			{!!this.props.user.username ? `${this.props.user.username}'s Dashboard` : "Loading"}
+			  	</Header>
+			    <Grid.Row>
+			      <SiteListDash sites={this.props.sites}/>
+			      <Grid.Column width={8}>
+			        <Image src={placeholder} alt="placeholder paragraph" />
+			      </Grid.Column>
+			    </Grid.Row>
 
-		    <Grid.Row>
-		      <Grid.Column width={16}>
-		        <Image src={placeholder} alt="placeholder paragraph" />
-		      </Grid.Column>
-		    </Grid.Row>
-		  </Grid>
+			    <Grid.Row>
+			      <Grid.Column width={16}>
+			        <Image src={placeholder} alt="placeholder paragraph" />
+			      </Grid.Column>
+			    </Grid.Row>
+			  </Grid>
 
-		)
+			)
+		} else {
+			return(
+				<Container style={{ marginTop: '7em' }}>
+					<PageLoader />
+				</Container>
+			)
+		}
 	}
 }
 

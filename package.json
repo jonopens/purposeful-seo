@@ -12,7 +12,8 @@
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
     "semantic-ui-css": "^2.2.12",
-    "semantic-ui-react": "^0.76.0"
+    "semantic-ui-react": "^0.76.0",
+    "stopword": "^0.1.9"
   },
   "scripts": {
     "start": "PORT=31127 react-scripts start",

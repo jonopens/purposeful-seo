@@ -5,7 +5,8 @@ import { createPage } from '../actions/pageActions.js'
 
 class AddPageForm extends React.Component {
 	state = {
-		page_path: ''
+		page_path: '',
+		pathFails: false
 	}
 
 
@@ -33,7 +34,7 @@ class AddPageForm extends React.Component {
 			mode: 'no-cors'
 		}).then(this.handleFetchResponse)
 			.then(res => console.log("ok"))
-			.catch(error => console.log(error))
+			// .catch(error => console.log(error))
 	}
 
 	handleFetchResponse = (res) => {
@@ -41,7 +42,7 @@ class AddPageForm extends React.Component {
 			this.setState({
 				pathFails: true
 			})
-			throw Error(res.statusText)
+			// throw Error(res.statusText)
 		} else {
 			this.setState({
 				pathFails: false

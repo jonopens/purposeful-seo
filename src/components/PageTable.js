@@ -15,6 +15,7 @@ const PageTable = (props) => {
 	      		<Table.HeaderCell>Details</Table.HeaderCell>
 	  				<Table.HeaderCell>Page Path</Table.HeaderCell>
 	  				<Table.HeaderCell>Page Title</Table.HeaderCell>
+	  				<Table.HeaderCell>Word Count</Table.HeaderCell>
 						<Table.HeaderCell collapsing textAlign='right'>Actions</Table.HeaderCell>
 					</Table.Row>
 				</Table.Header>

@@ -4,6 +4,16 @@ export default class PagesApi {
     return localStorage.getItem("jwt")
   }
 
+  static getPage(id) {
+    return fetch(`http://localhost:5000/pages/${id}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${this.jwt()}`
+      }
+    }).then(res => res.json());    
+  }
+
 	static addPage(params) {
 		return fetch("http://localhost:5000/pages", {
       method: "POST",

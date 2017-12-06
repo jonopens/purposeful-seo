@@ -4,12 +4,12 @@ import { connect } from 'react-redux'
 import { createSite } from '../actions/siteActions.js'
 
 class AddSiteForm extends React.Component {
+
 	state = {
 		value: 'http',
 		domain_name: '',
 		full_url: ''
 	}
-
 
 	handleSubmit = (e) => {
 		e.preventDefault();
@@ -40,12 +40,16 @@ class AddSiteForm extends React.Component {
 		})
 	}
 
+	isValid = () => {
+		
+	}
+
 	render() {
 		let { value } = this.state
 		return(
 			<Form onSubmit={this.handleSubmit} error warning width={6} >
 		    <Form.Group>
-		      <label style={{fontWeight: 'bold'}}>Protocol:</label>
+		      <label style={{ fontWeight: 'bold' }}>Protocol:</label>
 		      <Form.Radio 
 		      	onChange={this.handleRadioChange} 
       			name="protocol" 

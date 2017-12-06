@@ -3,11 +3,6 @@ export default function rootReducer(
 	action
 ) {
 	switch(action.type) {
-		case 'LOADED_DATA':
-			return Object.assign(
-				{}, state, { loading: false}
-			)
-
 		case 'LOGIN_USER': {
 			localStorage.setItem("jwt", action.payload["jwt"])
 			return Object.assign(
@@ -26,14 +21,15 @@ export default function rootReducer(
 			)
 		}
 		case 'SET_CURRENT_USER': {
+			console.log("inside set current user",action.payload)
 			let { username, password_digest, email, id, sites, pages, comments } = action.payload
 			const currUserState = Object.assign({}, state, {
 				loggedIn: true,
 				loading: true,
 				user: { username, password_digest, email, id }, 
 				sites: [...sites], 
-				pages: [...pages], 
 				comments: [...comments],
+				pages: [...pages]
 			})
 			return currUserState
 		}
@@ -61,6 +57,26 @@ export default function rootReducer(
 			const reducedPages = state.pages.filter(page => page.id !== action.payload)
 			return Object.assign(
 				{}, state, {pages: reducedPages}
+			)
+		case 'GET_PAGE':
+			console.log("GET PAGE actionpayload", action.payload)
+			console.log("GET PAGE state.pages", state.pages)
+			return Object.assign(
+				{}, state, {
+					pages: state.pages.map(page => {
+						if(page.id === action.payload.id) {
+							let newPage = Object.assign(
+								{}, page, {
+									crawls: [...action.payload.crawls], 
+									insights: [...action.payload.insights]
+								}
+							)
+							console.log("what is newPage, newPage")
+							return newPage
+						}
+						return page
+					})
+				}
 			)
 		case 'CREATE_AND_RUN_CRAWL_ON_PAGE':
 			return Object.assign(

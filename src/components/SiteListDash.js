@@ -23,7 +23,7 @@ const SiteListDash = (props) => {
 				</Table.Row> 
 			</Table.Header>
 			<Table.Body>
-				{sites}
+				{!!sites ? sites : null}
 			</Table.Body>
   	</Table>
 	</Grid.Column>

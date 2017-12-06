@@ -40,6 +40,9 @@ class Page extends React.Component {
           <Table.Cell style={{ fontSize: '18px' }}>
             {this.props.title}
           </Table.Cell>
+          <Table.Cell style={{ fontSize: '18px' }}>
+            {this.props.word_count}
+          </Table.Cell>
           <Table.Cell collapsing textAlign='right'>
             <Button onClick={this.handleEditClick} color="green">
               <Icon inverted name="pencil" size="large" />Edit Page

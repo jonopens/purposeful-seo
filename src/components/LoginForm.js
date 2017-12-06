@@ -29,28 +29,27 @@ class LoginForm extends React.Component {
 
 
 	render() {
-		console.log(this.state)
 		return(
-			  <Form error warning width={6} onSubmit={this.handleSubmit}>
-			    <Form.Field>
-			      <Form.Input 
-			      	onChange={this.handleEmailChange} 
-			      	label="Email" 
-			      	placeholder='yourname@example.com' 
-			      	required
-		      	/>
-			    </Form.Field>
-			    <Form.Field>
-			      <Form.Input
-			      	type="password" 
-			      	onChange={this.handlePassChange} 
-			      	label="Password" 
-			      	placeholder='remember, must be 8 characters long!' 
-			      	required
-		      	/>
-			    </Form.Field>
-			    <Button type='submit'>Submit</Button>
-			  </Form>
+		  <Form error warning width={6} onSubmit={this.handleSubmit}>
+		    <Form.Field>
+		      <Form.Input 
+		      	onChange={this.handleEmailChange} 
+		      	label="Email" 
+		      	placeholder='yourname@example.com' 
+		      	required
+	      	/>
+		    </Form.Field>
+		    <Form.Field>
+		      <Form.Input
+		      	type="password" 
+		      	onChange={this.handlePassChange} 
+		      	label="Password" 
+		      	placeholder='remember, must be 8 characters long!' 
+		      	required
+	      	/>
+		    </Form.Field>
+		    <Button type='submit'>Submit</Button>
+		  </Form>
 		)
 	}
 }

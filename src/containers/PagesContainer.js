@@ -29,7 +29,7 @@ class PagesContainer extends React.Component {
 
 	render(){
 
-		if(!!this.props.thisSite){
+		if(!!this.props.loggedIn){
 			return(
 			  <Grid padded relaxed style={{ marginTop: '7em' }}>
 			  	<Divider hidden />
@@ -69,6 +69,7 @@ class PagesContainer extends React.Component {
 function mapStateToProps(state) {
 	const currPath = +window.location.pathname.split("/")[2]
 	return {
+		loggedIn: state.loggedIn,
 		currPages: state.pages.filter(page => page.site_id === currPath),
 		thisSite: state.sites.find(site => site.id === currPath)
 	}

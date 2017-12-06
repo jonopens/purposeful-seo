@@ -30,4 +30,20 @@ export function removePage(id){
 		type: 'REMOVE_PAGE',
 		payload: id
 	}
+}
+
+export function fetchPage(id) {
+	return function(dispatch) {
+		return PagesApi.getPage(id)
+			.then(page => {
+				dispatch(getPageDetails(page))
+			})
+	}
 }		
+
+export function getPageDetails(page) {
+	return {
+		type: 'GET_PAGE',
+		payload: page
+	}
+}
