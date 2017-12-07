@@ -5,7 +5,7 @@ export function getCurrentUser(token) {
 		return UsersApi.getThisUser(token)
 			.then(user => {
 				dispatch(currentUser(user))
-		})
+		}).then(dispatch(doneLoadingUser()))
 	}
 }
 
@@ -59,6 +59,12 @@ export function logOutUser() {
 export function logOut() {
 	return {
 		type: 'LOG_OUT'
+	}
+}
+
+export function doneLoadingUser() {
+	return {
+		type: 'USER_LOADED'
 	}
 }
 

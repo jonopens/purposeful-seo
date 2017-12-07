@@ -1,5 +1,5 @@
 export default function rootReducer(
-	state = {loggedIn: false, loading: false, lastMessage: {}, user: {}, sites: [], pages: [], insights: [], comments: []}, 
+	state = {loggedIn: false, loading: false, loadedSites: false, falselastMessage: {}, user: {}, sites: [], pages: [], insights: [], comments: []}, 
 	action
 ) {
 	switch(action.type) {
@@ -22,21 +22,28 @@ export default function rootReducer(
 		}
 		case 'SET_CURRENT_USER': {
 			console.log("inside set current user",action.payload)
-			let { username, password_digest, email, id, sites, pages, comments } = action.payload
+			console.log("inside set current user",state)
+			let { username, password_digest, email, id, sites, pages, comments, insights } = action.payload
 			const currUserState = Object.assign({}, state, {
 				loggedIn: true,
 				loading: true,
 				user: { username, password_digest, email, id }, 
 				sites: [...sites], 
 				comments: [...comments],
-				pages: [...pages]
+				pages: [...pages],
+				insights: [...insights]
 			})
+			console.log(currUserState)
 			return currUserState
 		}
+		case 'USER_LOADED':
+			return Object.assign(
+				{}, state, {loadedSites: true, loading: false}
+			)
 		case 'LOG_OUT':
 			localStorage.clear("jwt")
 			return Object.assign(
-				{}, { loggedIn: false }
+				{}, { loggedIn: false, loadedSites: false }
 			)
 		case 'ADD_SITE':
 			return Object.assign(
@@ -67,11 +74,10 @@ export default function rootReducer(
 						if(page.id === action.payload.id) {
 							let newPage = Object.assign(
 								{}, page, {
-									crawls: [...action.payload.crawls], 
 									insights: [...action.payload.insights]
 								}
 							)
-							console.log("what is newPage, newPage")
+							console.log("what is newPage", newPage)
 							return newPage
 						}
 						return page

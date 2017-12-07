@@ -2,7 +2,7 @@ import React from 'react'
 import { Table, Grid } from 'semantic-ui-react'
 import Site from './Site.js'
 import PageLoader from './PageLoader.js'
-import EmptySiteTable from './EmptySiteTable.js'
+import EmptyTable from './EmptyTable.js'
 
 const SiteTable = (props) => {
 		
@@ -28,7 +28,7 @@ const SiteTable = (props) => {
 	 				</Table.Body>
 		    </Table>
 		    ) 
-  		: (<EmptySiteTable />)
+  		: (<EmptyTable />)
   	}
 		</Grid.Column>  
 	)

@@ -1,15 +1,9 @@
 import React from 'react'
-import { Grid, Image, Divider, Header, Icon, Segment } from 'semantic-ui-react'
-import placeholder from '../assets/paragraph.png'
+import { connect } from 'react-redux'
+import { Grid, Divider, Header, Icon, Segment } from 'semantic-ui-react'
+import InsightsTable from '../components/InsightsTable.js'
 
-export default class InsightsContainer extends React.Component {
-	constructor(){
-		super()
-
-		this.state ={
-
-		}
-	}
+class InsightsContainer extends React.Component {
 
 	render(){
 		return(
@@ -21,21 +15,18 @@ export default class InsightsContainer extends React.Component {
 			  		Insights
 			  	</Header>
 			    <Grid.Row>
-			      <Grid.Column width={8}>
-			        <Image src={placeholder} alt="placeholder paragraph" />
-			      </Grid.Column>
-			      <Grid.Column width={8}>
-			        <Image src={placeholder} alt="placeholder paragraph" />
-			      </Grid.Column>
-			    </Grid.Row>
-
-			    <Grid.Row>
-			      <Grid.Column width={16}>
-			        <Image src={placeholder} alt="placeholder paragraph" />
-			      </Grid.Column>
+			      <InsightsTable insights={this.props.insights} />
 			    </Grid.Row>
 			  </Grid>
 		  </Segment>
 		)
 	}
 }
+
+function mapStateToProps(state) {
+	return {
+		insights: state.insights
+	}
+}
+
+export default connect(mapStateToProps)(InsightsContainer)

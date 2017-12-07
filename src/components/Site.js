@@ -19,7 +19,7 @@ class Site extends React.Component {
           <Link to={`/sites/${this.props.id}/pages`}>{this.props.domain_name}</Link>
         </Table.Cell>
         <Table.Cell style={{ fontSize: '18px' }}>
-          <a href={`${this.props.full_url}`}>View Site</a>
+          <a href={`${this.props.full_url}`} target="_blank">View Site</a>
         </Table.Cell>
         <Table.Cell collapsing style={{ fontSize: '18px' }}>
           {this.props.pages.length}

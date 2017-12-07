@@ -5,10 +5,19 @@ import PageLoader from '../components/PageLoader.js'
 import TabNgramItemGrid from '../components/TabNgramItemGrid.js'
 import TabSEODataTable from '../components/TabSEODataTable.js'
 import TabPageItemBody from '../components/TabPageItemBody.js'
-
+import TabPageInsightsTable from '../components/TabPageInsightsTable.js'
 import { filterUnigrams, getBigrams } from '../utilities/ngrams.js'
 
+import { fetchPage } from '../actions/pageActions.js'
+
 class PageItemContainer extends React.Component {
+
+
+	componentDidMount() {
+		if(!!this.props.thisPage) {
+			this.props.fetchPage(this.props.thisPage.id)
+		}
+	}
 
 	render() {
 
@@ -28,6 +37,9 @@ class PageItemContainer extends React.Component {
 				},
 			  { menuItem: 'Captured Page Text', render: () => 
 			  	<TabPageItemBody bodyText={this.props.thisPage.body_text} /> 
+			  },
+			  { menuItem: 'Page Insights', render: () => 
+			  	<TabPageInsightsTable insights={this.props.pageInsights} /> 
 			  },
 			]
 			const { thisPage } = this.props
@@ -60,12 +72,22 @@ function mapStateToProps(state) {
 	const currPage = state.pages.find(page => currPageId === page.id)
 	const parentSiteId = +window.location.pathname.split("/")[2]
 	const currSite = state.sites.find(site => parentSiteId === site.id)
+	const pageInsights = state.insights.filter(insight => insight.page_id === currPageId)
 
 	return {
 		loggedIn: state.loggedIn,
 		thisPage: currPage,
-		parentSite:  currSite
+		parentSite:  currSite,
+		pageInsights: pageInsights
 	}
 }
 
-export default connect(mapStateToProps)(PageItemContainer)
+function mapDispatchToProps(dispatch) {
+	return {
+		fetchPage: (id) => {
+			dispatch(fetchPage(id))
+		}
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PageItemContainer)

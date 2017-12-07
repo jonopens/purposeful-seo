@@ -1,21 +1,23 @@
 import React from 'react'
 import SiteListDash from '../components/SiteListDash.js'
 import PageLoader from '../components/PageLoader.js'
-import { Grid, Image, Header, Divider, Icon, Container, Segment, Statistic } from 'semantic-ui-react'
-import placeholder from '../assets/paragraph.png'
+import WelcomeMessage from '../components/WelcomeMessage.js'
+import { Grid, Header, Divider, Icon, Container, Segment, Statistic } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { getCurrentUser } from '../actions/userActions.js'
+
 
 class DashboardContainer extends React.Component {
 
 	componentDidMount() {
-		if(this.props.loggedIn) {
+		if(!!this.props.loggedIn) {
 			this.props.getCurrentUser(localStorage.getItem("jwt"))
 		}
 	}
 
 	render(){
-		if(!!this.props.loggedIn) {
+		console.log("dashboard", this.props)
+		if(this.props.loadedSites && !!this.props.sites) {
 			return(
 				<Segment>
 				  <Grid padded relaxed style={{ marginTop: '7em' }}>
@@ -28,7 +30,7 @@ class DashboardContainer extends React.Component {
 				      <SiteListDash sites={this.props.sites}/>
 				      <Grid.Column width={8}>
 				        <Statistic size="huge">
-				        	<Statistic.Value>{this.props.pages.length}</Statistic.Value>
+				        	<Statistic.Value>{ !!this.props.pages ? this.props.pages.length : 0 }</Statistic.Value>
 				        	<Statistic.Label>Pages in Your Account</Statistic.Label>
 				        </Statistic>
 				      </Grid.Column>
@@ -36,7 +38,7 @@ class DashboardContainer extends React.Component {
 
 				    <Grid.Row>
 				      <Grid.Column width={16}>
-				        <Image src={placeholder} alt="placeholder paragraph" />
+				        {this.props.sites.length === 0 ? <WelcomeMessage /> : null}
 				      </Grid.Column>
 				    </Grid.Row>
 				  </Grid>
@@ -53,11 +55,14 @@ class DashboardContainer extends React.Component {
 }
 
 function mapStateToProps(state) {
+	console.log("mapstatetoprops", state)
   return {
   	loggedIn: state.loggedIn,
+  	loadedSites: state.loadedSites,
     user: state.user,
     sites: state.sites,
-    pages: state.pages
+    pages: state.pages,
+    insights: state.insights
   }
 }
 
