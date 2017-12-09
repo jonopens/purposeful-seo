@@ -9,6 +9,7 @@ class AddPageForm extends React.Component {
 		pathFails: false
 	}
 
+// need to error handle response from Rails better than I do
 
 	handleSubmit = (e) => {
 		e.preventDefault();

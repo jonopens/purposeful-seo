@@ -41,7 +41,7 @@ class AddSiteForm extends React.Component {
 	}
 
 	isValid = () => {
-		
+		// validate with regexp that full_url === valid domain name
 	}
 
 	render() {

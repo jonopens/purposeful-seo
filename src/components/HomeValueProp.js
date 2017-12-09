@@ -1,4 +1,5 @@
 import React from 'react'
+import Chart from '../assets/chart_graph.png'
 import { Grid, Image, Segment, Header } from 'semantic-ui-react'
 
 
@@ -8,23 +9,17 @@ const HomeValueProp = () => {
       <Grid container stackable verticalAlign='middle'>
         <Grid.Row>
           <Grid.Column width={8}>
-            <Header as='h3' style={{ fontSize: '2em' }}>We Help Companies and Companions</Header>
+            <Header as='h3' style={{ fontSize: '2em' }}>Make SEO Simpler and Help Small Sites Grow</Header>
             <p style={{ fontSize: '1.33em' }}>
-              We can give your company superpowers to do things that they never thought possible. Let us delight
-              your customers and empower your needs... through pure data analytics.
+              Learning SEO takes time. Our goal was to make SEO insights accessible to a newer webmaster. Mine data you already have - your site itself.
             </p>
-            <Header as='h3' style={{ fontSize: '2em' }}>We Make Bananas That Can Dance</Header>
+            <Header as='h3' style={{ fontSize: '2em' }}>Discover powerful SEO data and track progress</Header>
             <p style={{ fontSize: '1.33em' }}>
-              Yes that's right, you thought it was the stuff of dreams, but even bananas can be bioengineered.
+              It sounds trite, but a lack of accessibility can make valuable data into useless junk. Purposeful SEO is easy.
             </p>
           </Grid.Column>
           <Grid.Column floated='right' width={6}>
-            <Image
-              bordered
-              rounded
-              size='large'
-              src="https://placeholdit.co//i/300x300"
-            />
+            <Image src={Chart} />
           </Grid.Column>
         </Grid.Row>
       </Grid>

@@ -1,8 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Menu } from 'semantic-ui-react'
+import { Menu, Image } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { logOutUser } from '../actions/userActions.js'
+
+import Pickaxe from '../assets/pickaxe.png'
 
 class NavBar extends React.Component {
 	constructor(){
@@ -23,7 +25,10 @@ class NavBar extends React.Component {
 		const { activeItem } = this.state
 
 		return (
-      <Menu pointing inverted className="fixed" size="huge">
+      <Menu borderless pointing inverted className="fixed" size="huge">
+        <Menu.Item>
+          <Image src={Pickaxe} height="30px" />
+        </Menu.Item>
         <Menu.Item 
         	as={Link} 
         	to="/dashboard" 

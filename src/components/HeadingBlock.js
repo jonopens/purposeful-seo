@@ -10,14 +10,9 @@ const HeadingBlock = (props) => {
 			<Container textAlign="center">
 				<Header 
 					as="h1" 
-					content="Action-Oriented SEO Insights with Purposeful SEO"
+					content="Purposeful SEO: Action-Oriented SEO Insights"
 					inverted
-					style={{marginTop: '3em'}}
-				/>
-				<Header 
-					as="h2" 
-					content="Discover powerful SEO data and track progress."
-					inverted
+					style={{margin: '3em 0em 1em', fontSize: '3.5em'}}
 				/>
 				<Divider hidden />
 				<SignupModal {...props.modalProps.signup}/>

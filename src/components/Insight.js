@@ -8,6 +8,14 @@ class Insight extends React.Component {
 		console.log("handled the click, sucka")
 	}
 
+  renderCompleteButton = () => {
+    return(
+      <Button onClick={this.handleCompleteClick} color="green">
+        <Icon inverted name="check" size="large"/>Mark Completed
+      </Button>
+    )
+  }
+
   render() {
     return(
       <Table.Row padded="true">
@@ -20,14 +28,11 @@ class Insight extends React.Component {
         <Table.Cell style={{ fontSize: '18px' }}>
           {this.props.completion_status}
         </Table.Cell>
-        <Table.Cell collapsing textAlign='right'>
-          <Button onClick={this.handleCompleteClick} color="green">
-            <Icon inverted name="check" size="large"/>Mark Completed
-          </Button>
-        </Table.Cell>
       </Table.Row>
     )
   }
 }
+
+
 
 export default Insight

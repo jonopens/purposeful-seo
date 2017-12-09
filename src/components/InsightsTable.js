@@ -10,6 +10,9 @@ const InsightsTable = (props) => {
 		return <Insight key={idx} {...insight} />
 	})
 
+	// add complete insight action back in
+	// <Table.HeaderCell textAlign='right'>Actions</Table.HeaderCell>
+
 	return(
 		<Grid.Column>
 		{insights.length > 0 
@@ -19,7 +22,6 @@ const InsightsTable = (props) => {
 		  				<Table.HeaderCell>Optimization Type</Table.HeaderCell>
 		  				<Table.HeaderCell>Insight</Table.HeaderCell>
 		  				<Table.HeaderCell>Completion Status</Table.HeaderCell>
-							<Table.HeaderCell textAlign='right'>Actions</Table.HeaderCell>
 						</Table.Row>
 					</Table.Header>
 			    <Table.Body>

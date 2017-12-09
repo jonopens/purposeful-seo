@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Menu } from 'semantic-ui-react'
+import { Menu, Image } from 'semantic-ui-react'
+import Pickaxe from '../assets/pickaxe.png'
 
 class NavBar extends React.Component {
 	state = {
@@ -17,7 +18,10 @@ class NavBar extends React.Component {
 		const { activeItem } = this.state
 
 		return (
-      <Menu pointing inverted className="fixed" size="huge">
+      <Menu pointing inverted borderless className="fixed" size="huge">
+        <Menu.Item>
+          <Image src={Pickaxe} height="30px" />
+        </Menu.Item>        
         <Menu.Item 
         	as={Link} 
         	to="/" 
