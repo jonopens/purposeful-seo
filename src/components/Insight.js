@@ -35,10 +35,6 @@ class Insight extends React.Component {
             <Icon name="search" size="large" />
           </Link>
         </Table.Cell>
-
-        <Table.Cell collapsing style={{ fontSize: '18px' }}>
-          {this.props.optimization_type}
-        </Table.Cell>
         <Table.Cell collapsing style={{ fontSize: '18px' }}>
           {this.props.optimization_type}
         </Table.Cell>
