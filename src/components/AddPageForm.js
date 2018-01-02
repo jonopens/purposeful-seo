@@ -29,28 +29,30 @@ class AddPageForm extends React.Component {
 		})
 	}
 
-	testFullUrl = () => {
-		let testURL = `${this.props.site.full_url}${this.state.page_path}`
-		fetch(testURL, {
-			mode: 'no-cors'
-		}).then(this.handleFetchResponse)
-			.then(res => console.log("ok"))
-			// .catch(error => console.log(error))
-	}
+	// need to further test and determine if  should be done on the backend
 
-	handleFetchResponse = (res) => {
-		if(!res.ok){
-			this.setState({
-				pathFails: true
-			})
-			// throw Error(res.statusText)
-		} else {
-			this.setState({
-				pathFails: false
-			})
-		} 
-		return res
-	} 
+	// testFullUrl = (e) => {
+	// 	let testURL = `${this.props.site.full_url}${e.target.value}`
+		
+	// 	fetch(testURL).then(this.handleFetchResponse)
+	// 		.then(res => console.log("ok"))
+	// 		.catch(error => console.log(error))
+	// }
+
+	// handleFetchResponse = (res) => {
+	// 	console.log('hit error handler')
+	// 	if(!res.ok){
+	// 		this.setState({
+	// 			pathFails: true
+	// 		})
+	// 		// throw Error(res.statusText)
+	// 	} else {
+	// 		this.setState({
+	// 			pathFails: false
+	// 		})
+	// 	}
+	// 	return res
+	// } 
 
 	render() {
 
