@@ -6,13 +6,13 @@ import { destroyPage } from '../actions/pageActions.js'
 import { createAndStartCrawl } from '../actions/crawlActions.js'
 
 class Page extends React.Component {
-  
+
   // handleEditClick = () => {
   //   console.log("hello, I'm trying to handle an edit click over here, ya jabroni")
             // <Button onClick={this.handleEditClick} color="green">
             //   <Icon inverted name="pencil" size="large" />Edit Page
             // </Button>
-  // }  
+  // }
 
   handleDeleteClick = () => {
     if(window.confirm("Are you sure you want to delete this page?")){
@@ -21,14 +21,12 @@ class Page extends React.Component {
   }
 
   handleCrawlClick = () => {
-    console.log("hi crawlers", this.props.id)
     if(window.confirm("Are you sure you want to start crawling this page?")){
       this.props.createAndStartCrawl(this.props.id)
     }
   }
 
   render() {
-    console.log(this.props)
     if(this.props.title) {
       return(
         <Table.Row padded="true">

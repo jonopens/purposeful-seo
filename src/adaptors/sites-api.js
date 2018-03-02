@@ -18,7 +18,7 @@ export default class SitesApi {
     return fetch(`http://localhost:5000/sites/${id}`, {
       method: "DELETE",
       headers: {
-        "Authorization": `Bearer ${this.jwt()}`
+        "Authorization": `Bearer ${jwt()}`
       }
     }).then(res => res.json());
   }
@@ -29,7 +29,7 @@ export default class SitesApi {
       headers: {
         "Content-Type": "application/json",
         "Accept": "application/json",
-        "Authorization": `Bearer ${this.jwt()}`
+        "Authorization": `Bearer ${jwt()}`
       },
       body: JSON.stringify(params)
     }).then(res => res.json());
