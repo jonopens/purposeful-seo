@@ -8,6 +8,7 @@ import { editInsight } from '../actions/insightActions.js'
 class Insight extends React.Component {
 
 	handleCompleteClick = () => {
+		// assign new value to completion_status and send to update action in Rails
 		console.log("clicked Complete")
 	}
 
@@ -36,6 +37,7 @@ class Insight extends React.Component {
   }
 
   render() {
+		console.log(this.props)
 		let pageItemPath = `/sites/${this.getSiteId(this.props.page_id)}/pages/${this.props.page_id}`
     return(
       <Table.Row padded="true">
@@ -67,7 +69,9 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    markComplete: ''
+    editInsight: (params) => {
+			dispatch(editInsight(params))
+		}
   }
 }
 
