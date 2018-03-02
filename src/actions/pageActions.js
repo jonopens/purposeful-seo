@@ -5,11 +5,11 @@ export function createPage(newPage) {
 		return PagesApi.addPage(newPage)
 			.then(page => {
 				dispatch(addPage(page))
-		})
+			})
 	}
 }
 
-export function addPage(page){
+export function addPage(page) {
 	return {
 		type: 'ADD_PAGE',
 		payload: page
@@ -25,7 +25,7 @@ export function destroyPage(id) {
 	}
 }
 
-export function removePage(id){
+export function removePage(id) {
 	return {
 		type: 'REMOVE_PAGE',
 		payload: id
@@ -39,7 +39,7 @@ export function fetchPage(id) {
 				dispatch(getPageDetails(page))
 			})
 	}
-}		
+}
 
 export function getPageDetails(page) {
 	return {

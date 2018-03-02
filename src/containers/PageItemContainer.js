@@ -12,7 +12,6 @@ import { fetchPage } from '../actions/pageActions.js'
 
 class PageItemContainer extends React.Component {
 
-
 	componentDidMount() {
 		if(!!this.props.thisPage) {
 			this.props.fetchPage(this.props.thisPage.id)
@@ -20,7 +19,6 @@ class PageItemContainer extends React.Component {
 	}
 
 	render() {
-
 		if(!!this.props.thisPage) {
 			const	panes = [
 				{ menuItem: 'Page Insights', render: () =>
@@ -73,7 +71,7 @@ function mapStateToProps(state) {
 	const parentSiteId = +window.location.pathname.split("/")[2]
 	const currSite = state.sites.find(site => parentSiteId === site.id)
 	const pageInsights = state.insights.filter(insight => insight.page_id === currPageId)
-
+	
 	return {
 		loggedIn: state.loggedIn,
 		thisPage: currPage,

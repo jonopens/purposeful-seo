@@ -28,7 +28,6 @@ class PagesContainer extends React.Component {
 	}
 
 	render(){
-
 		if(!!this.props.loggedIn){
 			return(
 				<Segment>
@@ -49,8 +48,8 @@ class PagesContainer extends React.Component {
 				  		</Grid.Column>
 				  	</Grid.Row>
 				  	<Grid.Row>
-			      	<PageTable 
-			      		pages={this.props.currPages} 
+			      	<PageTable
+			      		pages={this.props.currPages}
 			      		removePage={this.props.removePage}
 			      		siteId={window.location.pathname.split("/")[2]}
 		      		/>

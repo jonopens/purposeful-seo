@@ -19,8 +19,8 @@ const InsightsTable = (props) => {
 		      		<Table.HeaderCell>Page Link</Table.HeaderCell>
 		  				<Table.HeaderCell>Optimization Type</Table.HeaderCell>
 		  				<Table.HeaderCell>Insight</Table.HeaderCell>
-		  				<Table.HeaderCell>Completion Status</Table.HeaderCell>
-		  				<Table.HeaderCell	>Actions</Table.HeaderCell>
+		  				<Table.HeaderCell>Status</Table.HeaderCell>
+		  				<Table.HeaderCell>Actions</Table.HeaderCell>
 						</Table.Row>
 					</Table.Header>
 			    <Table.Body>
