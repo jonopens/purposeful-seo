@@ -1,8 +1,6 @@
-export default class CrawlsApi {
+import { jwt } from '../utilities/token.js'
 
-  static jwt() {
-    return localStorage.getItem("jwt")
-  }
+export default class CrawlsApi {
 
   static createCrawl(params) {
     return fetch("http://localhost:5000/crawls", {
@@ -10,7 +8,7 @@ export default class CrawlsApi {
       headers: {
         "Content-Type": "application/json",
         "Accept": "application/json",
-        "Authorization": `Bearer ${this.jwt()}`
+        "Authorization": `Bearer ${jwt()}`
       },
       body: JSON.stringify({
       	page_id: params

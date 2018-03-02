@@ -1,8 +1,6 @@
-export default class SitesApi {
+import { jwt } from '../utilities/token.js'
 
-  static jwt() {
-    return localStorage.getItem("jwt")
-  }
+export default class SitesApi {
 
   static createSite(params) {
     return fetch("http://localhost:5000/sites", {
@@ -10,7 +8,7 @@ export default class SitesApi {
       headers: {
         "Content-Type": "application/json",
         "Accept": "application/json",
-        "Authorization": `Bearer ${this.jwt()}`
+        "Authorization": `Bearer ${jwt()}`
       },
       body: JSON.stringify(params)
     }).then(res => res.json());

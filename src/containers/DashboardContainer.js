@@ -16,7 +16,6 @@ class DashboardContainer extends React.Component {
 	}
 
 	render(){
-		console.log("dashboard", this.props)
 		if(this.props.loadedSites && !!this.props.sites) {
 			return(
 				<Segment>
@@ -55,7 +54,6 @@ class DashboardContainer extends React.Component {
 }
 
 function mapStateToProps(state) {
-	console.log("mapstatetoprops", state)
   return {
   	loggedIn: state.loggedIn,
   	loadedSites: state.loadedSites,

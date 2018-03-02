@@ -23,24 +23,24 @@ class PageItemContainer extends React.Component {
 
 		if(!!this.props.thisPage) {
 			const	panes = [
-			  { menuItem: 'Essential SEO Data', render: () => 
-			  	<TabSEODataTable 
-			  		pageData={ this.props.thisPage } 
-			  		siteData={ this.props.parentSite } 
-		  		/> 
-		  	},
-			  { menuItem: 'Term Usage Frequency in Document', render: () => 			  	
-			  	<TabNgramItemGrid 
-						unigrams={ filterUnigrams(this.props.thisPage.body_text).slice(0,12) } 
-						bigrams={ getBigrams(this.props.thisPage.body_text).slice(0,12) } 
-					/> 
+				{ menuItem: 'Page Insights', render: () =>
+					<TabPageInsightsTable insights={this.props.pageInsights} />
 				},
-			  { menuItem: 'Captured Page Text', render: () => 
-			  	<TabPageItemBody bodyText={this.props.thisPage.body_text} /> 
-			  },
-			  { menuItem: 'Page Insights', render: () => 
-			  	<TabPageInsightsTable insights={this.props.pageInsights} /> 
-			  },
+			  { menuItem: 'Essential SEO Data', render: () =>
+			  	<TabSEODataTable
+			  		pageData={ this.props.thisPage }
+			  		siteData={ this.props.parentSite }
+		  		/>
+		  	},
+			  { menuItem: 'Term Usage Frequency in Document', render: () =>
+			  	<TabNgramItemGrid
+						unigrams={ filterUnigrams(this.props.thisPage.body_text).slice(0,12) }
+						bigrams={ getBigrams(this.props.thisPage.body_text).slice(0,12) }
+					/>
+				},
+			  { menuItem: 'Captured Page Text', render: () =>
+			  	<TabPageItemBody bodyText={this.props.thisPage.body_text} />
+			  }
 			]
 			const { thisPage } = this.props
 
@@ -54,7 +54,7 @@ class PageItemContainer extends React.Component {
 				  	</Header>
 			  	</Grid>
 			  	<Tab style={{ marginTop: '2em' }} menu={{ pointing: true }} panes={panes} />
-				  
+
 			  </Segment>
 			)
 		} else {

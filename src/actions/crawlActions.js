@@ -10,7 +10,6 @@ export function createAndStartCrawl(pageId) {
 }
 
 export function createAndRunCrawl(page){
-	console.log("createandruncrawl page obj", page)
 	return {
 		type: 'CREATE_AND_RUN_CRAWL_ON_PAGE',
 		payload: page

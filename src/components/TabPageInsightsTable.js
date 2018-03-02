@@ -1,7 +1,6 @@
 import React from 'react'
 import { Grid, Table, Container, Divider, Tab, Header } from 'semantic-ui-react'
 import TabInsightTableRow from './TabInsightTableRow.js'
-import EmptyTable from './EmptyTable.js'
 
 const TabPageInsightsTable = (props) => {
 
@@ -13,7 +12,7 @@ const TabPageInsightsTable = (props) => {
 					<Grid.Column>
 						<Container>
 							<Table celled>
-					    	<Table.Header> 
+					    	<Table.Header>
 					      	<Table.Row>
 					      		<Table.HeaderCell>Optimization Type</Table.HeaderCell>
 					  				<Table.HeaderCell>Content</Table.HeaderCell>

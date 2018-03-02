@@ -1,17 +1,15 @@
-export default class PagesApi {
+import { jwt } from '../utilities/token.js'
 
-  static jwt() {
-    return localStorage.getItem("jwt")
-  }
+export default class PagesApi {
 
   static getPage(id) {
     return fetch(`http://localhost:5000/pages/${id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${this.jwt()}`
+        "Authorization": `Bearer ${jwt()}`
       }
-    }).then(res => res.json());    
+    }).then(res => res.json());
   }
 
 	static addPage(params) {

@@ -7,7 +7,7 @@ import { Table, Button, Icon } from 'semantic-ui-react'
 class Insight extends React.Component {
 
 	handleCompleteClick = () => {
-		console.log("handled the click, sucka")
+		console.log("clicked Mark Completed")
 	}
 
   renderCompleteButton = () => {
@@ -27,7 +27,6 @@ class Insight extends React.Component {
   }
 
   render() {
-    // console.log("this insight", this.props)
     return(
       <Table.Row padded="true">
         <Table.Cell style={{ fontSize: '18px' }}>

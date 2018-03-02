@@ -10,7 +10,6 @@ export function getCurrentUser(token) {
 }
 
 export function currentUser(user) {
-	console.log("current user action creator", user)
 	return {
 		type: 'SET_CURRENT_USER',
 		payload: user
@@ -18,7 +17,6 @@ export function currentUser(user) {
 }
 
 export function loginUser(params) {
-	console.log("inside login thunk", params)
 	return function(dispatch) {
 		return UsersApi.loginUser(params)
 			.then(user => {
@@ -67,4 +65,3 @@ export function doneLoadingUser() {
 		type: 'USER_LOADED'
 	}
 }
-

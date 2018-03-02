@@ -3,17 +3,13 @@ import { Grid, Table, Container, Tab } from 'semantic-ui-react'
 import { round } from '../utilities/maths.js'
 
 const TabSEODataTable = (props) => {
-
-	console.log(props)
-	// let seoStuff = props.pageData.filter((key, val) => val !== null)
-	// console.log(seoStuff)
 	return(
 		<Tab.Pane>
 			<Grid.Row>
 				<Grid.Column>
 					<Container>
 						<Table celled>
-				    	<Table.Header> 
+				    	<Table.Header>
 				      	<Table.Row>
 				      		<Table.HeaderCell>Element</Table.HeaderCell>
 				  				<Table.HeaderCell>Value</Table.HeaderCell>
