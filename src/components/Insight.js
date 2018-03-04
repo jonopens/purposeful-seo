@@ -8,25 +8,59 @@ import { editInsight } from '../actions/insightActions.js'
 class Insight extends React.Component {
 
 	handleCompleteClick = () => {
-		// assign new value to completion_status and send to update action in Rails
-		console.log("clicked Complete")
+		let thisInsight = {
+			id: this.props.id,
+			completion_status: "completed"
+		}
+
+		if(window.confirm('Mark insight as complete?')){
+			this.props.editInsight(thisInsight)
+		}
 	}
 
 	handleIgnoreClick = () => {
-		console.log("clicked Ignore")
+		let thisInsight = {
+			id: this.props.id,
+			completion_status: "ignored"
+		}
+
+		if(window.confirm('Mark insight as complete?')){
+			this.props.editInsight(thisInsight)
+		}
+	}
+
+	handleResetClick = () => {
+		let thisInsight = {
+			id: this.props.id,
+			completion_status: "pending"
+		}
+
+		if(window.confirm('Mark insight as complete?')){
+			this.props.editInsight(thisInsight)
+		}
 	}
 
   renderActionButtons = () => {
-    return(
-			<Table.Cell collapsing style={{ fontSize: '18px' }}>
-	      <Button onClick={this.handleCompleteClick} color="green">
-	        <Icon inverted name="check" size="large"/>Complete
-	      </Button>
-				<Button onClick={this.handleIgnoreClick}>
-					<Icon name="remove circle outline" size="large"/>Ignore
-				</Button>
-			</Table.Cell>
-    )
+		if(this.props.completion_status === "pending") {
+	    return(
+				<Table.Cell collapsing style={{ fontSize: '18px' }}>
+		      <Button onClick={this.handleCompleteClick} color="green">
+		        <Icon inverted name="check" size="large"/>Complete
+		      </Button>
+					<Button onClick={this.handleIgnoreClick}>
+						<Icon name="remove circle outline" size="large"/>Ignore
+					</Button>
+				</Table.Cell>
+	    )
+		} else {
+			return(
+				<Table.Cell collapsing style={{ fontSize: '18px' }}>
+					<Button onClick={this.handleResetClick}>
+						<Icon name="undo" size="large"/>Reset to Pending
+					</Button>
+				</Table.Cell>
+			)
+		}
   }
 
   getSiteId = (pageId) => {
@@ -37,7 +71,6 @@ class Insight extends React.Component {
   }
 
   render() {
-		console.log(this.props)
 		let pageItemPath = `/sites/${this.getSiteId(this.props.page_id)}/pages/${this.props.page_id}`
     return(
       <Table.Row padded="true">
