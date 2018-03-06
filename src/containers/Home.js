@@ -68,13 +68,13 @@ class Home extends React.Component {
         signupModalOpen: this.state.signupModalOpen,
         handleSignupModalOpen: this.handleSignupModalOpen,
         handleSignupModalClose: this.handleSignupModalClose
-      } 
+      }
     }
 
 		return(
-			<Segment style={{padding: 0, border: 0}}>
-				<HeadingBlock 
-          modalProps={userModalProps}
+			<Segment style={{ padding: 0, border: 0 }}>
+				<HeadingBlock
+          modalProps={ userModalProps }
         />
 			  <HomeValueProp />
         <HomeGridBreak />

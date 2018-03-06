@@ -43,7 +43,7 @@ class Insight extends React.Component {
   renderActionButtons = () => {
 		if(this.props.completion_status === "pending") {
 	    return(
-				<Table.Cell collapsing style={{ fontSize: '18px' }}>
+				<Table.Cell collapsing>
 		      <Button onClick={this.handleCompleteClick} color="green">
 		        <Icon inverted name="check" size="large"/>Complete
 		      </Button>
@@ -54,7 +54,7 @@ class Insight extends React.Component {
 	    )
 		} else {
 			return(
-				<Table.Cell collapsing style={{ fontSize: '18px' }}>
+				<Table.Cell collapsing>
 					<Button onClick={this.handleResetClick}>
 						<Icon name="undo" size="large"/>Reset to Pending
 					</Button>
@@ -70,22 +70,37 @@ class Insight extends React.Component {
     return p.site_id
   }
 
+	setInsightRowColor = (status) => {
+		switch(status) {
+			case 'pending':
+				return
+			case 'completed':
+				return 'green'
+			case 'ignored':
+				return '#b3b3b3'
+		}
+	}
+
   render() {
 		let pageItemPath = `/sites/${this.getSiteId(this.props.page_id)}/pages/${this.props.page_id}`
     return(
-      <Table.Row padded="true">
-        <Table.Cell style={{ fontSize: '18px' }}>
+      <Table.Row padded="true" style={{ fontSize: '18px' }}>
+        <Table.Cell>
           <Link to={pageItemPath}>
             <Icon name="search" size="large" />
           </Link>
         </Table.Cell>
-        <Table.Cell collapsing style={{ fontSize: '18px' }}>
+        <Table.Cell collapsing>
           {this.props.optimization_type}
         </Table.Cell>
-        <Table.Cell style={{ fontSize: '18px' }}>
+        <Table.Cell>
           {this.props.content}
         </Table.Cell>
-        <Table.Cell style={{ fontSize: '18px' }}>
+        <Table.Cell
+					style={{
+						color: `${this.setInsightRowColor(this.props.completion_status)}`
+					}}
+				>
           {this.props.completion_status}
         </Table.Cell>
         {this.renderActionButtons()}

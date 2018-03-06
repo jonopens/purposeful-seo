@@ -51,7 +51,7 @@ class PageItemContainer extends React.Component {
 				  		{thisPage.title}
 				  	</Header>
 			  	</Grid>
-			  	<Tab style={{ marginTop: '2em' }} menu={{ pointing: true }} panes={panes} />
+			  	<Tab style={{ marginTop: '2em' }} menu={{ pointing: true }} panes={ panes } />
 
 			  </Segment>
 			)
@@ -71,7 +71,7 @@ function mapStateToProps(state) {
 	const parentSiteId = +window.location.pathname.split("/")[2]
 	const currSite = state.sites.find(site => parentSiteId === site.id)
 	const pageInsights = state.insights.filter(insight => insight.page_id === currPageId)
-	
+
 	return {
 		loggedIn: state.loggedIn,
 		thisPage: currPage,
