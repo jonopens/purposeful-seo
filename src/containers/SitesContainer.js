@@ -1,8 +1,8 @@
 import React from 'react'
 import { Grid, Header, Divider, Icon, Segment } from 'semantic-ui-react'
 import { connect } from 'react-redux'
-import SiteTable from '../components/SiteTable.js'
-import AddSiteModal from '../components/AddSiteModal.js'
+import SiteTable from '../components/tables/SiteTable.js'
+import AddSiteModal from '../components/modals/AddSiteModal.js'
 
 class SitesContainer extends React.Component {
 	constructor(){

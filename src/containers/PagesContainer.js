@@ -2,8 +2,8 @@ import React from 'react'
 import { Grid, Divider, Header, Icon, Container, Segment } from 'semantic-ui-react'
 import PageLoader from '../components/PageLoader.js'
 import { connect } from 'react-redux'
-import PageTable from '../components/PageTable.js'
-import AddPageModal from '../components/AddPageModal.js'
+import PageTable from '../components/tables/PageTable.js'
+import AddPageModal from '../components/modals/AddPageModal.js'
 
 class PagesContainer extends React.Component {
 

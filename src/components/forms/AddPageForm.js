@@ -1,7 +1,7 @@
 import React from 'react'
 import { Form, Button } from 'semantic-ui-react'
-import { connect } from 'react-redux' 
-import { createPage } from '../actions/pageActions.js'
+import { connect } from 'react-redux'
+import { createPage } from '../../actions/pageActions.js'
 
 class AddPageForm extends React.Component {
 	state = {
@@ -33,7 +33,7 @@ class AddPageForm extends React.Component {
 
 	// testFullUrl = (e) => {
 	// 	let testURL = `${this.props.site.full_url}${e.target.value}`
-		
+
 	// 	fetch(testURL).then(this.handleFetchResponse)
 	// 		.then(res => console.log("ok"))
 	// 		.catch(error => console.log(error))
@@ -52,24 +52,24 @@ class AddPageForm extends React.Component {
 	// 		})
 	// 	}
 	// 	return res
-	// } 
+	// }
 
 	render() {
 
 		return(
 			<Form onSubmit={this.handleSubmit} error warning width={6} >
 		    <Form.Field>
-		      <Form.Input 
-		      	onChange={this.handlePagePathChange} 
-		      	label="Page Path" 
-		      	placeholder='e.g. /product/sweet-punk-band-hoodie.html' 
+		      <Form.Input
+		      	onChange={this.handlePagePathChange}
+		      	label="Page Path"
+		      	placeholder='e.g. /product/sweet-punk-band-hoodie.html'
 		      	required
 	      	/>
 		    </Form.Field>
 		    <Button type='submit' disabled={this.state.pathFails} >Submit</Button>
 		  </Form>
 		)
-	} 
+	}
 }
 
 function mapDispatchToProps(dispatch) {

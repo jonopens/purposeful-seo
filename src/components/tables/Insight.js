@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Table, Button, Icon } from 'semantic-ui-react'
-import { editInsight } from '../actions/insightActions.js'
+import { editInsight } from '../../actions/insightActions.js'
 
 
 class Insight extends React.Component {
@@ -86,7 +86,7 @@ class Insight extends React.Component {
     return(
       <Table.Row padded="true" style={{ fontSize: '18px' }}>
         <Table.Cell>
-          <Link to={pageItemPath}>
+          <Link to={ pageItemPath }>
             <Icon name="search" size="large" />
           </Link>
         </Table.Cell>

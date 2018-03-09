@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Table, Icon, Button } from 'semantic-ui-react'
 import { connect } from 'react-redux'
-import { destroySite } from '../actions/siteActions.js'
+import { destroySite } from '../../actions/siteActions.js'
 
 class Site extends React.Component {
 

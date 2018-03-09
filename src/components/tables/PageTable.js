@@ -1,16 +1,17 @@
 import React from 'react'
 import { Table, Grid } from 'semantic-ui-react'
 import Page from './Page.js'
+import EmptyTableMessage from '../EmptyTableMessage.js'
 
 const PageTable = (props) => {
 	const pages = props.pages.map((page, idx) => {
 		return <Page key={idx} {...page} siteId={props.siteId} />
 	})
-	
+
 	return(
 		<Grid.Column>
 			<Table celled>
-	    	<Table.Header> 
+	    	<Table.Header>
 	      	<Table.Row>
 	      		<Table.HeaderCell>Details</Table.HeaderCell>
 	  				<Table.HeaderCell>Page Path</Table.HeaderCell>

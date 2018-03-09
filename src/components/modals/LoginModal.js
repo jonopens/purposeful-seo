@@ -1,16 +1,16 @@
 import React from 'react'
 import { Modal, Header, Button } from 'semantic-ui-react'
-import LoginForm from './LoginForm.js'
+import LoginForm from '../forms/LoginForm.js'
 
 class LoginModal extends React.Component {
 
 	render() {
 
 		return(
-		<Modal 
+		<Modal
 			trigger={
 				<Button inverted color="grey" size="huge" onClick={this.props.handleLoginModalOpen} >Log In</Button>
-			}  
+			}
 			size='small'
 			open={this.props.loginModalOpen}
 			onClose={this.props.handleLoginModalClose}

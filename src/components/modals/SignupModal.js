@@ -1,15 +1,15 @@
 import React from 'react'
 import { Modal, Header, Button } from 'semantic-ui-react'
-import SignupForm from './SignupForm.js'
+import SignupForm from '../forms/SignupForm.js'
 
 class SignupModal extends React.Component {
 
 	render() {
 		return(
-		<Modal 
+		<Modal
 			trigger={
 				<Button onClick={this.props.handleSignupModalOpen} size="huge">Sign Up</Button>
-			}  
+			}
 			size='small'
 			open={this.props.signupModalOpen}
 			onClose={this.props.handleSignupModalClose}

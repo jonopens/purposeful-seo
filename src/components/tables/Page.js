@@ -2,8 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Table, Icon, Button } from 'semantic-ui-react'
 import { connect } from 'react-redux'
-import { destroyPage } from '../actions/pageActions.js'
-import { createAndStartCrawl } from '../actions/crawlActions.js'
+import { destroyPage } from '../../actions/pageActions.js'
+import { createAndStartCrawl } from '../../actions/crawlActions.js'
 
 class Page extends React.Component {
 

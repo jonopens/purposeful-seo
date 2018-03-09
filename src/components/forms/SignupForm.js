@@ -1,7 +1,7 @@
 import React from 'react'
 import { Form, Button } from 'semantic-ui-react'
-import { connect } from 'react-redux' 
-import { signUpUser } from '../actions/userActions.js'
+import { connect } from 'react-redux'
+import { signUpUser } from '../../actions/userActions.js'
 
 class SignupForm extends React.Component {
 	state = {
@@ -54,43 +54,43 @@ class SignupForm extends React.Component {
 	passAndConfNotEqual = () => {
 		if(this.state.password !== this.state.password_confirmation){
 			return true
-		} 
+		}
 		return false
 	}
 
 	render() {
 		return(
-			<Form onSubmit={this.handleSubmit} 
+			<Form onSubmit={this.handleSubmit}
 				error
-				warning 
-				success 
-				width={6} 
+				warning
+				success
+				width={6}
 			>
 		    <Form.Field>
-		    	<Form.Input 
+		    	<Form.Input
 		      	onChange={this.handleUsernameChange}
-		      	name="user[username]" 
-		      	label="Username" 
-		      	placeholder='Should be at least 6 characters long' 
+		      	name="user[username]"
+		      	label="Username"
+		      	placeholder='Should be at least 6 characters long'
 		      	required
 	      	/>
 		    </Form.Field>
 		    <Form.Field>
-		      <Form.Input 
-		      	onChange={this.handleEmailChange} 
+		      <Form.Input
+		      	onChange={this.handleEmailChange}
 		      	name="user[email]"
-		      	label="Email" 
-		      	placeholder='yourname@example.com' 
+		      	label="Email"
+		      	placeholder='yourname@example.com'
 		      	required
 	      	/>
 		    </Form.Field>
 		    <Form.Field>
 		      <Form.Input
 		      	type="password"
-		      	name="user[password]" 
-		      	onChange={this.handlePassChange} 
-		      	label="Password" 
-		      	placeholder='Must be at least 8 characters long' 
+		      	name="user[password]"
+		      	onChange={this.handlePassChange}
+		      	label="Password"
+		      	placeholder='Must be at least 8 characters long'
 		      	required
 	      	/>
 		    </Form.Field>
@@ -98,15 +98,15 @@ class SignupForm extends React.Component {
 		      <Form.Input
 		      	type="password"
 		      	name="user[password_confirmation]"
-		      	onChange={this.handlePassConfChange} 
-		      	label="Confirm Password" 
-		      	placeholder='Must match password field' 
+		      	onChange={this.handlePassConfChange}
+		      	label="Confirm Password"
+		      	placeholder='Must match password field'
 		      	required
 	      	/>
 		    </Form.Field>
-		    <Button 
-		    	type='submit' 
-		    	disabled={this.state.pass_too_short || this.passAndConfNotEqual()} 
+		    <Button
+		    	type='submit'
+		    	disabled={this.state.pass_too_short || this.passAndConfNotEqual()}
 		    	content="Sign Up"
 	    	/>
 		  </Form>

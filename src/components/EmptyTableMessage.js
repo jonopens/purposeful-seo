@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container, Header, Divider } from 'semantic-ui-react'
 
-const EmptyTable = (props) => {
+const EmptyTableMessage = (props) => {
 	return(
   	<Container style={{ margin: '7em 0em' }}>
   		<Divider hidden />
@@ -10,4 +10,4 @@ const EmptyTable = (props) => {
 	)
 }
 
-export default EmptyTable
+export default EmptyTableMessage

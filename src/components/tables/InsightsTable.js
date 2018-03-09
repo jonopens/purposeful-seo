@@ -1,8 +1,8 @@
 import React from 'react'
 import { Table, Grid } from 'semantic-ui-react'
 import Insight from './Insight.js'
-import PageLoader from './PageLoader.js'
-import EmptyTable from './EmptyTable.js'
+import PageLoader from '../PageLoader.js'
+import EmptyTableMessage from '../EmptyTableMessage.js'
 
 const InsightsTable = (props) => {
 
@@ -28,7 +28,7 @@ const InsightsTable = (props) => {
 	 				</Table.Body>
 		    </Table>
 		    )
-  		: (<EmptyTable />)
+  		: (<EmptyTableMessage />)
   	}
 		</Grid.Column>
 	)

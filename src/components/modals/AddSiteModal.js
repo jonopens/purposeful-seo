@@ -1,17 +1,17 @@
 import React from 'react'
 import { Modal, Header, Icon, Button } from 'semantic-ui-react'
-import AddSiteForm from './AddSiteForm.js'
+import AddSiteForm from '../forms/AddSiteForm.js'
 
 class AddSiteModal extends React.Component {
 
 	render() {
 		return(
-		<Modal 
+		<Modal
 			trigger={
 				<Button color="blue" onClick={this.props.handleModalOpen}>
-					<Icon name="plus" size="large"/>Add a Site 
+					<Icon name="plus" size="large"/>Add a Site
 				</Button>
-			}  
+			}
 			size='small'
 			open={this.props.modalOpen}
 			onClose={this.props.handleModalClose}

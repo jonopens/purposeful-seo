@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Grid, Divider, Header, Icon, Segment } from 'semantic-ui-react'
-import InsightsTable from '../components/InsightsTable.js'
+import InsightsTable from '../components/tables/InsightsTable.js'
 
 class InsightsContainer extends React.Component {
 
