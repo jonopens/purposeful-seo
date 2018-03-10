@@ -4,7 +4,6 @@ import LoginModal from './modals/LoginModal.js'
 import SignupModal from './modals/SignupModal.js'
 
 const HeadingBlock = (props) => {
-	console.log("HeadingBlock props", props)
 	return(
 		<Segment inverted vertical color="black" style={{minHeight: 400, padding: '1em 0em'}}>
 			<Container textAlign="center">

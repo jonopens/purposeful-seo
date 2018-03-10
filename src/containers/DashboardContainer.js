@@ -1,8 +1,9 @@
 import React from 'react'
-import SiteListDash from '../components/SiteListDash.js'
+import DashSiteList from '../components/DashSiteList.js'
+import DashStatistics from '../components/DashStatistics.js'
 import PageLoader from '../components/PageLoader.js'
 import WelcomeMessage from '../components/WelcomeMessage.js'
-import { Grid, Header, Divider, Icon, Container, Segment, Statistic } from 'semantic-ui-react'
+import { Grid, Header, Divider, Icon, Container, Segment } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { getCurrentUser } from '../actions/userActions.js'
 
@@ -17,6 +18,7 @@ class DashboardContainer extends React.Component {
 
 	render(){
 		if(this.props.loadedSites && !!this.props.sites) {
+			console.log(this.props.insights)
 			return(
 				<Segment>
 				  <Grid padded relaxed style={{ marginTop: '7em' }}>
@@ -26,13 +28,11 @@ class DashboardContainer extends React.Component {
 				  			{!!this.props.user ? `${this.props.user.username}'s Dashboard` : "Loading"}
 				  	</Header>
 				    <Grid.Row>
-				      <SiteListDash sites={this.props.sites}/>
-				      <Grid.Column width={8}>
-				        <Statistic size="huge">
-				        	<Statistic.Value>{ !!this.props.pages ? this.props.pages.length : 0 }</Statistic.Value>
-				        	<Statistic.Label>Pages in Your Account</Statistic.Label>
-				        </Statistic>
-				      </Grid.Column>
+				      <DashSiteList sites={this.props.sites}/>
+				      <DashStatistics
+								pages={ this.props.pages }
+								insights={ this.props.insights }
+							/>
 				    </Grid.Row>
 
 				    <Grid.Row>

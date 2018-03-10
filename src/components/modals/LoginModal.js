@@ -5,7 +5,6 @@ import LoginForm from '../forms/LoginForm.js'
 class LoginModal extends React.Component {
 
 	render() {
-
 		return(
 		<Modal
 			trigger={

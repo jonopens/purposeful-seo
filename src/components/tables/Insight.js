@@ -72,12 +72,12 @@ class Insight extends React.Component {
 
 	setInsightRowColor = (status) => {
 		switch(status) {
-			case 'pending':
-				return
 			case 'completed':
 				return 'green'
 			case 'ignored':
 				return '#b3b3b3'
+			default:
+				return
 		}
 	}
 
