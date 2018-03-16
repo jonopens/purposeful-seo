@@ -11,7 +11,7 @@ class LoginForm extends React.Component {
 
 	handleSubmit = (e) => {
 		e.preventDefault()
-		this.props.loginUser({auth: this.state})
+		this.props.loginUser({ auth: this.state })
 		this.props.handleClose();
 	}
 
@@ -30,10 +30,10 @@ class LoginForm extends React.Component {
 
 	render() {
 		return(
-		  <Form error warning width={6} onSubmit={this.handleSubmit}>
+		  <Form error warning width={ 6 } onSubmit={ this.handleSubmit }>
 		    <Form.Field>
 		      <Form.Input
-		      	onChange={this.handleEmailChange}
+		      	onChange={ this.handleEmailChange }
 		      	label="Email"
 		      	placeholder='yourname@example.com'
 		      	required
@@ -42,7 +42,7 @@ class LoginForm extends React.Component {
 		    <Form.Field>
 		      <Form.Input
 		      	type="password"
-		      	onChange={this.handlePassChange}
+		      	onChange={ this.handlePassChange }
 		      	label="Password"
 		      	placeholder='remember, must be 8 characters long!'
 		      	required

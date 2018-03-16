@@ -26,23 +26,33 @@ const TabSEODataTable = (props) => {
 								</Table.Row>
 								<Table.Row>
 				      		<Table.Cell collapsing>H1</Table.Cell>
-				  				<Table.Cell>{props.pageData.h1.map(h => h)}</Table.Cell>
+				  				<Table.Cell>
+										{ props.pageData.h1.map(h => h) }
+									</Table.Cell>
 								</Table.Row>
 								<Table.Row>
 				      		<Table.Cell collapsing>H2</Table.Cell>
-				  				<Table.Cell>{props.pageData.h2.map(h => h)}</Table.Cell>
+				  				<Table.Cell>
+										{ props.pageData.h2.map(h => h) }
+									</Table.Cell>
 								</Table.Row>
 								<Table.Row>
 				      		<Table.Cell collapsing>Meta Description</Table.Cell>
-				  				<Table.Cell>{props.pageData.meta_desc}</Table.Cell>
+				  				<Table.Cell>
+										{ props.pageData.meta_desc }
+									</Table.Cell>
 								</Table.Row>
 								<Table.Row>
 				      		<Table.Cell collapsing>Text to HTML Ratio</Table.Cell>
-				  				<Table.Cell>{`${round(props.pageData.text_to_html_ratio, 2)}%`}</Table.Cell>
+				  				<Table.Cell>
+										{`${round(props.pageData.text_to_html_ratio, 2)}%`}
+									</Table.Cell>
 								</Table.Row>
 								<Table.Row>
 				      		<Table.Cell collapsing>Purposeful SEO Last Crawl Timestamp</Table.Cell>
-				  				<Table.Cell>{props.pageData.last_crawled}</Table.Cell>
+				  				<Table.Cell>
+										{ props.pageData.last_crawled }
+									</Table.Cell>
 								</Table.Row>
 							</Table.Body>
 						</Table>

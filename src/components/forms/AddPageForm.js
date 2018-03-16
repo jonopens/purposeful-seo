@@ -57,16 +57,16 @@ class AddPageForm extends React.Component {
 	render() {
 
 		return(
-			<Form onSubmit={this.handleSubmit} error warning width={6} >
+			<Form onSubmit={ this.handleSubmit } error warning width={ 6 } >
 		    <Form.Field>
 		      <Form.Input
-		      	onChange={this.handlePagePathChange}
+		      	onChange={ this.handlePagePathChange }
 		      	label="Page Path"
 		      	placeholder='e.g. /product/sweet-punk-band-hoodie.html'
 		      	required
 	      	/>
 		    </Form.Field>
-		    <Button type='submit' disabled={this.state.pathFails} >Submit</Button>
+		    <Button type='submit' disabled={ this.state.pathFails } >Submit</Button>
 		  </Form>
 		)
 	}

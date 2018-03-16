@@ -19,7 +19,13 @@ const TabPageInsightsTable = (props) => {
 									</Table.Row>
 								</Table.Header>
 								<Table.Body>
-									{rows.length > 0 ?  rows : <Table.Row><Table.Cell>No Insights available for the current page.</Table.Cell></Table.Row>}
+									{ rows.length > 0
+										? rows
+										: <Table.Row>
+											<Table.Cell>No Insights available for the current page.
+											</Table.Cell>
+										</Table.Row>
+									}
 								</Table.Body>
 							</Table>
 						</Container>

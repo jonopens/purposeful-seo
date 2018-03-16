@@ -8,18 +8,18 @@ class AddSiteModal extends React.Component {
 		return(
 		<Modal
 			trigger={
-				<Button color="blue" onClick={this.props.handleModalOpen}>
+				<Button color="blue" onClick={ this.props.handleModalOpen }>
 					<Icon name="plus" size="large"/>Add a Site
 				</Button>
 			}
 			size='small'
-			open={this.props.modalOpen}
-			onClose={this.props.handleModalClose}
+			open={ this.props.modalOpen }
+			onClose={ this.props.handleModalClose }
 			closeIcon
 		>
 	    <Header icon='plus' content='Add a New Site' />
 	    <Modal.Content>
-	      <AddSiteForm handleClose={this.props.handleModalClose}/>
+	      <AddSiteForm handleClose={ this.props.handleModalClose }/>
 	    </Modal.Content>
 	  </Modal>
 		)

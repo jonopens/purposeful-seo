@@ -1,5 +1,5 @@
 import React from 'react'
-import { 
+import {
 	Grid, Header, List, Container, Divider, Image, Segment
 } from 'semantic-ui-react'
 import NauticalStar from '../assets/nautical-star.png'
@@ -16,7 +16,7 @@ export default class Footer extends React.Component {
 	      <Container textAlign='center'>
 	        <Grid divided inverted stackable>
 	          <Grid.Row>
-	            <Grid.Column width={3}>
+	            <Grid.Column width={ 3 }>
 	              <Header inverted as='h4' content='These' />
 	              <List link inverted>
 	                <List.Item as='a'>There</List.Item>
@@ -25,7 +25,7 @@ export default class Footer extends React.Component {
 	                <List.Item as='a'>Content</List.Item>
 	              </List>
 	            </Grid.Column>
-	            <Grid.Column width={3}>
+	            <Grid.Column width={ 3 }>
 	              <Header inverted as='h4' content="Aren't" />
 	              <List link inverted>
 	                <List.Item as='a'>There's</List.Item>
@@ -43,7 +43,7 @@ export default class Footer extends React.Component {
 	                <List.Item as='a'>Rain</List.Item>
 	              </List>
 	            </Grid.Column>
-	            <Grid.Column width={7}>
+	            <Grid.Column width={ 7 }>
 	              <Header inverted as='h2' content="This May or May Not Be Read" />
 	              <p>HUGE love goes out to my Flatiron cohortmates, my instructors and my wife, Jaime.</p>
 	              <p>Separately, and for the record, Mariah Carey's 'All I Want For Christmas' is <span role="img" aria-label="fire">&#128293;</span>.</p>

@@ -8,16 +8,16 @@ class SignupModal extends React.Component {
 		return(
 		<Modal
 			trigger={
-				<Button onClick={this.props.handleSignupModalOpen} size="huge">Sign Up</Button>
+				<Button onClick={ this.props.handleSignupModalOpen } size="huge">Sign Up</Button>
 			}
 			size='small'
-			open={this.props.signupModalOpen}
-			onClose={this.props.handleSignupModalClose}
+			open={ this.props.signupModalOpen }
+			onClose={ this.props.handleSignupModalClose }
 			closeIcon
 		>
 	    <Header icon='plus' content='Sign Up for a New Account' />
 	    <Modal.Content>
-	      <SignupForm handleClose={this.props.handleSignupModalClose} />
+	      <SignupForm handleClose={ this.props.handleSignupModalClose } />
 	    </Modal.Content>
 	  </Modal>
 		)

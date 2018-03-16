@@ -13,12 +13,12 @@ import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
 
 const store = createStore(
-	rootReducer, 
+	rootReducer,
 	applyMiddleware(thunk)
 )
 
 ReactDOM.render(
-	<Provider store={store}>
+	<Provider store={ store }>
 		<Router>
 			<App />
 		</Router>

@@ -34,11 +34,11 @@ class App extends Component {
         <div className="App">
           <LoggedInNavBar />
           <Switch>
-            <Route exact path="/dashboard" component={DashboardContainer} />
-            <Route exact path="/sites" component={SitesContainer} />
-            <Route exact path="/insights" component={InsightsContainer} />
-            <Route path="/sites/:id/pages/:pageId" render={() => (<PageItemContainer />)}/>
-            <Route path="/sites/:id/pages" render={() => (<PagesContainer />)}/>
+            <Route exact path="/dashboard" component={ DashboardContainer } />
+            <Route exact path="/sites" component={ SitesContainer } />
+            <Route exact path="/insights" component={ InsightsContainer } />
+            <Route path="/sites/:id/pages/:pageId" render={ () => (<PageItemContainer />) }/>
+            <Route path="/sites/:id/pages" render={ () => (<PagesContainer />) }/>
             <Redirect to="/dashboard" />
           </Switch>
           <Footer />
@@ -49,8 +49,8 @@ class App extends Component {
         <div className="App">
           <LoggedOutNavBar />
           <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/about" component={AboutPage} />
+            <Route exact path="/" component={ Home } />
+            <Route exact path="/about" component={ AboutPage } />
             <Redirect to="/" />
           </Switch>
           <Footer />

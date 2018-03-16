@@ -33,25 +33,25 @@ class PagesContainer extends React.Component {
 				<Segment>
 				  <Grid padded relaxed style={{ marginTop: '7em' }}>
 				  	<Divider hidden />
-				  	<Header as="h1" style={{marginTop: '2em'}}>
+				  	<Header as="h1" style={{ marginTop: '2em' }}>
 				  		<Icon name="sitemap" />
-				  		Pages: {this.props.thisSite.domain_name}
+				  		Pages: { this.props.thisSite.domain_name }
 				  	</Header>
 				  	<Grid.Row>
 				  		<Grid.Column>
 					  		<AddPageModal
-					  			handlePageAddModalClose={this.handlePageAddModalClose}
-					  			handlePageAddModalOpen={this.handlePageAddModalOpen}
-					  			pageModalOpen={this.state.pageModalOpen}
-					  			site={this.props.thisSite}
+					  			handlePageAddModalClose={ this.handlePageAddModalClose }
+					  			handlePageAddModalOpen={ this.handlePageAddModalOpen }
+					  			pageModalOpen={ this.state.pageModalOpen }
+					  			site={ this.props.thisSite }
 					  		/>
 				  		</Grid.Column>
 				  	</Grid.Row>
 				  	<Grid.Row>
 			      	<PageTable
-			      		pages={this.props.currPages}
-			      		removePage={this.props.removePage}
-			      		siteId={window.location.pathname.split("/")[2]}
+			      		pages={ this.props.currPages }
+			      		removePage={ this.props.removePage }
+			      		siteId={ window.location.pathname.split("/")[2] }
 		      		/>
 				    </Grid.Row>
 				  </Grid>

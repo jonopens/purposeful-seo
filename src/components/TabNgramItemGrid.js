@@ -3,15 +3,15 @@ import NgramList from './NgramList.js'
 import { Grid, Tab } from 'semantic-ui-react'
 
 const TabNgramItemGrid = (props) => {
-	console.log(props.bigrams)
+
 	return(
 		<Tab.Pane>
 			<Grid>
 				<Grid.Row>
-					<Grid.Column width={4} />
-					<NgramList ngrams={props.unigrams} text="Unigrams" />
-					<NgramList ngrams={props.bigrams} text="Bigrams" />
-					<Grid.Column width={2} />
+					<Grid.Column width={ 4 } />
+					<NgramList ngrams={ props.unigrams } text="Unigrams" />
+					<NgramList ngrams={ props.bigrams } text="Bigrams" />
+					<Grid.Column width={ 2 } />
 				</Grid.Row>
 	  	</Grid>
   	</Tab.Pane>

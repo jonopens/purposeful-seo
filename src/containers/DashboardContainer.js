@@ -18,17 +18,19 @@ class DashboardContainer extends React.Component {
 
 	render(){
 		if(this.props.loadedSites && !!this.props.sites) {
-			console.log(this.props.insights)
 			return(
 				<Segment>
 				  <Grid padded relaxed style={{ marginTop: '7em' }}>
 				  	<Divider hidden />
 				  	<Header as="h1" style={{marginTop: '2em'}}>
 				  		<Icon name="dashboard" />
-				  			{!!this.props.user ? `${this.props.user.username}'s Dashboard` : "Loading"}
+				  			{ !!this.props.user
+									? `${this.props.user.username}'s Dashboard`
+									: "Loading"
+								}
 				  	</Header>
 				    <Grid.Row>
-				      <DashSiteList sites={this.props.sites}/>
+				      <DashSiteList sites={ this.props.sites }/>
 				      <DashStatistics
 								pages={ this.props.pages }
 								insights={ this.props.insights }
@@ -37,7 +39,10 @@ class DashboardContainer extends React.Component {
 
 				    <Grid.Row>
 				      <Grid.Column width={16}>
-				        {this.props.sites.length === 0 ? <WelcomeMessage /> : null}
+				        { this.props.sites.length === 0
+									? <WelcomeMessage />
+									: null
+								}
 				      </Grid.Column>
 				    </Grid.Row>
 				  </Grid>

@@ -23,7 +23,7 @@ class PageItemContainer extends React.Component {
 		if(!!this.props.thisPage) {
 			const	panes = [
 				{ menuItem: 'Page Insights', render: () =>
-					<TabPageInsightsTable insights={this.props.pageInsights} />
+					<TabPageInsightsTable insights={ this.props.pageInsights } />
 				},
 			  { menuItem: 'Essential SEO Data', render: () =>
 			  	<TabSEODataTable
@@ -38,7 +38,7 @@ class PageItemContainer extends React.Component {
 					/>
 				},
 			  { menuItem: 'Captured Page Text', render: () =>
-			  	<TabPageItemBody bodyText={this.props.thisPage.body_text} />
+			  	<TabPageItemBody bodyText={ this.props.thisPage.body_text } />
 			  }
 			]
 			const { thisPage } = this.props
@@ -47,9 +47,9 @@ class PageItemContainer extends React.Component {
 				<Segment>
 				  <Grid padded relaxed style={{ marginTop: '7em' }}>
 				  	<Divider hidden />
-				  	<Header as="h1" style={{marginTop: '2em'}}>
+				  	<Header as="h1" style={{ marginTop: '2em' }}>
 				  		<Icon name="file text outline" />
-				  		{thisPage.title}
+				  		{ thisPage.title }
 				  	</Header>
 			  	</Grid>
 			  	<Tab style={{ marginTop: '2em' }} menu={{ pointing: true }} panes={ panes } />

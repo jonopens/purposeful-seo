@@ -44,10 +44,10 @@ class Insight extends React.Component {
 		if(this.props.completion_status === "pending") {
 	    return(
 				<Table.Cell collapsing>
-		      <Button onClick={this.handleCompleteClick} color="green">
+		      <Button onClick={ this.handleCompleteClick } color="green">
 		        <Icon inverted name="check" size="large"/>Complete
 		      </Button>
-					<Button onClick={this.handleIgnoreClick}>
+					<Button onClick={ this.handleIgnoreClick }>
 						<Icon name="remove circle outline" size="large"/>Ignore
 					</Button>
 				</Table.Cell>
@@ -55,7 +55,7 @@ class Insight extends React.Component {
 		} else {
 			return(
 				<Table.Cell collapsing>
-					<Button onClick={this.handleResetClick}>
+					<Button onClick={ this.handleResetClick }>
 						<Icon name="undo" size="large"/>Reset to Pending
 					</Button>
 				</Table.Cell>
@@ -91,19 +91,19 @@ class Insight extends React.Component {
           </Link>
         </Table.Cell>
         <Table.Cell collapsing>
-          {this.props.optimization_type}
+          { this.props.optimization_type }
         </Table.Cell>
         <Table.Cell>
-          {this.props.content}
+          { this.props.content }
         </Table.Cell>
         <Table.Cell
 					style={{
 						color: `${this.setInsightRowColor(this.props.completion_status)}`
 					}}
 				>
-          {this.props.completion_status}
+          { this.props.completion_status }
         </Table.Cell>
-        {this.renderActionButtons()}
+        { this.renderActionButtons() }
       </Table.Row>
     )
   }

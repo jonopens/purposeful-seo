@@ -20,21 +20,21 @@ class NavBar extends React.Component {
 		return (
       <Menu pointing inverted borderless className="fixed" size="huge">
         <Menu.Item>
-          <Image src={Pickaxe} height="30px" />
-        </Menu.Item>        
-        <Menu.Item 
-        	as={Link} 
-        	to="/" 
-        	name='Purposeful SEO' 
-        	active={activeItem === 'Purposeful SEO'} 
-        	onClick={this.handleItemClick} 
+          <Image src={ Pickaxe } height="30px" />
+        </Menu.Item>
+        <Menu.Item
+        	as={ Link }
+        	to="/"
+        	name='Purposeful SEO'
+        	active={ activeItem === 'Purposeful SEO' }
+        	onClick={ this.handleItemClick }
       	/>
-        <Menu.Item 
-        	as={Link} 
-        	to="/about" 
-        	name='About Us' 
-        	active={activeItem === 'About Us'} 
-        	onClick={this.handleItemClick} 
+        <Menu.Item
+        	as={ Link }
+        	to="/about"
+        	name='About Us'
+        	active={ activeItem === 'About Us' }
+        	onClick={ this.handleItemClick } 
       	/>
       </Menu>
 		)

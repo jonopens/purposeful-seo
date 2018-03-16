@@ -9,7 +9,7 @@ const DashStatistics = (props) => {
   ).length
 
   return(
-    <Grid.Column width={8}>
+    <Grid.Column width={ 8 }>
       <Statistic size="huge">
         <Statistic.Value>{ props.pages.length || 0 }</Statistic.Value>
         <Statistic.Label>Pages in Your Account</Statistic.Label>

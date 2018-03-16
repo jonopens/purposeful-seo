@@ -5,7 +5,7 @@ import EmptyTableMessage from '../EmptyTableMessage.js'
 
 const PageTable = (props) => {
 	const pages = props.pages.map((page, idx) => {
-		return <Page key={idx} {...page} siteId={props.siteId} />
+		return <Page key={ idx } { ...page } siteId={ props.siteId } />
 	})
 
 	return(
@@ -21,7 +21,7 @@ const PageTable = (props) => {
 					</Table.Row>
 				</Table.Header>
 		    <Table.Body>
-		  		{pages}
+		  		{ pages }
 		    </Table.Body>
 	    </Table>
     </Grid.Column>

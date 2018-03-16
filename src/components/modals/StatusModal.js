@@ -8,15 +8,15 @@ class StatusModal extends React.Component {
 
 	render() {
 		return(
-			<Modal   
+			<Modal
 				size='small'
 				open={ this.props.statusModalOpen }
 				positive={ this.props.isPositive ? "true" : "false" }
-				negative={ this.props.isPositive ? "false" : "true" } 
+				negative={ this.props.isPositive ? "false" : "true" }
 			>
-		    <Header icon='check' content={this.props.msg} />
+		    <Header icon='check' content={ this.props.msg } />
 		    <Modal.Content>
-		      {this.props.msg}
+		      { this.props.msg }
 		    </Modal.Content>
 		  </Modal>
 		)

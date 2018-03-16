@@ -7,12 +7,12 @@ import EmptyTableMessage from '../EmptyTableMessage.js'
 const InsightsTable = (props) => {
 
 	const insights = props.insights.map((insight, idx) => {
-		return <Insight key={idx} {...insight} />
+		return <Insight key={ idx } { ...insight } />
 	})
 
 	return(
 		<Grid.Column>
-		{insights.length > 0
+		{ insights.length > 0
 			? (<Table celled>
 		    	<Table.Header>
 		      	<Table.Row>

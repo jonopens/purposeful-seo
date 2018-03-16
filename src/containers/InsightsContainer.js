@@ -10,12 +10,12 @@ class InsightsContainer extends React.Component {
 			<Segment>
 			  <Grid padded relaxed style={{ marginTop: '7em' }}>
 			  	<Divider hidden />
-			  	<Header as="h1" style={{marginTop: '2em'}}>
+			  	<Header as="h1" style={{ marginTop: '2em' }}>
 			  		<Icon name="idea" />
 			  		Insights
 			  	</Header>
 			    <Grid.Row>
-			      <InsightsTable insights={this.props.insights} />
+			      <InsightsTable insights={ this.props.insights } />
 			    </Grid.Row>
 			  </Grid>
 		  </Segment>

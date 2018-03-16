@@ -22,10 +22,10 @@ class Site extends React.Component {
           <a href={`${this.props.full_url}`} target="_blank">View Site</a>
         </Table.Cell>
         <Table.Cell collapsing style={{ fontSize: '18px' }}>
-          {this.props.pages.length}
+          { this.props.pages.length }
         </Table.Cell>
         <Table.Cell collapsing textAlign='right'>
-          <Button onClick={this.handleDeleteClick} color="red">
+          <Button onClick={ this.handleDeleteClick } color="red">
             <Icon inverted name="remove" size="large"/>Delete Site
           </Button>
         </Table.Cell>

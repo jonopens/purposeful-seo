@@ -47,27 +47,27 @@ class AddSiteForm extends React.Component {
 	render() {
 		let { value } = this.state
 		return(
-			<Form onSubmit={this.handleSubmit} error warning width={6} >
+			<Form onSubmit={ this.handleSubmit } error warning width={ 6 } >
 		    <Form.Group>
 		      <label style={{ fontWeight: 'bold' }}>Protocol:</label>
 		      <Form.Radio
-		      	onChange={this.handleRadioChange}
+		      	onChange={ this.handleRadioChange }
       			name="protocol"
       			label="http"
       			value="http"
-      			checked={value === 'http'}
+      			checked={ value === 'http' }
     			/>
 		      <Form.Radio
-		      	onChange={this.handleRadioChange}
+		      	onChange={ this.handleRadioChange }
 		      	name="protocol"
 		      	label="https"
 		      	value="https"
-		      	checked={value === 'https'}
+		      	checked={ value === 'https' }
 	      	/>
 		    </Form.Group>
 		    <Form.Field required>
 		      <Form.Input
-		      	onChange={this.handleDomainChange}
+		      	onChange={ this.handleDomainChange }
 		      	label="Domain Name"
 		      	placeholder='e.g. www.example.com'
 		      	required

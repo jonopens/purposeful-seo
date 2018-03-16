@@ -36,17 +36,17 @@ class Page extends React.Component {
             </Link>
           </Table.Cell>
           <Table.Cell collapsing style={{ fontSize: '18px' }}>
-            {this.props.page_path}
+            { this.props.page_path }
           </Table.Cell>
           <Table.Cell style={{ fontSize: '18px' }}>
-            {this.props.title}
+            { this.props.title }
           </Table.Cell>
           <Table.Cell style={{ fontSize: '18px' }}>
-            {this.props.word_count}
+            { this.props.word_count }
           </Table.Cell>
           <Table.Cell collapsing textAlign='right'>
 
-            <Button onClick={this.handleDeleteClick} color="red">
+            <Button onClick={ this.handleDeleteClick } color="red">
               <Icon inverted name="remove" size="large" />Delete Page
             </Button>
           </Table.Cell>
@@ -59,7 +59,7 @@ class Page extends React.Component {
             <Icon name="exclamation triangle" size="large" />
           </Table.Cell>
           <Table.Cell negative style={{ fontSize: '18px' }}>
-            {this.props.page_path}
+            { this.props.page_path }
           </Table.Cell>
           <Table.Cell collapsing negative style={{ fontSize: '18px' }}>
             Page has not been crawled. Start crawl? =>
@@ -68,7 +68,7 @@ class Page extends React.Component {
             0
           </Table.Cell>
           <Table.Cell collapsing negative textAlign='right'>
-            <Button onClick={this.handleCrawlClick} color="blue">
+            <Button onClick={ this.handleCrawlClick } color="blue">
               <Icon inverted name="bug" size="large" />Begin Crawl
             </Button>
           </Table.Cell>

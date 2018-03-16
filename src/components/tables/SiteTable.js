@@ -8,12 +8,12 @@ const SiteTable = (props) => {
 
 	const sites = props.sites.map((site, idx) => {
 		let sitePages = props.pages.filter(page => page.site_id === site.id)
-		return <Site key={idx} {...site} pages={sitePages} />
+		return <Site key={ idx } { ...site } pages={ sitePages } />
 	})
 
 	return(
 		<Grid.Column>
-		{sites.length > 0
+		{ sites.length > 0
 			? (<Table celled>
 		    	<Table.Header>
 		      	<Table.Row>
@@ -24,7 +24,7 @@ const SiteTable = (props) => {
 						</Table.Row>
 					</Table.Header>
 			    <Table.Body>
-			    	{sites ? sites : <PageLoader />}
+			    	{ sites ? sites : <PageLoader /> }
 	 				</Table.Body>
 		    </Table>
 		    )

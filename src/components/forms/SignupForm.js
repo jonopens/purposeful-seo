@@ -59,7 +59,7 @@ class SignupForm extends React.Component {
 
 	render() {
 		return(
-			<Form onSubmit={this.handleSubmit}
+			<Form onSubmit={ this.handleSubmit }
 				error
 				warning
 				success
@@ -67,7 +67,7 @@ class SignupForm extends React.Component {
 			>
 		    <Form.Field>
 		    	<Form.Input
-		      	onChange={this.handleUsernameChange}
+		      	onChange={ this.handleUsernameChange }
 		      	name="user[username]"
 		      	label="Username"
 		      	placeholder='Should be at least 6 characters long'
@@ -76,7 +76,7 @@ class SignupForm extends React.Component {
 		    </Form.Field>
 		    <Form.Field>
 		      <Form.Input
-		      	onChange={this.handleEmailChange}
+		      	onChange={ this.handleEmailChange }
 		      	name="user[email]"
 		      	label="Email"
 		      	placeholder='yourname@example.com'
@@ -87,7 +87,7 @@ class SignupForm extends React.Component {
 		      <Form.Input
 		      	type="password"
 		      	name="user[password]"
-		      	onChange={this.handlePassChange}
+		      	onChange={ this.handlePassChange }
 		      	label="Password"
 		      	placeholder='Must be at least 8 characters long'
 		      	required
@@ -97,7 +97,7 @@ class SignupForm extends React.Component {
 		      <Form.Input
 		      	type="password"
 		      	name="user[password_confirmation]"
-		      	onChange={this.handlePassConfChange}
+		      	onChange={ this.handlePassConfChange }
 		      	label="Confirm Password"
 		      	placeholder='Must match password field'
 		      	required
@@ -105,7 +105,7 @@ class SignupForm extends React.Component {
 		    </Form.Field>
 		    <Button
 		    	type='submit'
-		    	disabled={this.state.pass_too_short || this.passAndConfNotEqual()}
+		    	disabled={ this.state.pass_too_short || this.passAndConfNotEqual() }
 		    	content="Sign Up"
 	    	/>
 		  </Form>

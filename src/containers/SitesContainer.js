@@ -30,21 +30,24 @@ class SitesContainer extends React.Component {
 			<Segment>
 			  <Grid padded relaxed style={{ marginTop: '7em' }}>
 			  	<Divider hidden />
-			  	<Header as="h1" style={{marginTop: '2em'}}>
+			  	<Header as="h1" style={{ marginTop: '2em' }}>
 			  		<Icon name="server" />
 			  		Your Sites
 			  	</Header>
 			  	<Grid.Row>
 			  		<Grid.Column>
 				  		<AddSiteModal
-				  			handleModalClose={this.handleModalClose}
-				  			handleModalOpen={this.handleModalOpen}
-				  			modalOpen={this.state.modalOpen}
+				  			handleModalClose={ this.handleModalClose }
+				  			handleModalOpen={ this.handleModalOpen }
+				  			modalOpen={ this.state.modalOpen }
 				  		/>
 			  		</Grid.Column>
 			  	</Grid.Row>
 			  	<Grid.Row>
-		      	<SiteTable sites={this.props.sites} pages={this.props.pages} />
+		      	<SiteTable
+							sites={ this.props.sites }
+							pages={ this.props.pages }
+						/>
 			    </Grid.Row>
 			  </Grid>
 		  </Segment>
