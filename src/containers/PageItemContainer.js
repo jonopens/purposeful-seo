@@ -6,7 +6,7 @@ import TabNgramItemGrid from '../components/TabNgramItemGrid.js'
 import TabSEODataTable from '../components/TabSEODataTable.js'
 import TabPageItemBody from '../components/TabPageItemBody.js'
 import TabPageInsightsTable from '../components/TabPageInsightsTable.js'
-import { filterUnigrams, getBigrams } from '../utilities/ngrams.js'
+import { filterUnigrams, filterBigrams } from '../utilities/ngrams.js'
 
 import { fetchPage } from '../actions/pageActions.js'
 
@@ -19,6 +19,7 @@ class PageItemContainer extends React.Component {
 	}
 
 	render() {
+
 		if(!!this.props.thisPage) {
 			const	panes = [
 				{ menuItem: 'Page Insights', render: () =>
@@ -33,7 +34,7 @@ class PageItemContainer extends React.Component {
 			  { menuItem: 'Term Usage Frequency in Document', render: () =>
 			  	<TabNgramItemGrid
 						unigrams={ filterUnigrams(this.props.thisPage.body_text).slice(0,12) }
-						bigrams={ getBigrams(this.props.thisPage.body_text).slice(0,12) }
+						bigrams={ filterBigrams(this.props.thisPage.body_text).slice(0,12) }
 					/>
 				},
 			  { menuItem: 'Captured Page Text', render: () =>

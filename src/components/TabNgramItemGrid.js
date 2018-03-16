@@ -3,7 +3,7 @@ import NgramList from './NgramList.js'
 import { Grid, Tab } from 'semantic-ui-react'
 
 const TabNgramItemGrid = (props) => {
-
+	console.log(props.bigrams)
 	return(
 		<Tab.Pane>
 			<Grid>
