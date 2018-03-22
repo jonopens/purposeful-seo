@@ -34,7 +34,7 @@ export default class PagesApi {
   }
 
   static updatePage(params) {
-    return fetch("http://localhost:5000/pages", {
+    return fetch(`http://localhost:5000/pages${params.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

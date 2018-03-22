@@ -1,6 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Segment, Grid, Divider, Header, Icon, Container, Tab } from 'semantic-ui-react'
+
+import CommentSection from '../components/CommentSection.js'
 import PageLoader from '../components/PageLoader.js'
 import TabNgramItemGrid from '../components/TabNgramItemGrid.js'
 import TabSEODataTable from '../components/TabSEODataTable.js'
@@ -19,7 +21,6 @@ class PageItemContainer extends React.Component {
 	}
 
 	render() {
-
 		if(!!this.props.thisPage) {
 			const	panes = [
 				{ menuItem: 'Page Insights', render: () =>
@@ -53,7 +54,7 @@ class PageItemContainer extends React.Component {
 				  	</Header>
 			  	</Grid>
 			  	<Tab style={{ marginTop: '2em' }} menu={{ pointing: true }} panes={ panes } />
-
+					<CommentSection comments={ this.props.pageComments } />
 			  </Segment>
 			)
 		} else {
@@ -67,17 +68,19 @@ class PageItemContainer extends React.Component {
 }
 
 function mapStateToProps(state) {
-	const currPageId = +window.location.pathname.split("/")[4]
-	const currPage = state.pages.find(page => currPageId === page.id)
+	const thisPageId = +window.location.pathname.split("/")[4]
+	const thisPage = state.pages.find(page => thisPageId === page.id)
 	const parentSiteId = +window.location.pathname.split("/")[2]
-	const currSite = state.sites.find(site => parentSiteId === site.id)
-	const pageInsights = state.insights.filter(insight => insight.page_id === currPageId)
+	const thisSite = state.sites.find(site => parentSiteId === site.id)
+	const thisPageInsights = state.insights.filter(insight => insight.page_id === thisPageId)
+	const thisPageComments = state.comments.filter(comm => comm.page_id === thisPageId)
 
 	return {
 		loggedIn: state.loggedIn,
-		thisPage: currPage,
-		parentSite:  currSite,
-		pageInsights: pageInsights
+		thisPage: thisPage,
+		parentSite: thisSite,
+		pageInsights: thisPageInsights,
+		pageComments: thisPageComments
 	}
 }
 

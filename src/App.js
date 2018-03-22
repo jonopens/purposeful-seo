@@ -67,7 +67,8 @@ function mapStateToProps(state) {
     lastMessage: state.lastMessage,
     user: state.user,
     sites: state.sites,
-    pages: state.pages
+    pages: state.pages,
+    comments: state.comments
   }
 }
 

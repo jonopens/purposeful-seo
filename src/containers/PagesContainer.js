@@ -1,7 +1,7 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import { Grid, Divider, Header, Icon, Container, Segment } from 'semantic-ui-react'
 import PageLoader from '../components/PageLoader.js'
-import { connect } from 'react-redux'
 import PageTable from '../components/tables/PageTable.js'
 import AddPageModal from '../components/modals/AddPageModal.js'
 
@@ -49,7 +49,7 @@ class PagesContainer extends React.Component {
 				  	</Grid.Row>
 				  	<Grid.Row>
 			      	<PageTable
-			      		pages={ this.props.currPages }
+			      		pages={ this.props.thisSitePages }
 			      		removePage={ this.props.removePage }
 			      		siteId={ window.location.pathname.split("/")[2] }
 		      		/>
@@ -71,16 +71,9 @@ function mapStateToProps(state) {
 	const currPath = +window.location.pathname.split("/")[2]
 	return {
 		loggedIn: state.loggedIn,
-		currPages: state.pages.filter(page => page.site_id === currPath),
+		thisSitePages: state.pages.filter(page => page.site_id === currPath),
 		thisSite: state.sites.find(site => site.id === currPath)
 	}
 }
 
-function mapDispatchToProps(dispatch) {
-	return {
-		removePage: 'hi',
-
-	}
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(PagesContainer);
+export default connect(mapStateToProps)(PagesContainer);
