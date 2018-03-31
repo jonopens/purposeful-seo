@@ -1,12 +1,18 @@
 import React from 'react'
-import Comment from './Comment.js'
+import OneComment from './OneComment.js'
+import { Divider, Grid, Header, Comment } from 'semantic-ui-react'
 
 const CommentSection = (props) => {
 
-  let comments = props.comments.map(c => <Comment {...c} />)
+  let comments = props.comments.map((c, idx) => <OneComment key={idx} {...c} />)
 
   return(
-    <div>{ comments }</div>
+    <Grid>
+      <Comment.Group>
+        <Header as="h2" style={{ marginTop: '2em' }}>Comments</Header>
+        { comments }
+      </Comment.Group>
+    </Grid>
   )
 }
 

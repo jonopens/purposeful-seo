@@ -46,18 +46,12 @@ export default class Footer extends React.Component {
 	            <Grid.Column width={ 7 }>
 	              <Header inverted as='h2' content="This May or May Not Be Read" />
 	              <p>HUGE love goes out to my Flatiron cohortmates, my instructors and my wife, Jaime.</p>
-	              <p>Separately, and for the record, Mariah Carey's 'All I Want For Christmas' is <span role="img" aria-label="fire">&#128293;</span>.</p>
-	              <p>Made with &#9829; by <a href="https://github.com/jonopens">Jon Openshaw</a></p>
+	              <p>Made with &hearts; by <a href="https://github.com/jonopens">Jon Openshaw</a></p>
 	            </Grid.Column>
 	          </Grid.Row>
 	        </Grid>
 
 	        <Divider inverted section />
-	        <Image
-	          centered
-	          size='mini'
-	          src={NauticalStar}
-	        />
 	        <List horizontal inverted divided link>
 	          <List.Item as='a' href='#'>Site Map</List.Item>
 	          <List.Item as='a' href='#'>Contact Us</List.Item>
