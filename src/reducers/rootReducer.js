@@ -116,6 +116,11 @@ export default function rootReducer(
 				}
 			)
 
+		case 'ADD_COMMENT':
+			return Object.assign(
+				{}, state, { comments: state.comments.concat(action.payload) }
+			)
+
 		case 'RESET_MESSAGE':
 			return Object.assign(
 				{}, state, { lastMessage: {} }

@@ -1,9 +1,11 @@
-import CommentsApi from '../comments-api.js'
+import CommentsApi from '../adaptors/comments-api.js'
 
 export function createComment(comment) {
   return function(dispatch){
     return CommentsApi.createComment(comment)
-      .then(c => addComment(c))
+      .then(c => {
+        dispatch(addComment(c))
+      })
   }
 }
 
@@ -17,7 +19,9 @@ export function addComment(comment) {
 export function updateComment(comment) {
   return function(dispatch){
     return CommentsApi.updateComment(comment)
-      .then(c => editComment(c))
+      .then(c => {
+        dispatch(editComment(c))
+      })
   }
 }
 

@@ -3,7 +3,7 @@ import { jwt } from '../utilities/token.js'
 export default class CommentsApi {
 
   static createComment(params) {
-    return fetch('http://localhost::5000/comments', {
+    return fetch('http://localhost:5000/comments', {
       method: 'POST',
       headers: {
         "Content-Type": "application/json",

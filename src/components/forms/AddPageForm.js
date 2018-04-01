@@ -76,7 +76,7 @@ function mapDispatchToProps(dispatch) {
 	return {
 		createPage: (page) => {
 			dispatch(createPage(page))
-		},
+		}
 	}
 }
 

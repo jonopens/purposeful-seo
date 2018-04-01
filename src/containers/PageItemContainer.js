@@ -42,7 +42,7 @@ class PageItemContainer extends React.Component {
 			  	<TabPageItemBody bodyText={ this.props.thisPage.body_text } />
 			  }
 			]
-			const { thisPage } = this.props
+			const { thisPage, pageComments } = this.props
 
 			return(
 				<Segment>
@@ -54,7 +54,10 @@ class PageItemContainer extends React.Component {
 				  	</Header>
 			  	</Grid>
 			  	<Tab style={{ marginTop: '2em' }} menu={{ pointing: true }} panes={ panes } />
-					<CommentSection comments={ this.props.pageComments } />
+					<CommentSection
+						comments={ pageComments }
+						page_id={ thisPage.id } 
+					/>
 			  </Segment>
 			)
 		} else {
