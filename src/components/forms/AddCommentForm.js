@@ -6,13 +6,12 @@ import { createComment } from '../../actions/commentActions.js'
 class AddCommentForm extends React.Component {
 
   state = {
-    message: '',
-    invalidComment: false
+    commentText: ''
   }
 
   handleMessageChange = (e) => {
     this.setState({
-      message: e.target.value
+      commentText: e.target.value
     })
   }
 
@@ -21,25 +20,31 @@ class AddCommentForm extends React.Component {
     this.props.createComment({
       user_id: this.props.user_id,
       page_id: this.props.page_id,
-      message: this.state.message,
+      message: this.state.commentText,
       visibility: "visible"
     });
     this.setState({
-      message: ''
+      commentText: ""
     });
+  }
+
+  invalidComment = () => {
+    if(this.state.commentText.length === 0){
+      return true;
+    }
+    return false;
   }
 
   render(){
     return(
       <Form onSubmit={ this.handleSubmit } error warning>
-        <Form.Field>
-          <Form.TextArea
-            onChange={ this.handleMessageChange }
-            placeholder='e.g. I think this needs more keywords in it'
-            required
-          />
-        </Form.Field>
-        <Button type="submit" disabled={ this.state.invalidComment } primary>
+        <Form.Input
+          onChange={ this.handleMessageChange }
+          placeholder='e.g. I think this needs more keywords in it'
+          value={ this.state.commentText }
+          required
+        />
+        <Button type="submit" disabled={ this.invalidComment() } primary>
           Add Comment
         </Button>
         <Divider hidden />
