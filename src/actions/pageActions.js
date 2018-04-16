@@ -47,3 +47,19 @@ export function getPageDetails(page) {
 		payload: page
 	}
 }
+
+export function startPageScraper(pageId) {
+	return function(dispatch) {
+		return PagesApi.crawlPage(pageId)
+			.then(page => {
+				dispatch(scrapePage(page))
+			})
+	}
+}
+
+export function scrapePage(page){
+	return {
+		type: 'SCRAPE_PAGE',
+		payload: page
+	}
+}

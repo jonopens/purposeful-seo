@@ -10,6 +10,9 @@ const InsightsTable = (props) => {
 		return <Insight key={ idx } { ...insight } />
 	})
 
+	console.log("insightTable props", props)
+	console.log("mapped insights", insights)
+	
 	return(
 		<Grid.Column>
 		{ insights.length > 0

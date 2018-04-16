@@ -1,6 +1,15 @@
 export default function rootReducer(
-	state = {loggedIn: false, loading: false, loadedSites: false, falselastMessage: {}, user: {}, sites: [], pages: [], insights: [], comments: []},
-	action
+	state = {
+		loggedIn: 		false,
+		loading: 			false,
+		loadedSites: 	false,
+		lastMessage: 	{},
+		user: 				{},
+		sites: 				[],
+		pages: 				[],
+		insights:			[],
+		comments:		  []
+	}, action
 ) {
 
 	switch(action.type) {
@@ -70,9 +79,13 @@ export default function rootReducer(
 			)
 
 		case 'REMOVE_PAGE':
-			const reducedPages = state.pages.filter(page => page.id !== action.payload)
+			const filteredPages = state.pages.filter(page => page.id !== action.payload)
+			const filteredInsights = state.insights.filter(insight => insight.page_id !== action.payload)
 			return Object.assign(
-				{}, state, { pages: reducedPages }
+				{}, state, {
+					pages: filteredPages,
+					insights: filteredInsights
+				}
 			)
 
 		case 'GET_PAGE':
@@ -91,7 +104,7 @@ export default function rootReducer(
 				}
 			)
 
-		case 'CREATE_AND_RUN_CRAWL_ON_PAGE':
+		case 'SCRAPE_PAGE':
 			return Object.assign(
 				{}, state, {
 					pages: state.pages.map(page => {

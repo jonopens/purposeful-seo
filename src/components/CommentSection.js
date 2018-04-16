@@ -1,7 +1,7 @@
 import React from 'react'
 import OneComment from './OneComment.js'
 import AddCommentForm from './forms/AddCommentForm.js'
-import { Comment, Divider, Header, Segment } from 'semantic-ui-react'
+import { Comment, Header, Segment } from 'semantic-ui-react'
 
 const CommentSection = (props) => {
 
@@ -10,7 +10,7 @@ const CommentSection = (props) => {
   return(
     <Segment style={{textAlign: 'left'}}>
       <Comment.Group>
-        <Header as="h2" style={{ marginTop: '1em' }}>
+        <Header as="h2">
           { props.comments.length === 0 ? 'Leave A Comment' : 'Comments' }
         </Header>
         { comments }

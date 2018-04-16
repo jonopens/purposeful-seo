@@ -24,7 +24,7 @@ class Insight extends React.Component {
 			completion_status: "ignored"
 		}
 
-		if(window.confirm('Mark insight as complete?')){
+		if(window.confirm('Mark insight as ignored?')){
 			this.props.editInsight(thisInsight)
 		}
 	}
@@ -35,7 +35,7 @@ class Insight extends React.Component {
 			completion_status: "pending"
 		}
 
-		if(window.confirm('Mark insight as complete?')){
+		if(window.confirm('Reset insight to pending?')){
 			this.props.editInsight(thisInsight)
 		}
 	}
@@ -63,12 +63,12 @@ class Insight extends React.Component {
 		}
   }
 
-  getSiteId = (pageId) => {
-    const p = this.props.pages.find((page) => {
-      return page.id === pageId
-    })
-    return p.site_id
-  }
+  // getSiteId = (pageId) => {
+  //   const p = this.props.pages.find((page) => {
+  //     return page.id === pageId
+  //   })
+  //   return p.site_id
+  // }
 
 	setInsightRowColor = (status) => {
 		switch(status) {
@@ -82,7 +82,7 @@ class Insight extends React.Component {
 	}
 
   render() {
-		let pageItemPath = `/sites/${this.getSiteId(this.props.page_id)}/pages/${this.props.page_id}`
+		let pageItemPath = `/sites/${this.props.site_id}/pages/${this.props.page_id}`
     return(
       <Table.Row padded="true" style={{ fontSize: '18px' }}>
         <Table.Cell>

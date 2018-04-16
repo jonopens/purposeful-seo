@@ -24,15 +24,6 @@ export default class PagesApi {
 		}).then(res => res.json());
 	}
 
-  static removePage(id) {
-    return fetch(`http://localhost:5000/pages/${id}`, {
-      method: "DELETE",
-      headers: {
-        "Authorization": `Bearer ${jwt()}`
-      }
-    }).then(res => res.json());
-  }
-
   static updatePage(params) {
     return fetch(`http://localhost:5000/pages${params.id}`, {
       method: "PUT",
@@ -42,6 +33,29 @@ export default class PagesApi {
         "Authorization": `Bearer ${jwt()}`
       },
       body: JSON.stringify(params)
+    }).then(res => res.json());
+  }
+
+  static removePage(id) {
+    return fetch(`http://localhost:5000/pages/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Authorization": `Bearer ${jwt()}`
+      }
+    }).then(res => res.json());
+  }
+
+  static crawlPage(id) {
+    return fetch(`http://localhost:5000/pages/${id}/crawl`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+        "Authorization": `Bearer ${jwt()}`
+      },
+      body: JSON.stringify({
+        id
+      })
     }).then(res => res.json());
   }
 }

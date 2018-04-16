@@ -1,8 +1,5 @@
 import React from 'react'
-import {
-	Grid, Header, List, Container, Divider, Image, Segment
-} from 'semantic-ui-react'
-import NauticalStar from '../assets/nautical-star.png'
+import { Grid, Header, List, Container, Divider, Segment } from 'semantic-ui-react'
 
 export default class Footer extends React.Component {
 

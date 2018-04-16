@@ -6,6 +6,7 @@ import InsightsTable from '../components/tables/InsightsTable.js'
 class InsightsContainer extends React.Component {
 
 	render(){
+		console.log("insight container props", this.props)
 		return(
 			<Segment>
 			  <Grid padded relaxed style={{ marginTop: '7em' }}>

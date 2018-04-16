@@ -2,17 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Table, Icon, Button } from 'semantic-ui-react'
 import { connect } from 'react-redux'
-import { destroyPage } from '../../actions/pageActions.js'
-import { createAndStartCrawl } from '../../actions/crawlActions.js'
+import { destroyPage, startPageScraper } from '../../actions/pageActions.js'
 
 class Page extends React.Component {
-
-  // handleEditClick = () => {
-  //   console.log("hello, I'm trying to handle an edit click over here, ya jabroni")
-            // <Button onClick={this.handleEditClick} color="green">
-            //   <Icon inverted name="pencil" size="large" />Edit Page
-            // </Button>
-  // }
 
   handleDeleteClick = () => {
     if(window.confirm("Are you sure you want to delete this page?")){
@@ -22,11 +14,12 @@ class Page extends React.Component {
 
   handleCrawlClick = () => {
     if(window.confirm("Are you sure you want to start crawling this page?")){
-      this.props.createAndStartCrawl(this.props.id)
+      this.props.startPageScraper(this.props.id)
     }
   }
 
   render() {
+    console.log('Page props id', this.props.id)
     if(this.props.title) {
       return(
         <Table.Row padded="true">
@@ -83,8 +76,8 @@ function mapDispatchToProps(dispatch) {
     destroyPage: (id) => {
       dispatch(destroyPage(id));
     },
-    createAndStartCrawl: (id) => {
-      dispatch(createAndStartCrawl(id))
+    startPageScraper: (id) => {
+      dispatch(startPageScraper(id))
     }
   }
 }
