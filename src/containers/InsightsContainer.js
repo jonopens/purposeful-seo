@@ -1,33 +1,31 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { Grid, Divider, Header, Icon, Segment } from 'semantic-ui-react'
-import InsightsTable from '../components/tables/InsightsTable.js'
+import React from 'react';
+import { connect } from 'react-redux';
+import { Grid, Divider, Header, Icon, Segment } from 'semantic-ui-react';
+import InsightsTable from '../components/tables/InsightsTable.js';
 
 class InsightsContainer extends React.Component {
-
-	render(){
-		console.log("insight container props", this.props)
-		return(
-			<Segment>
-			  <Grid padded relaxed style={{ marginTop: '7em' }}>
-			  	<Divider hidden />
-			  	<Header as="h1" style={{ marginTop: '2em' }}>
-			  		<Icon name="idea" />
-			  		Insights
-			  	</Header>
-			    <Grid.Row>
-			      <InsightsTable insights={ this.props.insights } />
-			    </Grid.Row>
-			  </Grid>
-		  </Segment>
-		)
-	}
+  render() {
+    return (
+      <Segment>
+        <Grid padded relaxed style={{ marginTop: '7em' }}>
+          <Divider hidden />
+          <Header as="h1" style={{ marginTop: '2em' }}>
+            <Icon name="idea" />
+            Insights
+          </Header>
+          <Grid.Row>
+            <InsightsTable insights={this.props.insights} />
+          </Grid.Row>
+        </Grid>
+      </Segment>
+    );
+  }
 }
 
 function mapStateToProps(state) {
-	return {
-		insights: state.insights
-	}
+  return {
+    insights: state.insights,
+  };
 }
 
-export default connect(mapStateToProps)(InsightsContainer)
+export default connect(mapStateToProps)(InsightsContainer);

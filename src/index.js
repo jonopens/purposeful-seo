@@ -1,26 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import thunk from 'redux-thunk';
+import { Provider } from 'react-redux';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { createStore, applyMiddleware } from 'redux';
+
 import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import rootReducer from './reducers/root-reducer.js';
+
+import reportWebVitals from './reportWebVitals';
 import 'semantic-ui-css/semantic.min.css';
+import './index.css';
 
-import { createStore, applyMiddleware } from 'redux'
-import rootReducer from './reducers/rootReducer.js'
-
-import { BrowserRouter as Router} from 'react-router-dom'
-import { Provider } from 'react-redux'
-import thunk from 'redux-thunk'
-
-const store = createStore(
-	rootReducer,
-	applyMiddleware(thunk)
-)
+const store = createStore(rootReducer, applyMiddleware(thunk));
 
 ReactDOM.render(
-	<Provider store={ store }>
-		<Router>
-			<App />
-		</Router>
-	</Provider>, document.getElementById('root'));
-registerServiceWorker();
+  <Provider store={store}>
+    <Router>
+      <App />
+    </Router>
+  </Provider>,
+  document.getElementById('root')
+);
+
+reportWebVitals();
