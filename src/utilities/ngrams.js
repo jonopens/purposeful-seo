@@ -1,4 +1,6 @@
-import Compromise from 'compromise';
+import nlp from 'compromise';
+import ngrams from 'compromise-ngrams';
+nlp.extend(ngrams);
 
 const stopWords = () => {
   return [
@@ -173,7 +175,7 @@ const stopWords = () => {
 };
 
 const getUnigrams = (text) => {
-  return Compromise(text).normalize().ngrams().unigrams().data();
+  return nlp(text).unigrams();
 };
 
 export const filterUnigrams = (text) => {
@@ -187,7 +189,7 @@ export const filterUnigrams = (text) => {
 };
 
 const getBigrams = (text) => {
-  return Compromise(text).normalize().ngrams().bigrams().data();
+  return nlp(text).bigrams();
 };
 
 export const filterBigrams = (text) => {
