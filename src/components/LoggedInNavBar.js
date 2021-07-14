@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, Image } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import { logOutUser } from '../actions/userActions.js';
+import { logOutUser } from '../actions/user-actions.js';
 
 import Pickaxe from '../assets/pickaxe.png';
 

@@ -12,7 +12,7 @@ import InsightsContainer from './containers/InsightsContainer.js';
 import SitesContainer from './containers/SitesContainer.js';
 import PagesContainer from './containers/PagesContainer.js';
 import PageItemContainer from './containers/PageItemContainer.js';
-import { getCurrentUser } from './actions/userActions.js';
+import { getCurrentUser } from './actions/user-actions.js';
 
 import './App.css';
 

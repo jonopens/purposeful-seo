@@ -1,7 +1,7 @@
 import React from 'react';
 import { Form, Button } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import { signUpUser } from '../../actions/userActions.js';
+import { signUpUser } from '../../actions/user-actions.js';
 
 class SignupForm extends React.Component {
   state = {

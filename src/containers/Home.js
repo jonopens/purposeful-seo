@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import HeadingBlock from '../components/HeadingBlock.js';
 import HomeValueProp from '../components/HomeValueProp.js';
 import HomeGridBreak from '../components/HomeGridBreak.js';
-import { resetLastMessage } from '../actions/commonActions.js';
+import { resetLastMessage } from '../actions/common-actions.js';
 
 class Home extends React.Component {
   state = {

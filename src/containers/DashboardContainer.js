@@ -12,7 +12,7 @@ import {
   Segment,
 } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import { getCurrentUser } from '../actions/userActions.js';
+import { getCurrentUser } from '../actions/user-actions.js';
 
 class DashboardContainer extends React.Component {
   componentDidMount() {
