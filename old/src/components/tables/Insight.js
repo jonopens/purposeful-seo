@@ -64,13 +64,6 @@ class Insight extends React.Component {
     }
   };
 
-  // getSiteId = (pageId) => {
-  //   const p = this.props.pages.find((page) => {
-  //     return page.id === pageId
-  //   })
-  //   return p.site_id
-  // }
-
   setInsightRowColor = (status) => {
     switch (status) {
       case 'completed':

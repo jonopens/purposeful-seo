@@ -174,28 +174,28 @@ const stopWords = () => {
   ];
 };
 
-const getUnigrams = (text) => {
+const getUnigrams = (text: string) => {
   return nlp(text).unigrams();
 };
 
-export const filterUnigrams = (text) => {
+export const filterUnigrams = (text: string) => {
   const unigrams = getUnigrams(text);
 
-  return unigrams.filter((gram) =>
+  return unigrams.filter((gram: any) =>
     stopWords().every((word) => {
       return !(gram.normal === word);
     })
   );
 };
 
-const getBigrams = (text) => {
+const getBigrams = (text: string) => {
   return nlp(text).bigrams();
 };
 
-export const filterBigrams = (text) => {
+export const filterBigrams = (text: string) => {
   const bigrams = getBigrams(text);
 
-  return bigrams.filter((gram) =>
+  return bigrams.filter((gram: any) =>
     stopWords().every((word) => {
       return !gram.normal.split(' ').includes(word);
     })
