@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@babel/core": "7.12.3",
+    "@babel/core": "7.29.6",
     "@pmmmwh/react-refresh-webpack-plugin": "0.5.16",
     "@svgr/webpack": "6.5.1",
     "@typescript-eslint/eslint-plugin": "^4.5.0",
